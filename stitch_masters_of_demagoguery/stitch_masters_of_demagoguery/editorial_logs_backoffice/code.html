@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#3b4859","inverse-surface":"#e7e2da","error":"#ffb4ab","surface":"#14130f","bias-center":"#95A5A6","surface-bright":"#3b3934","on-primary-fixed":"#0f1c2c","on-tertiary-fixed":"#261a00","background":"#14130f","on-primary-container":"#828fa3","surface-container-low":"#1d1c17","on-primary":"#243142","bias-populist":"#8E44AD","on-tertiary-container":"#b18825","on-tertiary":"#402d00","surface-container-highest":"#36352f","on-error-container":"#ffdad6","tertiary-fixed-dim":"#eec058","outline":"#8e9196","tertiary-container":"#342500","inverse-on-surface":"#32302b","on-tertiary-fixed-variant":"#5b4300","tertiary-fixed":"#ffdf9f","status-red":"#C0392B","on-surface":"#e7e2da","on-secondary":"#213144","bias-left":"#3498DB","bias-right":"#E74C3C","surface-container-lowest":"#0f0e0a","surface-dim":"#14130f","secondary":"#b7c8e0","surface-variant":"#36352f","primary-fixed":"#d6e3f9","on-background":"#e7e2da","status-green":"#27AE60","inverse-primary":"#525f71","surface-container":"#21201b","error-container":"#93000a","on-error":"#690005","on-secondary-fixed-variant":"#38485c","status-yellow":"#F39C12","on-surface-variant":"#c4c6cc","primary-container":"#1b2838","primary":"#bac7dd","surface-tint":"#bac7dd","tertiary":"#eec058","bias-center-left":"#85C1E9","secondary-fixed":"#d3e4fd","surface-container-high":"#2b2a25","secondary-fixed-dim":"#b7c8e0","primary-fixed-dim":"#bac7dd","secondary-container":"#38485c","on-secondary-fixed":"#0b1c2e","outline-variant":"#44474c","on-secondary-container":"#a6b6ce","bias-center-right":"#E8A0A0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"24px","base":"4px","tight":"8px","standard":"16px","compact":"12px","gutter":"12px","margin-mobile":"16px"},"fontFamily":{"label-sm":["JetBrains Mono"],"headline-lg-mobile":["Playfair Display"],"headline-lg":["Playfair Display"],"headline-md":["Playfair Display"],"label-md":["JetBrains Mono"],"headline-xl":["Playfair Display"],"body-md":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"]},"fontSize":{"label-sm":["11px",{"lineHeight":"1","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"1","letterSpacing":"0.05em","fontWeight":"500"}],"headline-xl":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.4","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-sm text-body-sm text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-compact flex items-center gap-tight border-b border-outline-variant/30 bg-surface-container-lowest"><span class="material-symbols-outlined text-primary text-[20px]">hub</span><div class="flex flex-col"><span class="font-label-md text-label-md tracking-wider text-on-surface uppercase">Demagogia</span><span class="font-label-sm text-label-sm text-tertiary uppercase">Prensa Lab v2.4</span></div></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Editorial Workstation</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="article-desk" href="#"><span class="material-symbols-outlined text-[18px]">edit_note</span><span class="font-body-sm text-body-sm">Article Desk</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bias-spectrum-matrix" href="#"><span class="material-symbols-outlined text-[18px]">compare_arrows</span><span class="font-body-sm text-body-sm">Bias Spectrum Matrix</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="fact-checking-queue" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-body-sm text-body-sm">Fact-Checking Queue</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="media-sources-ledger" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span class="font-body-sm text-body-sm">Media Sources Ledger</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="taxonomy-tags" href="#"><span class="material-symbols-outlined text-[18px]">label</span><span class="font-body-sm text-body-sm">Taxonomy &amp; Tags</span></a></nav></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Quality &amp; Intelligence</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="credibility-shields" href="#"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-sm text-body-sm">Credibility Shields</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="editorial-logs" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span class="font-body-sm text-body-sm">Editorial Logs</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="engine-settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-sm text-body-sm">Engine Settings</span></a></nav></div></div><div class="p-compact bg-surface-container-lowest border-t border-outline-variant/30"><div class="flex items-center justify-between"><div class="flex items-center gap-tight"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-status-green"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">NODE EU-CENTRAL-1</span></div><span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-tight py-base rounded">IDLE 0.08ms</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-14 bg-surface-container-low/95 backdrop-blur border-b border-outline-variant/30 z-40 flex items-center justify-between px-compact"><div class="flex items-center gap-standard"><div class="flex items-center gap-tight"><span class="font-label-md text-label-md text-on-surface font-semibold uppercase">Demagogia</span><span class="font-label-sm text-label-sm px-tight py-base bg-secondary-container text-on-secondary rounded uppercase">BACKOFFICE v2.4</span></div><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center bg-surface-container-high border border-outline-variant/40 px-compact py-tight rounded w-80 text-on-surface-variant hover:border-outline transition-colors"><span class="material-symbols-outlined text-[18px] mr-tight">search</span><span class="font-body-sm text-body-sm flex-1 text-on-surface-variant">Quick search corpus...</span><kbd class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant px-tight py-base rounded border border-outline-variant/30">⌘K</kbd></div></div><div class="flex items-center gap-standard"><div class="flex items-center gap-tight px-compact py-tight bg-surface-container rounded border border-outline-variant/30"><span class="h-2 w-2 rounded-full bg-status-green"></span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">PROD API OK</span></div><button aria-label="Notifications" class="relative p-tight rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-tight right-tight h-2 w-2 rounded-full bg-status-red"></span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-tight"><div class="flex flex-col text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-tight">E. Ibarra</span><span class="font-label-sm text-label-sm text-on-surface-variant">Editor-in-Chief / Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-background min-h-screen text-on-surface"><div class="flex flex-col w-full">
+<script>
+    (function highlightNav() {
+      const activePath = 'editorial-logs';
+      const asideLinks = document.querySelectorAll('aside a[data-path]');
+      asideLinks.forEach(link => {
+        if (link.getAttribute('data-path') === activePath) {
+          link.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+          link.classList.add('bg-primary-container', 'text-on-primary', 'font-medium', 'border-l-2', 'border-primary');
+        }
+      });
+    })();
+  </script>
+<!-- Editorial Logs Workspace Sub-header -->
+<div class="p-standard pb-compact flex flex-col gap-tight bg-surface-container-lowest">
+<!-- Breadcrumb & Status Pill -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-tight font-label-sm text-label-sm text-on-surface-variant">
+<span class="hover:text-on-surface transition-colors cursor-pointer">Backoffice</span>
+<span>/</span>
+<span class="hover:text-on-surface transition-colors cursor-pointer">Quality &amp; Intelligence</span>
+<span>/</span>
+<span class="text-tertiary font-semibold uppercase tracking-wider">Editorial Logs</span>
+</div>
+<div class="flex items-center gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">SHARD: <strong class="text-on-surface font-mono">Q&amp;I-AUDIT-WAL-9</strong></span>
+<span class="h-3 w-px bg-outline-variant/40"></span>
+<span class="font-label-sm text-label-sm text-status-green bg-status-green/10 px-tight py-base rounded">IMMUTABLE LEDGER v2.4</span>
+</div>
+</div>
+<!-- Title & Controls Row -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-standard pt-base">
+<div class="flex flex-col gap-base max-w-4xl">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-tertiary text-[26px]">verified_user</span>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">
+            Registro y Auditoría Editorial <span class="font-label-md text-label-md text-on-surface-variant font-normal tracking-normal">(Audit Trail)</span>
+</h1>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Trazabilidad inmutable de intervenciones editoriales, cambios de ontología, aprobación de retos en el DOM, modificaciones de sesgo y eventos de sistema en tiempo real.
+        </p>
+</div>
+<!-- Action Cluster -->
+<div class="flex flex-wrap items-center gap-tight">
+<!-- Live Stream Toggle -->
+<div class="flex items-center gap-tight bg-surface-container-high px-compact py-tight rounded cursor-pointer select-none" id="streamToggle">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-status-green"></span>
+</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface tracking-wider uppercase">Stream en Vivo [ON]</span>
+</div>
+<!-- Range Selector -->
+<div class="flex items-center bg-surface-container-high rounded p-base gap-base">
+<button class="font-label-sm text-label-sm px-compact py-base rounded bg-surface-container-lowest text-on-surface font-medium shadow-sm">24h</button>
+<button class="font-label-sm text-label-sm px-compact py-base rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container">7d</button>
+<button class="font-label-sm text-label-sm px-compact py-base rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container">30d</button>
+<button class="font-label-sm text-label-sm px-compact py-base rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center gap-base">
+<span>Rango</span>
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+</button>
+</div>
+<!-- Export Action -->
+<button class="flex items-center gap-tight bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm px-compact py-tight rounded transition-colors">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Exportar (JSON / Syslog)</span>
+</button>
+<!-- Clear Action -->
+<button class="flex items-center gap-tight bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm px-compact py-tight rounded transition-colors">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>Limpiar</span>
+</button>
+</div>
+</div>
+</div>
+<!-- McMaster-Carr Filter Strip & Omni Query -->
+<div class="px-standard py-compact bg-surface-container-low flex flex-col gap-tight">
+<!-- Omni search bar with inline parameters -->
+<div class="flex items-center gap-tight">
+<div class="relative flex-1 flex items-center bg-surface-container-high rounded px-compact py-tight focus-within:ring-1 focus-within:ring-tertiary">
+<span class="material-symbols-outlined text-[18px] text-tertiary mr-tight">terminal</span>
+<input class="bg-transparent font-label-sm text-label-sm text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none w-full" id="auditFilterInput" placeholder="Filtrar por TX, Editor (ej. Soriano), XPath (#clause-4), ID Artículo (ej. ART-2026-8891) o Regex..." type="text" value="ART-2026-8891"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80 bg-surface-container px-tight py-base rounded ml-tight select-none">ESC to clear</span>
+</div>
+<!-- Severity selector capsules -->
+<div class="flex items-center bg-surface-container-high rounded p-base gap-base select-none">
+<span class="font-label-sm text-label-sm text-on-surface-variant px-tight">SEV:</span>
+<button class="font-label-sm text-label-sm px-compact py-base rounded bg-surface-container text-on-surface hover:bg-surface-bright">ALL</button>
+<button class="font-label-sm text-label-sm px-compact py-base rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container">INFO</button>
+<button class="font-label-sm text-label-sm px-compact py-base rounded text-status-yellow bg-status-yellow/10">WARN</button>
+<button class="font-label-sm text-label-sm px-compact py-base rounded text-status-red bg-status-red/10 font-bold">CRIT</button>
+</div>
+</div>
+<!-- McMaster-Style Facet Chips -->
+<div class="flex items-center gap-tight overflow-x-auto py-base">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant shrink-0">Categorías:</span>
+<button class="font-label-sm text-label-sm px-tight py-base rounded bg-tertiary-container text-tertiary font-medium shrink-0 flex items-center gap-base">
+<span>Todos</span>
+<span class="text-tertiary-fixed-dim bg-surface-container-lowest px-base rounded text-[10px]">1,482</span>
+</button>
+<button class="font-label-sm text-label-sm px-tight py-base rounded bg-surface-container text-on-surface hover:bg-surface-container-high shrink-0 flex items-center gap-base">
+<span>Retos DOM</span>
+<span class="text-on-surface-variant bg-surface-container-lowest px-base rounded text-[10px]">640</span>
+</button>
+<button class="font-label-sm text-label-sm px-tight py-base rounded bg-surface-container text-on-surface hover:bg-surface-container-high shrink-0 flex items-center gap-base">
+<span>Ajustes de Sesgo</span>
+<span class="text-on-surface-variant bg-surface-container-lowest px-base rounded text-[10px]">128</span>
+</button>
+<button class="font-label-sm text-label-sm px-tight py-base rounded bg-surface-container text-on-surface hover:bg-surface-container-high shrink-0 flex items-center gap-base">
+<span>Cambios Taxonomía</span>
+<span class="text-on-surface-variant bg-surface-container-lowest px-base rounded text-[10px]">45</span>
+</button>
+<button class="font-label-sm text-label-sm px-tight py-base rounded bg-surface-container text-on-surface hover:bg-surface-container-high shrink-0 flex items-center gap-base">
+<span>Sanciones / Cuarentena</span>
+<span class="text-status-red bg-surface-container-lowest px-base rounded text-[10px]">14</span>
+</button>
+<button class="font-label-sm text-label-sm px-tight py-base rounded bg-surface-container text-on-surface hover:bg-surface-container-high shrink-0 flex items-center gap-base">
+<span>Login &amp; Auth</span>
+<span class="text-on-surface-variant bg-surface-container-lowest px-base rounded text-[10px]">655</span>
+</button>
+</div>
+</div>
+<!-- Metric Snapshot Bar -->
+<div class="px-standard py-tight bg-surface-container-lowest grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+<div class="flex items-center gap-tight">
+<div class="h-2 w-2 rounded-full bg-status-green"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tasa de Escritura</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">14.2 ops/s</span>
+</div>
+</div>
+<div class="flex items-center gap-tight">
+<div class="h-2 w-2 rounded-full bg-status-red"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Criticals Activos</span>
+<span class="font-label-md text-label-md text-status-red font-semibold">2 no mitigados</span>
+</div>
+</div>
+<div class="flex items-center gap-tight">
+<div class="h-2 w-2 rounded-full bg-bias-left"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Retos Bloqueados</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">1 (Soriano #c4)</span>
+</div>
+</div>
+<div class="flex items-center gap-tight">
+<div class="h-2 w-2 rounded-full bg-tertiary"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Calibraciones Sesgo</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">+0.04 delta</span>
+</div>
+</div>
+<div class="flex items-center gap-tight">
+<div class="h-2 w-2 rounded-full bg-bias-populist"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">NLP Heurísticas</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">3 falacias tag</span>
+</div>
+</div>
+<div class="flex items-center gap-tight justify-end">
+<div class="flex items-center gap-base font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-status-green">sync_alt</span>
+<span>WAL: SYNCED</span>
+</div>
+</div>
+</div>
+<!-- Primary Split-Panel Workstation Layout (70% Log Stream / 30% Payload Inspector) -->
+<div class="p-standard flex flex-col xl:flex-row gap-standard items-start">
+<!-- LEFT PANEL: High Density Event Log Stream (70%) -->
+<div class="w-full xl:w-[70%] flex flex-col bg-surface-container-low rounded">
+<!-- Table Header Bar -->
+<div class="px-compact py-tight bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-primary text-[18px]">list_alt</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface uppercase tracking-wider">Log Stream de Eventos Editoriales</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-tight py-base rounded">Buffer: 6 de 1,482</span>
+</div>
+<div class="flex items-center gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Auto-scroll</span>
+<input checked="" class="accent-tertiary cursor-pointer" type="checkbox"/>
+</div>
+</div>
+<!-- Density Table -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm select-none uppercase tracking-wider">
+<th class="py-tight px-compact font-normal">Timestamp</th>
+<th class="py-tight px-compact font-normal">Sev</th>
+<th class="py-tight px-compact font-normal">Objetivo / Módulo</th>
+<th class="py-tight px-compact font-normal">Actor / Editor</th>
+<th class="py-tight px-compact font-normal">Acción &amp; Detalles Trazados</th>
+<th class="py-tight px-compact font-normal text-right">Hash</th>
+</tr>
+</thead>
+<tbody class="font-label-sm text-label-sm divide-y divide-outline-variant/10">
+<!-- Row 1 (Active/Selected) -->
+<tr class="bg-primary-container text-on-surface hover:bg-surface-container cursor-pointer transition-colors" onclick="selectRow(1)">
+<td class="py-tight px-compact whitespace-nowrap text-on-surface-variant font-mono">
+<span class="text-tertiary">10:48:12</span>.104
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="bg-status-red text-on-surface px-tight py-base rounded font-bold text-[10px] tracking-wider">CRITICAL</span>
+</td>
+<td class="py-tight px-compact whitespace-nowrap font-mono font-medium text-primary">
+                ART-2026-8891
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="text-on-surface font-medium">M. Soriano</span>
+<span class="text-on-surface-variant text-[10px] block">Editor Sênior</span>
+</td>
+<td class="py-tight px-compact font-body-sm text-body-sm text-on-surface leading-snug">
+<code class="font-label-sm text-label-sm bg-surface-container-lowest text-tertiary px-tight py-base rounded">LOCK_ACQUIRED</code>
+                en nodo DOM <span class="font-mono text-tertiary bg-surface-container-high px-base rounded">#clause-4</span> para reto de Neutralidad Climática.
+              </td>
+<td class="py-tight px-compact whitespace-nowrap text-right font-mono text-on-surface-variant">
+                0x7f8a..
+              </td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors" onclick="selectRow(2)">
+<td class="py-tight px-compact whitespace-nowrap text-on-surface-variant font-mono">
+                10:32:05.882
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="bg-surface-container text-on-surface-variant px-tight py-base rounded font-semibold text-[10px] tracking-wider">INFO</span>
+</td>
+<td class="py-tight px-compact whitespace-nowrap font-mono text-secondary">
+                SYSTEM_NLP
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="text-on-surface-variant">Daemon / Spacy</span>
+<span class="text-on-surface-variant text-[10px] block">AUTO-TAGGER</span>
+</td>
+<td class="py-tight px-compact font-body-sm text-body-sm text-on-surface-variant leading-snug">
+                Parseo sintáctico finalizado. 3 falacias heurísticas pre-etiquetadas (<span class="text-bias-populist font-mono text-[12px]">#HombreDePaja</span>, <span class="text-bias-populist font-mono text-[12px]">#LenguajeCargado</span>).
+              </td>
+<td class="py-tight px-compact whitespace-nowrap text-right font-mono text-on-surface-variant">
+                0x3e12..
+              </td>
+</tr>
+<!-- Row 3 -->
+<tr class="bg-surface-container-low text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors" onclick="selectRow(3)">
+<td class="py-tight px-compact whitespace-nowrap text-on-surface-variant font-mono">
+                10:15:44.201
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="bg-status-yellow/20 text-status-yellow px-tight py-base rounded font-semibold text-[10px] tracking-wider">WARN</span>
+</td>
+<td class="py-tight px-compact whitespace-nowrap font-mono text-tertiary">
+                BIAS-MATRIX
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="text-on-surface font-medium">E. Ibarra</span>
+<span class="text-on-surface-variant text-[10px] block">Editor-in-Chief</span>
+</td>
+<td class="py-tight px-compact font-body-sm text-body-sm text-on-surface-variant leading-snug">
+                Calibración manual de vector de sesgo para <strong class="text-on-surface">"OKDiario"</strong> ajustado de (<span class="font-mono text-bias-right">+0.85</span>) a (<span class="font-mono text-bias-right font-bold">+0.89</span>). Razón: Cobertura polarizada en sesión parlamentaria.
+              </td>
+<td class="py-tight px-compact whitespace-nowrap text-right font-mono text-on-surface-variant">
+                0x91d0..
+              </td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors" onclick="selectRow(4)">
+<td class="py-tight px-compact whitespace-nowrap text-on-surface-variant font-mono">
+                09:55:18.490
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="bg-surface-container text-on-surface-variant px-tight py-base rounded font-semibold text-[10px] tracking-wider">INFO</span>
+</td>
+<td class="py-tight px-compact whitespace-nowrap font-mono text-secondary">
+                TAXONOMY-REL
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="text-on-surface font-medium">E. Ibarra</span>
+<span class="text-on-surface-variant text-[10px] block">Editor-in-Chief</span>
+</td>
+<td class="py-tight px-compact font-body-sm text-body-sm text-on-surface-variant leading-snug">
+                Actualización de definición canónica de <code class="font-mono text-tertiary bg-surface-container px-base rounded text-[12px]">STRAW_MAN</code> (TheoremType.STRAW_MAN). Versión 2.4.9 indexada en ELO-Engine.
+              </td>
+<td class="py-tight px-compact whitespace-nowrap text-right font-mono text-on-surface-variant">
+                0x5fa8..
+              </td>
+</tr>
+<!-- Row 5 -->
+<tr class="bg-surface-container-low text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors" onclick="selectRow(5)">
+<td class="py-tight px-compact whitespace-nowrap text-on-surface-variant font-mono">
+                09:20:02.115
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="bg-status-red text-on-surface px-tight py-base rounded font-bold text-[10px] tracking-wider">CRITICAL</span>
+</td>
+<td class="py-tight px-compact whitespace-nowrap font-mono text-error">
+                SRC-ESP-0012
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="text-on-surface-variant">SYSTEM_SECURITY</span>
+<span class="text-on-surface-variant text-[10px] block">DOM_INTEGRITY</span>
+</td>
+<td class="py-tight px-compact font-body-sm text-body-sm text-on-surface-variant leading-snug">
+                Detección de alteración estructural en DOM de <code class="text-on-surface font-mono">elpais.com</code> (selector <span class="line-through text-on-surface-variant font-mono">div.story-content</span> desplazado a <span class="text-status-yellow font-mono font-medium">article &gt; div.main-body</span>). Auto-alerta enviada a scrapers.
+              </td>
+<td class="py-tight px-compact whitespace-nowrap text-right font-mono text-on-surface-variant">
+                0xbb41..
+              </td>
+</tr>
+<!-- Row 6 -->
+<tr class="bg-surface-container-lowest text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors" onclick="selectRow(6)">
+<td class="py-tight px-compact whitespace-nowrap text-on-surface-variant font-mono">
+                08:44:30.667
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="bg-surface-container text-on-surface-variant px-tight py-base rounded font-semibold text-[10px] tracking-wider">INFO</span>
+</td>
+<td class="py-tight px-compact whitespace-nowrap font-mono text-primary">
+                RETO-PUB
+              </td>
+<td class="py-tight px-compact whitespace-nowrap">
+<span class="text-on-surface font-medium">C. Alarcón</span>
+<span class="text-on-surface-variant text-[10px] block">Community Ops</span>
+</td>
+<td class="py-tight px-compact font-body-sm text-body-sm text-on-surface-variant leading-snug">
+                Publicación del reto <span class="font-mono text-primary font-semibold">ART-2026-8889</span> en producción móvil. 4,200 jugadores notificados vía feed diario.
+              </td>
+<td class="py-tight px-compact whitespace-nowrap text-right font-mono text-on-surface-variant">
+                0xcc19..
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Stream Summary Footer -->
+<div class="px-compact py-tight bg-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-tight font-label-sm text-label-sm text-on-surface-variant">
+<span>Mostrando 1-6 de 1,482 entradas</span>
+<span class="h-3 w-px bg-outline-variant/40"></span>
+<span>Latencia de propagación WAL: <span class="text-status-green font-mono">1.2ms</span></span>
+</div>
+<div class="flex items-center gap-base">
+<button class="px-tight py-base bg-surface-container rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">Anterior</button>
+<button class="px-tight py-base bg-surface-container-lowest text-tertiary font-bold rounded font-label-sm text-label-sm">1</button>
+<button class="px-tight py-base bg-surface-container rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">2</button>
+<button class="px-tight py-base bg-surface-container rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">3</button>
+<span class="text-on-surface-variant px-base">...</span>
+<button class="px-tight py-base bg-surface-container rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">247</button>
+<button class="px-tight py-base bg-surface-container rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm">Siguiente</button>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Taiga Island Payload Inspector & Diff Viewer (30%) -->
+<div class="w-full xl:w-[30%] flex flex-col bg-surface-container-low rounded overflow-hidden shadow-lg sticky top-16">
+<!-- Card Header: Transaction status & Node ID -->
+<div class="p-compact bg-surface-container flex flex-col gap-base">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-tertiary text-[18px]">data_object</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface uppercase tracking-wider">Payload Inspector</span>
+</div>
+<span class="font-label-sm text-label-sm text-status-green bg-status-green/10 px-tight py-base rounded font-semibold uppercase">CONFIRMED</span>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-mono font-medium">TX-89942-Soriano-DOM</span>
+<span class="text-on-surface-variant font-mono">BLOCK #441098</span>
+</div>
+</div>
+<!-- Metadata Ledger -->
+<div class="p-compact bg-surface-container-lowest grid grid-cols-2 gap-tight font-label-sm text-label-sm">
+<div>
+<span class="text-on-surface-variant block uppercase text-[10px]">Actor IP</span>
+<span class="text-on-surface font-mono">194.224.110.42</span>
+</div>
+<div>
+<span class="text-on-surface-variant block uppercase text-[10px]">Entorno</span>
+<span class="text-status-green font-mono">PROD-EU-CENTRAL-1</span>
+</div>
+<div>
+<span class="text-on-surface-variant block uppercase text-[10px]">Sesión Auth</span>
+<span class="text-on-surface font-mono truncate block" title="SESS-JWT-99238-M-SORIANO">SESS-JWT-99238..</span>
+</div>
+<div>
+<span class="text-on-surface-variant block uppercase text-[10px]">MFA Verified</span>
+<span class="text-tertiary font-mono">YUBIKEY_FIDO2</span>
+</div>
+</div>
+<!-- Diff Viewer: Selector tree / Node state change -->
+<div class="p-compact flex flex-col gap-tight bg-surface-container-low">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">DOM Selector Diff Tree</span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">XPATH: //div[@id='clause-4']</span>
+</div>
+<div class="bg-surface-container-lowest p-tight rounded font-label-sm text-label-sm font-mono flex flex-col gap-base leading-relaxed overflow-x-auto text-on-surface-variant">
+<div class="text-on-surface-variant opacity-60">@@ -14,6 +14,8 @@ DOM MUTATION WAL @@</div>
+<div class="text-error bg-error/10 px-base rounded line-through">
+            - status: "OPEN_FOR_EVALUATION"
+          </div>
+<div class="text-error bg-error/10 px-base rounded line-through">
+            - locked_by: null
+          </div>
+<div class="text-status-green bg-status-green/10 px-base rounded">
+            + status: "LOCK_ACQUIRED"
+          </div>
+<div class="text-status-green bg-status-green/10 px-base rounded">
+            + locked_by: "editor:m_soriano"
+          </div>
+<div class="text-status-green bg-status-green/10 px-base rounded">
+            + challenge_ref: "CHAL-CLIMATE-NEUTRAL-2026"
+          </div>
+<div class="text-on-surface-variant opacity-60">@@ dom_checksum: sha256:d8a94e... @@</div>
+</div>
+</div>
+<!-- JSON Structured Payload Inspector -->
+<div class="p-compact flex flex-col gap-tight bg-surface-container-low">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Structured JSON Log</span>
+<button class="font-label-sm text-label-sm text-secondary hover:text-on-surface flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copiar</span>
+</button>
+</div>
+<pre class="bg-surface-container-lowest p-tight rounded font-label-sm text-label-sm text-on-surface font-mono overflow-x-auto max-h-48 leading-tight"><code>{
+  "event_id": "EVT-20260330-889104",
+  "action": "LOCK_ACQUIRED",
+  "target": {
+    "type": "ARTICLE_DOM_NODE",
+    "article_id": "ART-2026-8891",
+    "selector": "#clause-4",
+    "topic": "Neutralidad Climática"
+  },
+  "editor": {
+    "uid": "usr_soriano_99",
+    "name": "M. Soriano",
+    "role": "SENIOR_VERIFIER"
+  },
+  "wal_index": 9940214,
+  "signature": "3045022100e4b8..."
+}</code></pre>
+</div>
+<!-- Action Panel -->
+<div class="p-compact bg-surface-container-high flex flex-col gap-tight">
+<button class="w-full flex items-center justify-center gap-tight bg-tertiary hover:bg-tertiary-fixed-dim text-on-tertiary font-label-sm text-label-sm font-semibold py-tight px-compact rounded transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+<span>Ver Artículo Relacionado (ART-2026-8891)</span>
+</button>
+<div class="grid grid-cols-2 gap-tight">
+<button class="flex items-center justify-center gap-base bg-surface-container hover:bg-surface-bright text-on-surface font-label-sm text-label-sm py-tight px-compact rounded transition-colors">
+<span class="material-symbols-outlined text-[16px] text-tertiary">key</span>
+<span>Hash Cripto</span>
+</button>
+<button class="flex items-center justify-center gap-base bg-error-container hover:bg-error/30 text-on-error-container font-label-sm text-label-sm font-semibold py-tight px-compact rounded transition-colors" title="Revierte los locks y regenera el árbol DOM original">
+<span class="material-symbols-outlined text-[16px]">undo</span>
+<span>Rollback</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Script for Interactive Row Selection & Filter Feedback -->
+<script>
+    function selectRow(index) {
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach((r, idx) => {
+        if (idx === index - 1) {
+          r.className = 'bg-primary-container text-on-surface hover:bg-surface-container cursor-pointer transition-colors';
+        } else {
+          const isEven = idx % 2 === 1;
+          r.className = (isEven ? 'bg-surface-container-low' : 'bg-surface-container-lowest') + ' text-on-surface hover:bg-surface-container-high cursor-pointer transition-colors';
+        }
+      });
+    }
+
+    const toggle = document.getElementById('streamToggle');
+    if (toggle) {
+      let active = true;
+      toggle.addEventListener('click', () => {
+        active = !active;
+        const text = toggle.querySelector('span:last-child');
+        const ping = toggle.querySelector('.animate-ping');
+        const dot = toggle.querySelector('.relative.inline-flex');
+        if (active) {
+          text.textContent = 'Stream en Vivo [ON]';
+          text.className = 'font-label-sm text-label-sm font-semibold text-on-surface tracking-wider uppercase';
+          ping.className = 'animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75';
+          dot.className = 'relative inline-flex rounded-full h-2.5 w-2.5 bg-status-green';
+        } else {
+          text.textContent = 'Stream en Vivo [PAUSED]';
+          text.className = 'font-label-sm text-label-sm font-semibold text-status-yellow tracking-wider uppercase';
+          ping.className = 'hidden';
+          dot.className = 'relative inline-flex rounded-full h-2.5 w-2.5 bg-status-yellow';
+        }
+      });
+    }
+  </script>
+</div></main></div></body></html>

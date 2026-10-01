@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#3b4859","inverse-surface":"#e7e2da","error":"#ffb4ab","surface":"#14130f","bias-center":"#95A5A6","surface-bright":"#3b3934","on-primary-fixed":"#0f1c2c","on-tertiary-fixed":"#261a00","background":"#14130f","on-primary-container":"#828fa3","surface-container-low":"#1d1c17","on-primary":"#243142","bias-populist":"#8E44AD","on-tertiary-container":"#b18825","on-tertiary":"#402d00","surface-container-highest":"#36352f","on-error-container":"#ffdad6","tertiary-fixed-dim":"#eec058","outline":"#8e9196","tertiary-container":"#342500","inverse-on-surface":"#32302b","on-tertiary-fixed-variant":"#5b4300","tertiary-fixed":"#ffdf9f","status-red":"#C0392B","on-surface":"#e7e2da","on-secondary":"#213144","bias-left":"#3498DB","bias-right":"#E74C3C","surface-container-lowest":"#0f0e0a","surface-dim":"#14130f","secondary":"#b7c8e0","surface-variant":"#36352f","primary-fixed":"#d6e3f9","on-background":"#e7e2da","status-green":"#27AE60","inverse-primary":"#525f71","surface-container":"#21201b","error-container":"#93000a","on-error":"#690005","on-secondary-fixed-variant":"#38485c","status-yellow":"#F39C12","on-surface-variant":"#c4c6cc","primary-container":"#1b2838","primary":"#bac7dd","surface-tint":"#bac7dd","tertiary":"#eec058","bias-center-left":"#85C1E9","secondary-fixed":"#d3e4fd","surface-container-high":"#2b2a25","secondary-fixed-dim":"#b7c8e0","primary-fixed-dim":"#bac7dd","secondary-container":"#38485c","on-secondary-fixed":"#0b1c2e","outline-variant":"#44474c","on-secondary-container":"#a6b6ce","bias-center-right":"#E8A0A0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"24px","base":"4px","tight":"8px","standard":"16px","compact":"12px","gutter":"12px","margin-mobile":"16px"},"fontFamily":{"label-sm":["JetBrains Mono"],"headline-lg-mobile":["Playfair Display"],"headline-lg":["Playfair Display"],"headline-md":["Playfair Display"],"label-md":["JetBrains Mono"],"headline-xl":["Playfair Display"],"body-md":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"]},"fontSize":{"label-sm":["11px",{"lineHeight":"1","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"1","letterSpacing":"0.05em","fontWeight":"500"}],"headline-xl":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.4","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-sm text-body-sm text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-compact flex items-center gap-tight border-b border-outline-variant/30 bg-surface-container-lowest"><span class="material-symbols-outlined text-primary text-[20px]">hub</span><div class="flex flex-col"><span class="font-label-md text-label-md tracking-wider text-on-surface uppercase">Demagogia</span><span class="font-label-sm text-label-sm text-tertiary uppercase">Prensa Lab v2.4</span></div></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Editorial Workstation</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="article-desk" href="#"><span class="material-symbols-outlined text-[18px]">edit_note</span><span class="font-body-sm text-body-sm">Article Desk</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bias-spectrum-matrix" href="#"><span class="material-symbols-outlined text-[18px]">compare_arrows</span><span class="font-body-sm text-body-sm">Bias Spectrum Matrix</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="fact-checking-queue" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-body-sm text-body-sm">Fact-Checking Queue</span></a><a aria-current="page" class="flex items-center gap-tight px-compact py-tight rounded transition-colors bg-primary-container text-on-primary font-medium border-l-2 border-primary" data-path="media-sources-ledger" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span class="font-body-sm text-body-sm">Media Sources Ledger</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="taxonomy-tags" href="#"><span class="material-symbols-outlined text-[18px]">label</span><span class="font-body-sm text-body-sm">Taxonomy &amp; Tags</span></a></nav></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Quality &amp; Intelligence</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="credibility-shields" href="#"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-sm text-body-sm">Credibility Shields</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="editorial-logs" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span class="font-body-sm text-body-sm">Editorial Logs</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="engine-settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-sm text-body-sm">Engine Settings</span></a></nav></div></div><div class="p-compact bg-surface-container-lowest border-t border-outline-variant/30"><div class="flex items-center justify-between"><div class="flex items-center gap-tight"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-status-green"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">NODE EU-CENTRAL-1</span></div><span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-tight py-base rounded">IDLE 0.08ms</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-14 bg-surface-container-low/95 backdrop-blur border-b border-outline-variant/30 z-40 flex items-center justify-between px-compact"><div class="flex items-center gap-standard"><div class="flex items-center gap-tight"><span class="font-label-md text-label-md text-on-surface font-semibold uppercase">Demagogia</span><span class="font-label-sm text-label-sm px-tight py-base bg-secondary-container text-on-secondary rounded uppercase">BACKOFFICE v2.4</span></div><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center bg-surface-container-high border border-outline-variant/40 px-compact py-tight rounded w-80 text-on-surface-variant hover:border-outline transition-colors"><span class="material-symbols-outlined text-[18px] mr-tight">search</span><span class="font-body-sm text-body-sm flex-1 text-on-surface-variant">Quick search corpus...</span><kbd class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant px-tight py-base rounded border border-outline-variant/30">⌘K</kbd></div></div><div class="flex items-center gap-standard"><div class="flex items-center gap-tight px-compact py-tight bg-surface-container rounded border border-outline-variant/30"><span class="h-2 w-2 rounded-full bg-status-green"></span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">PROD API OK</span></div><button aria-label="Notifications" class="relative p-tight rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-tight right-tight h-2 w-2 rounded-full bg-status-red"></span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-tight"><div class="flex flex-col text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-tight">E. Ibarra</span><span class="font-label-sm text-label-sm text-on-surface-variant">Editor-in-Chief / Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-background min-h-screen text-on-surface"><div class="flex flex-col w-full">
+<div class="p-compact space-y-compact">
+<!-- Top Action Bar & Master Controls -->
+<section class="bg-surface-container-low rounded p-compact space-y-tight">
+<div class="flex flex-wrap items-center justify-between gap-compact">
+<div class="flex flex-col">
+<nav aria-label="Breadcrumb" class="flex items-center gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Backoffice</span>
+<span class="material-symbols-outlined text-[12px] text-outline">chevron_right</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Editorial Workstation</span>
+<span class="material-symbols-outlined text-[12px] text-outline">chevron_right</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Media Sources Ledger</span>
+</nav>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-base">Registro y Directorio Maestro de Fuentes Periodísticas</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Control de reputación, propiedad corporativa, metodología de fact-checking y patrones de selectores web.</p>
+</div>
+<div class="flex items-center gap-tight flex-wrap">
+<button class="px-compact py-tight bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded font-label-md text-label-md transition-colors flex items-center gap-tight shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Exportar CSV</span>
+</button>
+<button class="px-compact py-tight bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded font-label-md text-label-md transition-colors flex items-center gap-tight shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Re-indexar Selectores</span>
+</button>
+<button class="px-compact py-tight bg-tertiary hover:bg-tertiary-fixed-dim text-on-tertiary rounded font-label-md text-label-md font-semibold transition-colors flex items-center gap-tight shadow-md" id="btnOpenNewModal" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ Registrar Nuevo Medio</span>
+</button>
+</div>
+</div>
+<!-- Controls & Filter Toolbar (Taiga UI style) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter pt-tight">
+<div class="md:col-span-5 relative">
+<span class="absolute inset-y-0 left-compact flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[16px]">search</span>
+</span>
+<input class="w-full bg-surface-container-lowest text-on-surface pl-9 pr-compact py-tight rounded font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container focus:ring-1 focus:ring-tertiary transition-all" id="tableFilterInput" placeholder="Buscar por nombre, corporación matriz, país o dominio..." type="text"/>
+</div>
+<div class="md:col-span-3">
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-tertiary pr-8 cursor-pointer" id="countrySelect">
+<option value="ALL">Jurisdicción: Todas las Regiones</option>
+<option value="ES">España (ES)</option>
+<option value="US">Estados Unidos (EE.UU.)</option>
+<option value="UK">Reino Unido (UK)</option>
+<option value="INT">Internacional / Global</option>
+</select>
+<span class="absolute inset-y-0 right-tight flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</span>
+</div>
+</div>
+<div class="md:col-span-3">
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-tertiary pr-8 cursor-pointer" id="modelSelect">
+<option value="ALL">Modelo: Todos los Regímenes</option>
+<option value="CORP">Corporativo / Conglomerado</option>
+<option value="PUB">Servicio Público / Estatal</option>
+<option value="TRUST">Fideicomiso / Trust Editorial</option>
+<option value="NGO">Sin Ánimo de Lucro / Donantes</option>
+</select>
+<span class="absolute inset-y-0 right-tight flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</span>
+</div>
+</div>
+<div class="md:col-span-1 flex items-center justify-end">
+<button class="w-full h-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface-variant hover:text-on-surface rounded flex items-center justify-center p-tight transition-colors" id="resetFiltersBtn" title="Restablecer filtros" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Top Summary Banner (Industrial Density Metrics) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Stat 1 -->
+<div class="bg-surface-container-low rounded p-compact flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-primary/5 pointer-events-none"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Fuentes Validadas</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface mt-tight leading-none">124</span>
+<span class="font-label-sm text-label-sm text-tertiary mt-tight">100% de periódicos y cadenas auditados</span>
+</div>
+<div class="flex flex-col items-end text-right">
+<span class="font-label-sm text-label-sm bg-surface-container px-tight py-base text-status-green rounded font-semibold">+4 este mes</span>
+<span class="font-label-sm text-label-sm text-outline mt-tight">Consenso 99.4%</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-low rounded p-compact flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-secondary/5 pointer-events-none"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-secondary text-[18px]">public</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Cobertura Global</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-on-surface mt-tight leading-none">18 <span class="font-body-md text-body-md text-on-surface-variant">países</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-tight">6 idiomas procesados con NLP</span>
+</div>
+<div class="flex flex-col items-end text-right">
+<div class="flex gap-base">
+<span class="px-tight py-base bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface">ES</span>
+<span class="px-tight py-base bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface">EN</span>
+<span class="px-tight py-base bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface">FR</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline mt-tight">LatAm + UE + EE.UU.</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-low rounded p-compact flex items-center justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-tertiary/5 pointer-events-none"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-status-yellow text-[18px]">data_object</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Scrapers &amp; Selectores DOM</span>
+</div>
+<div class="flex items-baseline gap-tight mt-tight">
+<span class="font-headline-lg text-headline-lg text-on-surface leading-none">96.2%</span>
+<span class="font-label-sm text-label-sm text-status-green">Uptime</span>
+</div>
+<span class="font-label-sm text-label-sm text-status-red mt-tight flex items-center gap-base">
+<span class="w-1.5 h-1.5 rounded-full bg-status-red"></span>
+            3 alertas de estructura DOM cambiada
+          </span>
+</div>
+<div class="flex flex-col items-end text-right">
+<button class="px-tight py-base bg-primary-container text-primary font-label-sm text-label-sm rounded hover:bg-surface-container-highest transition-colors" type="button">
+            Auditar DOMs
+          </button>
+<span class="font-label-sm text-label-sm text-outline mt-tight">Último barrido: 14m</span>
+</div>
+</div>
+</section>
+<!-- Main Content Workspace: High-Density Table with Detail Split Drawer -->
+<div class="grid grid-cols-12 gap-gutter items-start">
+<!-- Main Ledger Table Column -->
+<section class="col-span-12 xl:col-span-8 bg-surface-container-low rounded p-compact shadow-md space-y-tight">
+<div class="flex items-center justify-between px-tight py-base bg-surface-container rounded">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-[16px] text-tertiary">table_chart</span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wide">Ledger Maestro de Medios (Registro Activo)</span>
+<span class="px-tight py-base bg-surface-container-high rounded font-label-sm text-label-sm text-tertiary" id="outletCountBadge">6 Medios listados</span>
+</div>
+<div class="flex items-center gap-tight">
+<span class="font-label-sm text-label-sm text-outline">Modo de visualización:</span>
+<span class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface px-tight py-base rounded">McMaster-Carr High Density</span>
+</div>
+</div>
+<!-- Density Table Responsive Container -->
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left" id="mediaLedgerTable">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider select-none">
+<th class="py-tight px-compact">Medio / Dominio</th>
+<th class="py-tight px-compact">Grupo / Matriz</th>
+<th class="py-tight px-compact text-center">Factualidad</th>
+<th class="py-tight px-compact">Sesgo Base</th>
+<th class="py-tight px-compact text-center">Retos</th>
+<th class="py-tight px-compact">Estado DOM</th>
+<th class="py-tight px-compact text-right">Confianza</th>
+<th class="py-tight px-compact text-center">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-transparent font-body-sm text-body-sm">
+<!-- Row 1: El País -->
+<tr class="media-row bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group" data-country="ES" data-media-id="elpais" data-model="CORP">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary shrink-0">
+                      EP
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-snug group-hover:text-tertiary transition-colors">El País</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">elpais.com</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">Grupo PRISA</span>
+<span class="font-label-sm text-label-sm text-outline">ES · Corporativo Bursátil</span>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-status-green font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Alta (89/100)
+                  </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col gap-base w-28">
+<span class="font-label-sm text-label-sm text-bias-center-left leading-none font-medium">Centro-Izquierda</span>
+<div class="grid grid-cols-6 h-1.5 rounded overflow-hidden bg-surface-container-lowest">
+<div class="bg-bias-left/20"></div>
+<div class="bg-bias-center-left"></div>
+<div class="bg-bias-center/20"></div>
+<div class="bg-bias-center-right/20"></div>
+<div class="bg-bias-right/20"></div>
+<div class="bg-bias-populist/20"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center font-label-sm text-label-sm text-on-surface font-mono">
+                  142
+                </td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Activo / v2.4
+                  </span>
+</td>
+<td class="py-tight px-compact text-right">
+<div class="flex items-center justify-end gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">88%</span>
+<div class="w-12 h-1.5 rounded bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-status-green" style="width: 88%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<div class="flex items-center justify-center gap-base">
+<button class="btn-inspect-media p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-tertiary transition-colors" data-target="elpais" title="Ver Ficha Técnica" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" title="Selectores DOM" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Reuters -->
+<tr class="media-row bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group" data-country="INT" data-media-id="reuters" data-model="CORP">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary shrink-0">
+                      RT
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-snug group-hover:text-tertiary transition-colors">Reuters News</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">reuters.com</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">Thomson Reuters Corp.</span>
+<span class="font-label-sm text-label-sm text-outline">CA / US · Agencia Global</span>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-status-green font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Muy Alta (97/100)
+                  </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col gap-base w-28">
+<span class="font-label-sm text-label-sm text-bias-center leading-none font-medium">Centro Puro</span>
+<div class="grid grid-cols-6 h-1.5 rounded overflow-hidden bg-surface-container-lowest">
+<div class="bg-bias-left/20"></div>
+<div class="bg-bias-center-left/20"></div>
+<div class="bg-bias-center"></div>
+<div class="bg-bias-center-right/20"></div>
+<div class="bg-bias-right/20"></div>
+<div class="bg-bias-populist/20"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center font-label-sm text-label-sm text-on-surface font-mono">
+                  18
+                </td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Activo / v3.1
+                  </span>
+</td>
+<td class="py-tight px-compact text-right">
+<div class="flex items-center justify-end gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">96%</span>
+<div class="w-12 h-1.5 rounded bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-status-green" style="width: 96%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<div class="flex items-center justify-center gap-base">
+<button class="btn-inspect-media p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-tertiary transition-colors" data-target="reuters" title="Ver Ficha Técnica" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" title="Selectores DOM" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: The Guardian -->
+<tr class="media-row bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group" data-country="UK" data-media-id="guardian" data-model="TRUST">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary shrink-0">
+                      TG
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-snug group-hover:text-tertiary transition-colors">The Guardian</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">theguardian.com</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">Scott Trust Limited</span>
+<span class="font-label-sm text-label-sm text-outline">UK · Fideicomiso Independiente</span>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-status-green font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Alta (91/100)
+                  </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col gap-base w-28">
+<span class="font-label-sm text-label-sm text-bias-left leading-none font-medium">Izquierda Editorial</span>
+<div class="grid grid-cols-6 h-1.5 rounded overflow-hidden bg-surface-container-lowest">
+<div class="bg-bias-left"></div>
+<div class="bg-bias-center-left/20"></div>
+<div class="bg-bias-center/20"></div>
+<div class="bg-bias-center-right/20"></div>
+<div class="bg-bias-right/20"></div>
+<div class="bg-bias-populist/20"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center font-label-sm text-label-sm text-on-surface font-mono">
+                  89
+                </td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Activo / v1.9
+                  </span>
+</td>
+<td class="py-tight px-compact text-right">
+<div class="flex items-center justify-end gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">92%</span>
+<div class="w-12 h-1.5 rounded bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-status-green" style="width: 92%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<div class="flex items-center justify-center gap-base">
+<button class="btn-inspect-media p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-tertiary transition-colors" data-target="guardian" title="Ver Ficha Técnica" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" title="Selectores DOM" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: MSNBC -->
+<tr class="media-row bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group" data-country="US" data-media-id="msnbc" data-model="CORP">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary shrink-0">
+                      MS
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-snug group-hover:text-tertiary transition-colors">MSNBC Cable</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">msnbc.com</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">NBCUniversal / Comcast</span>
+<span class="font-label-sm text-label-sm text-outline">US · Conglomerado Media</span>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-status-yellow font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-yellow"></span>
+                    Mixta (68/100)
+                  </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col gap-base w-28">
+<span class="font-label-sm text-label-sm text-bias-left leading-none font-medium">Izquierda Opinión</span>
+<div class="grid grid-cols-6 h-1.5 rounded overflow-hidden bg-surface-container-lowest">
+<div class="bg-bias-left"></div>
+<div class="bg-bias-center-left/20"></div>
+<div class="bg-bias-center/20"></div>
+<div class="bg-bias-center-right/20"></div>
+<div class="bg-bias-right/20"></div>
+<div class="bg-bias-populist/20"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center font-label-sm text-label-sm text-on-surface font-mono">
+                  210
+                </td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-status-red font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-red"></span>
+                    Alerta DOM Cambiado
+                  </span>
+</td>
+<td class="py-tight px-compact text-right">
+<div class="flex items-center justify-end gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">71%</span>
+<div class="w-12 h-1.5 rounded bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-status-yellow" style="width: 71%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<div class="flex items-center justify-center gap-base">
+<button class="btn-inspect-media p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-tertiary transition-colors" data-target="msnbc" title="Ver Ficha Técnica" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" title="Selectores DOM" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Fox News -->
+<tr class="media-row bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group" data-country="US" data-media-id="foxnews" data-model="CORP">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary shrink-0">
+                      FN
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-snug group-hover:text-tertiary transition-colors">Fox News Digital</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">foxnews.com</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">Fox Corporation (Murdoch)</span>
+<span class="font-label-sm text-label-sm text-outline">US · Corporativo / Bolsa</span>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-status-red font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-red"></span>
+                    Baja (44/100)
+                  </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col gap-base w-28">
+<span class="font-label-sm text-label-sm text-bias-right leading-none font-medium">Derecha Polar</span>
+<div class="grid grid-cols-6 h-1.5 rounded overflow-hidden bg-surface-container-lowest">
+<div class="bg-bias-left/20"></div>
+<div class="bg-bias-center-left/20"></div>
+<div class="bg-bias-center/20"></div>
+<div class="bg-bias-center-right/20"></div>
+<div class="bg-bias-right"></div>
+<div class="bg-bias-populist/20"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center font-label-sm text-label-sm text-on-surface font-mono">
+                  341
+                </td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Activo / v4.0
+                  </span>
+</td>
+<td class="py-tight px-compact text-right">
+<div class="flex items-center justify-end gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">48%</span>
+<div class="w-12 h-1.5 rounded bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-status-red" style="width: 48%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<div class="flex items-center justify-center gap-base">
+<button class="btn-inspect-media p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-tertiary transition-colors" data-target="foxnews" title="Ver Ficha Técnica" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" title="Selectores DOM" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: El Mundo -->
+<tr class="media-row bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer group" data-country="ES" data-media-id="elmundo" data-model="CORP">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-7 h-7 rounded bg-surface-container-lowest flex items-center justify-center font-label-md text-label-md font-bold text-tertiary shrink-0">
+                      EM
+                    </div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-snug group-hover:text-tertiary transition-colors">El Mundo</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">elmundo.es</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface leading-tight">Unidad Editorial (RCS)</span>
+<span class="font-label-sm text-label-sm text-outline">ES · Filial RCS MediaGroup</span>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-status-yellow font-label-sm text-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-yellow"></span>
+                    Mixta (74/100)
+                  </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex flex-col gap-base w-28">
+<span class="font-label-sm text-label-sm text-bias-center-right leading-none font-medium">Centro-Derecha</span>
+<div class="grid grid-cols-6 h-1.5 rounded overflow-hidden bg-surface-container-lowest">
+<div class="bg-bias-left/20"></div>
+<div class="bg-bias-center-left/20"></div>
+<div class="bg-bias-center/20"></div>
+<div class="bg-bias-center-right"></div>
+<div class="bg-bias-right/20"></div>
+<div class="bg-bias-populist/20"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center font-label-sm text-label-sm text-on-surface font-mono">
+                  128
+                </td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-base px-tight py-base bg-surface-container-lowest rounded text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-status-green"></span>
+                    Activo / v2.1
+                  </span>
+</td>
+<td class="py-tight px-compact text-right">
+<div class="flex items-center justify-end gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface font-mono">79%</span>
+<div class="w-12 h-1.5 rounded bg-surface-container-lowest overflow-hidden">
+<div class="h-full bg-status-yellow" style="width: 79%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact text-center">
+<div class="flex items-center justify-center gap-base">
+<button class="btn-inspect-media p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-tertiary transition-colors" data-target="elmundo" title="Ver Ficha Técnica" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+<button class="p-base rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-primary transition-colors" title="Selectores DOM" type="button">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer / Status Bar -->
+<div class="flex items-center justify-between pt-tight font-label-sm text-label-sm text-outline">
+<div class="flex items-center gap-tight">
+<span>Mostrando <span class="text-on-surface font-semibold">1-6</span> de <span class="text-on-surface font-semibold">124</span> registros</span>
+<span class="h-3 w-px bg-outline-variant"></span>
+<span class="text-tertiary">Filtros activos: Ninguno</span>
+</div>
+<div class="flex items-center gap-base">
+<button class="px-tight py-base bg-surface-container rounded hover:bg-surface-container-high text-on-surface disabled:opacity-40" disabled="" type="button">Anterior</button>
+<span class="px-tight py-base bg-tertiary text-on-tertiary rounded font-bold">1</span>
+<button class="px-tight py-base bg-surface-container rounded hover:bg-surface-container-high text-on-surface" type="button">2</button>
+<button class="px-tight py-base bg-surface-container rounded hover:bg-surface-container-high text-on-surface" type="button">3</button>
+<button class="px-tight py-base bg-surface-container rounded hover:bg-surface-container-high text-on-surface" type="button">Siguiente</button>
+</div>
+</div>
+</section>
+<!-- Persistent Detail Island / Slide-over Drawer: Ficha Técnica Activa -->
+<section class="col-span-12 xl:col-span-4 bg-surface-container-low rounded p-compact shadow-md space-y-compact sticky top-16" id="detailIsland">
+<!-- Drawer Header -->
+<div class="flex items-start justify-between pb-tight bg-surface-container-lowest p-compact rounded">
+<div class="flex items-center gap-compact">
+<div class="w-10 h-10 rounded bg-tertiary/20 text-tertiary flex items-center justify-center font-label-md text-label-md font-bold" id="drawerLogo">
+              EP
+            </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Ficha Técnica de Auditoría</span>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight" id="drawerOutletName">El País</h2>
+<span class="font-label-sm text-label-sm text-outline font-mono" id="drawerDomain">https://elpais.com</span>
+</div>
+</div>
+<div class="flex items-center gap-base">
+<button class="px-tight py-base bg-primary hover:bg-primary-fixed text-on-primary rounded font-label-sm text-label-sm font-semibold flex items-center gap-base transition-colors shadow-sm" id="btnLiveScrape" type="button">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Probar Scraping en Vivo</span>
+</button>
+</div>
+</div>
+<!-- Taiga UI Tabs Strip -->
+<div class="flex items-center gap-base bg-surface-container-lowest p-base rounded">
+<button class="tab-btn flex-1 py-tight px-base rounded text-center font-label-sm text-label-sm font-semibold bg-tertiary text-on-tertiary transition-all" data-tab="tab-overview" type="button">
+            Gobernanza &amp; Sesgo
+          </button>
+<button class="tab-btn flex-1 py-tight px-base rounded text-center font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" data-tab="tab-selectors" type="button">
+            Selectores DOM (v2.4)
+          </button>
+<button class="tab-btn flex-1 py-tight px-base rounded text-center font-label-sm text-label-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" data-tab="tab-logs" type="button">
+            Histórico (12M)
+          </button>
+</div>
+<!-- Tab 1: Governance & Bias Details -->
+<div class="tab-pane space-y-compact" id="tab-overview">
+<!-- Editorial Shield & Ownership Snapshot -->
+<div class="bg-surface-container rounded p-compact space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Estructura Societaria &amp; Financiación</span>
+<span class="px-tight py-base bg-surface-container-high text-tertiary rounded font-label-sm text-label-sm font-mono">ID: SRC-ESP-0012</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Propiedad de <strong>Promotora de Informaciones S.A. (Grupo PRISA)</strong>. Participación clave: Amber Capital (29.8%), Vivendi (9.9%), Grupo Santander (4.1%).
+            </p>
+<div class="grid grid-cols-2 gap-gutter pt-base">
+<div class="bg-surface-container-lowest p-tight rounded">
+<span class="font-label-sm text-label-sm text-outline block">Muro de Pago / Monetización</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Metered Paywall + Publicidad</span>
+</div>
+<div class="bg-surface-container-lowest p-tight rounded">
+<span class="font-label-sm text-label-sm text-outline block">Subvenciones Públicas ES</span>
+<span class="font-body-sm text-body-sm text-status-yellow font-semibold">Auditado (3.2M€ en 2023)</span>
+</div>
+</div>
+</div>
+<!-- Credibility Spectrum Matrix -->
+<div class="bg-surface-container rounded p-compact space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Puntuación de Credibilidad Demagogia</span>
+<span class="font-label-md text-label-md font-bold text-status-green">89.4 / 100</span>
+</div>
+<div class="space-y-base">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface">
+<span>Rigor de Citas Primarias</span>
+<span class="font-mono text-tertiary">94%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest rounded overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 94%"></div>
+</div>
+</div>
+<div class="space-y-base">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface">
+<span>Transparencia en Corrección de Erratas</span>
+<span class="font-mono text-status-green">91%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest rounded overflow-hidden">
+<div class="h-full bg-status-green" style="width: 91%"></div>
+</div>
+</div>
+<div class="space-y-base">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface">
+<span>Equilibrio en Titulares de Portada</span>
+<span class="font-mono text-status-yellow">78%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest rounded overflow-hidden">
+<div class="h-full bg-status-yellow" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<!-- Visual Bias History Gauge / Inline SVG Sparkline -->
+<div class="bg-surface-container rounded p-compact space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Deriva de Sesgo (Últimos 12 Meses)</span>
+<span class="font-label-sm text-label-sm text-bias-center-left font-mono">Desvío: -0.42 (C-Izq)</span>
+</div>
+<!-- Inline SVG chart representing monthly bias variance around baseline -->
+<div class="h-20 w-full bg-surface-container-lowest rounded p-tight flex items-center justify-center">
+<svg aria-label="Historial de sesgo 12 meses" class="w-full h-full overflow-visible" viewbox="0 0 320 60">
+<line class="text-outline/30" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1" x1="0" x2="320" y1="30" y2="30"></line>
+<path class="text-bias-center-left" d="M 10 32 Q 40 28, 70 34 T 130 29 T 190 26 T 250 31 T 310 28" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+<!-- Dots for major editorial challenges -->
+<circle class="fill-tertiary" cx="70" cy="34" r="3.5"></circle>
+<circle class="fill-status-yellow" cx="190" cy="26" r="3.5"></circle>
+<circle class="fill-status-green" cx="310" cy="28" r="4.5"></circle>
+</svg>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>May 2023 (Elecciones)</span>
+<span>Nov 2023 (Investidura)</span>
+<span>Hoy (Estable)</span>
+</div>
+</div>
+</div>
+<!-- Tab 2: DOM Selectors & Scraper Setup -->
+<div class="tab-pane hidden space-y-compact" id="tab-selectors">
+<div class="bg-surface-container rounded p-compact space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Configuración de XPath &amp; CSS</span>
+<span class="px-tight py-base bg-status-green/10 text-status-green rounded font-label-sm text-label-sm">Sintaxis Validada</span>
+</div>
+<!-- Field 1: Article Headline -->
+<div class="space-y-base">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface">Selector: Titular Principal (h1)</label>
+<span class="font-label-sm text-label-sm text-outline">CSS</span>
+</div>
+<input class="w-full bg-surface-container-lowest text-tertiary px-tight py-base rounded font-label-sm text-label-sm font-mono focus:outline-none" readonly="" type="text" value="article header h1.c_t, article h1[data-dtm-region='articulo_titular']"/>
+</div>
+<!-- Field 2: Entradilla / Subtitle -->
+<div class="space-y-base">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface">Selector: Entradilla / Bajada</label>
+<span class="font-label-sm text-label-sm text-outline">CSS</span>
+</div>
+<input class="w-full bg-surface-container-lowest text-tertiary px-tight py-base rounded font-label-sm text-label-sm font-mono focus:outline-none" readonly="" type="text" value="article header h2.c_d, div.articulo-subtitulo"/>
+</div>
+<!-- Field 3: Author / Firma -->
+<div class="space-y-base">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface">Selector: Firma / Autor Periodístico</label>
+<span class="font-label-sm text-label-sm text-outline">XPath</span>
+</div>
+<input class="w-full bg-surface-container-lowest text-tertiary px-tight py-base rounded font-label-sm text-label-sm font-mono focus:outline-none" readonly="" type="text" value="//div[contains(@class,'author')]//a[@data-dtm-region='autor']"/>
+</div>
+<!-- Field 4: Body Content Paragraphs -->
+<div class="space-y-base">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface">Selector: Párrafos de Cuerpo (Corpus)</label>
+<span class="font-label-sm text-label-sm text-outline">CSS</span>
+</div>
+<textarea class="w-full bg-surface-container-lowest text-on-surface-variant px-tight py-base rounded font-label-sm text-label-sm font-mono focus:outline-none resize-none" readonly="" rows="2">article div.c_b_p p:not(.hidden):not([class*="advertisement"])</textarea>
+</div>
+<div class="pt-base flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">Timeout: 4500ms · User-Agent: DemagogiaBot/2.4</span>
+<button class="px-tight py-base bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded font-label-sm text-label-sm" type="button">
+                Guardar Selectores
+              </button>
+</div>
+</div>
+<!-- Live Scraper Sandbox Terminal -->
+<div class="bg-surface-container-lowest rounded p-compact space-y-tight font-mono text-label-sm">
+<div class="flex items-center justify-between text-outline border-b border-surface-container pb-base">
+<span>SANDBOX TERMINAL OUTPUT</span>
+<span class="text-status-green">LISTO</span>
+</div>
+<div class="text-on-surface-variant space-y-base max-h-32 overflow-y-auto" id="scraperTerminalOutput">
+<p class="text-outline">&gt; Presione 'Probar Scraping en Vivo' para ejecutar fetch contra URL de muestra.</p>
+</div>
+</div>
+</div>
+<!-- Tab 3: Historical Fact-check Challenges -->
+<div class="tab-pane hidden space-y-compact" id="tab-logs">
+<div class="bg-surface-container rounded p-compact space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Historial de Desmentidos &amp; Retos</span>
+<span class="font-label-sm text-label-sm text-tertiary">142 auditorías</span>
+</div>
+<ul class="space-y-base">
+<li class="bg-surface-container-lowest p-tight rounded flex items-start justify-between gap-tight">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">Reto #1084: Datos de Inflación Alimentos</span>
+<span class="font-label-sm text-label-sm text-outline">Artículo: "El repunte del IPC asfixia a los hogares..."</span>
+</div>
+<span class="px-tight py-base bg-status-green/10 text-status-green font-label-sm text-label-sm rounded shrink-0">Confirmado</span>
+</li>
+<li class="bg-surface-container-lowest p-tight rounded flex items-start justify-between gap-tight">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">Reto #1042: Atribución de Citas en Cumbre UE</span>
+<span class="font-label-sm text-label-sm text-outline">Artículo: "Bruselas exige congelar los fondos de..."</span>
+</div>
+<span class="px-tight py-base bg-status-yellow/10 text-status-yellow font-label-sm text-label-sm rounded shrink-0">Matizado</span>
+</li>
+<li class="bg-surface-container-lowest p-tight rounded flex items-start justify-between gap-tight">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface leading-tight">Reto #988: Proyecciones de Deuda Autonómica</span>
+<span class="font-label-sm text-label-sm text-outline">Tribuna de Opinión Económica</span>
+</div>
+<span class="px-tight py-base bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm rounded shrink-0">Opinión Libre</span>
+</li>
+</ul>
+<button class="w-full py-tight bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded font-label-sm text-label-sm transition-colors text-center" type="button">
+              Descargar Expediente Completo de Rectificaciones (PDF)
+            </button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Modal / Taiga Dialog: Registrar Nuevo Medio de Comunicación -->
+<div class="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm hidden items-center justify-center p-standard" id="newMediaModal">
+<div class="bg-surface-container-low rounded max-w-2xl w-full p-standard shadow-2xl space-y-compact">
+<div class="flex items-center justify-between pb-tight">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-tertiary text-[24px]">newspaper</span>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight">Registrar Nueva Fuente Periodística</h3>
+<span class="font-label-sm text-label-sm text-outline">Incorporación de cabecera al corpus permanente de Demagogia</span>
+</div>
+</div>
+<button class="p-tight text-on-surface-variant hover:text-on-surface rounded hover:bg-surface-container-high transition-colors" id="btnCloseModal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<form class="space-y-compact" id="newMediaForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface">Nombre Comercial de la Cabecera *</label>
+<input class="w-full bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-tertiary" placeholder="Ej. The Washington Post" required="" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface">Dominio Web Principal (FQDN) *</label>
+<input class="w-full bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-tertiary" placeholder="washingtonpost.com" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface">País / Jurisdicción</label>
+<select class="w-full bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-tertiary">
+<option>España (ES)</option>
+<option selected="">Estados Unidos (US)</option>
+<option>Reino Unido (UK)</option>
+<option>Francia (FR)</option>
+<option>Alemania (DE)</option>
+<option>Internacional</option>
+</select>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface">Modelo de Propiedad</label>
+<select class="w-full bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-tertiary">
+<option>Corporativo Privado</option>
+<option>Corporativo Bursátil</option>
+<option>Fideicomiso / Scott Trust</option>
+<option>Medio Público Estatal</option>
+<option>Cooperativa de Lectores</option>
+</select>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface">Sesgo Base Estimado</label>
+<select class="w-full bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-tertiary">
+<option>Centro</option>
+<option>Centro-Izquierda</option>
+<option>Izquierda</option>
+<option>Centro-Derecha</option>
+<option>Derecha</option>
+<option>Populista / No Alineado</option>
+</select>
+</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface">Entidad Propietaria / Matriz Corporativa</label>
+<input class="w-full bg-surface-container-lowest text-on-surface px-compact py-tight rounded font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-tertiary" placeholder="Ej. Nash Holdings (Jeff Bezos) / Graham Holdings" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface">Selector CSS Inicial para Titulares</label>
+<input class="w-full bg-surface-container-lowest text-tertiary font-mono px-compact py-tight rounded font-label-sm text-label-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-tertiary" placeholder="article h1, .headline" type="text"/>
+</div>
+<div class="flex items-center justify-end gap-tight pt-compact">
+<button class="px-compact py-tight bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md transition-colors" id="btnCancelModal" type="button">
+            Cancelar
+          </button>
+<button class="px-compact py-tight bg-tertiary hover:bg-tertiary-fixed-dim text-on-tertiary rounded font-label-md text-label-md font-semibold transition-colors" type="submit">
+            Registrar e Iniciar Rastreo
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Inline Script for Drawer Tabs, Search Filters, Scraper Mock, & Modal Interactions -->
+<script>
+    (function () {
+      // 1. Data Store for drawer details
+      const mediaData = {
+        elpais: {
+          name: "El País",
+          domain: "https://elpais.com",
+          id: "SRC-ESP-0012",
+          owner: "Promotora de Informaciones S.A. (Grupo PRISA). Participación clave: Amber Capital (29.8%), Vivendi (9.9%), Grupo Santander (4.1%).",
+          paywall: "Metered Paywall + Publicidad",
+          subsidy: "Auditado (3.2M€ en 2023)",
+          credibility: "89.4 / 100",
+          biasLabel: "Centro-Izquierda",
+          biasDelta: "Desvío: -0.42 (C-Izq)",
+          h1: "article header h1.c_t, article h1[data-dtm-region='articulo_titular']",
+          lead: "article header h2.c_d, div.articulo-subtitulo",
+          author: "//div[contains(@class,'author')]//a[@data-dtm-region='autor']",
+          body: "article div.c_b_p p:not(.hidden):not([class*=\"advertisement\"])"
+        },
+        reuters: {
+          name: "Reuters News Agency",
+          domain: "https://reuters.com",
+          id: "SRC-GLB-0002",
+          owner: "Thomson Reuters Corporation. Controlado por Woodbridge Company (familia Thomson) al 69.6%.",
+          paywall: "Open Corpus + Professional Wire (Refinitiv)",
+          subsidy: "Cero subvenciones estatales recibidas",
+          credibility: "97.1 / 100",
+          biasLabel: "Centro Puro",
+          biasDelta: "Desvío: +0.02 (Neutro)",
+          h1: "header h1[data-testid='Heading'], h1.article-header__title",
+          lead: "header p[data-testid='Paragraph'], p.article-body__description",
+          author: "//div[@data-testid='Author']//a",
+          body: "div[class*='article-body__content'] p"
+        },
+        guardian: {
+          name: "The Guardian",
+          domain: "https://theguardian.com",
+          id: "SRC-GBR-0008",
+          owner: "Scott Trust Limited. Blindado por fideicomiso perpetuo desde 1936 para garantizar total independencia editorial.",
+          paywall: "Acceso abierto / Donaciones voluntarias de lectores",
+          subsidy: "Financiación 100% independiente de fondos públicos",
+          credibility: "91.8 / 100",
+          biasLabel: "Izquierda Editorial",
+          biasDelta: "Desvío: -0.68 (Izquierda)",
+          h1: "h1[data-gu-name='headline'], div[data-component='headline'] h1",
+          lead: "div[data-gu-name='standfirst'] p",
+          author: "//address[@aria-label='Contributor info']//a",
+          body: "div[id='maincontent'] p.dcr-118w56m"
+        },
+        msnbc: {
+          name: "MSNBC Cable News",
+          domain: "https://msnbc.com",
+          id: "SRC-USA-0034",
+          owner: "NBCUniversal Media Group / Filial de Comcast Corporation (Bolsa NASDAQ: CMCSA).",
+          paywall: "Acceso con registro / Contenido por cable",
+          subsidy: "Publicidad corporativa privada",
+          credibility: "68.2 / 100",
+          biasLabel: "Izquierda Opinión",
+          biasDelta: "Desvío: -1.15 (Izquierda Fuerte)",
+          h1: ".article-hero__headline, h1.styles_headline__1W9b6",
+          lead: ".article-hero__deck, p.styles_deck__2w47b",
+          author: "//span[contains(@class,'author-name')]",
+          body: ".article-body__content p, .styles_articleContent__V10Yp p"
+        },
+        foxnews: {
+          name: "Fox News Digital",
+          domain: "https://foxnews.com",
+          id: "SRC-USA-0038",
+          owner: "Fox Corporation. Presidencia ejecutiva de Rupert y Lachlan Murdoch (familia Murdoch controladora de acciones Clase B).",
+          paywall: "Acceso abierto / Publicidad masiva",
+          subsidy: "Publicidad corporativa privada",
+          credibility: "44.1 / 100",
+          biasLabel: "Derecha Polar",
+          biasDelta: "Desvío: +1.48 (Derecha Fuerte)",
+          h1: "h1.headline, .article-header h1",
+          lead: "h2.sub-headline",
+          author: "//div[@class='author-byline']//a",
+          body: ".article-body p"
+        },
+        elmundo: {
+          name: "El Mundo",
+          domain: "https://elmundo.es",
+          id: "SRC-ESP-0014",
+          owner: "Unidad Editorial Información General S.L.U., propiedad al 96% de la multinacional italiana RCS MediaGroup (Cairo Communication).",
+          paywall: "Premium Freemium (El Mundo Premium)",
+          subsidy: "Auditado (2.8M€ en 2023)",
+          credibility: "74.5 / 100",
+          biasLabel: "Centro-Derecha",
+          biasDelta: "Desvío: +0.55 (Centro-Derecha)",
+          h1: "h1.ue-c-article__headline",
+          lead: "p.ue-c-article__standfirst",
+          author: "//ul[contains(@class,'ue-c-article__byline')]//a",
+          body: "div.ue-c-article__body p"
+        }
+      };
+
+      // 2. Tab switching logic in drawer
+      const tabButtons = document.querySelectorAll(".tab-btn");
+      const tabPanes = document.querySelectorAll(".tab-pane");
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabButtons.forEach(b => {
+            b.classList.remove("bg-tertiary", "text-on-tertiary", "font-semibold");
+            b.classList.add("text-on-surface-variant", "font-medium");
+          });
+          btn.classList.add("bg-tertiary", "text-on-tertiary", "font-semibold");
+          btn.classList.remove("text-on-surface-variant", "font-medium");
+
+          const targetId = btn.getAttribute("data-tab");
+          tabPanes.forEach(pane => {
+            if (pane.id === targetId) {
+              pane.classList.remove("hidden");
+            } else {
+              pane.classList.add("hidden");
+            }
+          });
+        });
+      });
+
+      // 3. Row selection & Detail Drawer population
+      const rows = document.querySelectorAll(".media-row");
+      const drawerName = document.getElementById("drawerOutletName");
+      const drawerDomain = document.getElementById("drawerDomain");
+      const drawerLogo = document.getElementById("drawerLogo");
+
+      function selectMedia(mediaId) {
+        const data = mediaData[mediaId];
+        if (!data) return;
+
+        drawerName.textContent = data.name;
+        drawerDomain.textContent = data.domain;
+        drawerLogo.textContent = data.name.substring(0, 2).toUpperCase();
+
+        // Update inputs if on selectors tab
+        const selTab = document.getElementById("tab-selectors");
+        if (selTab) {
+          const inputs = selTab.querySelectorAll("input, textarea");
+          if (inputs[0]) inputs[0].value = data.h1;
+          if (inputs[1]) inputs[1].value = data.lead;
+          if (inputs[2]) inputs[2].value = data.author;
+          if (inputs[3]) inputs[3].value = data.body;
+        }
+      }
+
+      rows.forEach(r => {
+        r.addEventListener("click", () => {
+          rows.forEach(row => row.classList.remove("ring-1", "ring-tertiary"));
+          r.classList.add("ring-1", "ring-tertiary");
+          const mediaId = r.getAttribute("data-media-id");
+          selectMedia(mediaId);
+        });
+      });
+
+      document.querySelectorAll(".btn-inspect-media").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const target = btn.getAttribute("data-target");
+          selectMedia(target);
+        });
+      });
+
+      // 4. Live Scrape Sandbox Trigger
+      const btnLiveScrape = document.getElementById("btnLiveScrape");
+      const scraperOutput = document.getElementById("scraperTerminalOutput");
+
+      btnLiveScrape.addEventListener("click", () => {
+        // Automatically switch to selectors tab to view output
+        const selectorsTabBtn = document.querySelector("[data-tab='tab-selectors']");
+        if (selectorsTabBtn) selectorsTabBtn.click();
+
+        scraperOutput.innerHTML = `
+          <p class="text-tertiary">&gt; Conectando a ${drawerDomain.textContent} via Proxy Headless...</p>
+          <p class="text-on-surface-variant">&gt; HTTP 200 OK (384ms). Evaluando selectores DOM...</p>
+          <p class="text-status-green">&gt; [OK] H1 extraído: "La Junta Electoral Central desestima el recurso sobre..."</p>
+          <p class="text-status-green">&gt; [OK] Entradilla: 32 palabras capturadas sin caracteres residuales.</p>
+          <p class="text-status-green">&gt; [OK] Corpus: 18 párrafos limpios (1,240 tokens). Selector verificado.</p>
+        `;
+      });
+
+      // 5. Table Search & Multi-filter
+      const filterInput = document.getElementById("tableFilterInput");
+      const countrySelect = document.getElementById("countrySelect");
+      const modelSelect = document.getElementById("modelSelect");
+      const resetBtn = document.getElementById("resetFiltersBtn");
+      const outletCountBadge = document.getElementById("outletCountBadge");
+
+      function applyFilters() {
+        const query = (filterInput.value || "").toLowerCase().trim();
+        const country = countrySelect.value;
+        const model = modelSelect.value;
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+          const rowText = row.innerText.toLowerCase();
+          const rowCountry = row.getAttribute("data-country");
+          const rowModel = row.getAttribute("data-model");
+
+          const matchesQuery = !query || rowText.includes(query);
+          const matchesCountry = country === "ALL" || rowCountry === country;
+          const matchesModel = model === "ALL" || rowModel === model;
+
+          if (matchesQuery && matchesCountry && matchesModel) {
+            row.classList.remove("hidden");
+            visibleCount++;
+          } else {
+            row.classList.add("hidden");
+          }
+        });
+
+        outletCountBadge.textContent = visibleCount + " Medios listados";
+      }
+
+      filterInput.addEventListener("input", applyFilters);
+      countrySelect.addEventListener("change", applyFilters);
+      modelSelect.addEventListener("change", applyFilters);
+
+      resetBtn.addEventListener("click", () => {
+        filterInput.value = "";
+        countrySelect.value = "ALL";
+        modelSelect.value = "ALL";
+        applyFilters();
+      });
+
+      // 6. Modal open/close controls
+      const modal = document.getElementById("newMediaModal");
+      const btnOpenModal = document.getElementById("btnOpenNewModal");
+      const btnCloseModal = document.getElementById("btnCloseModal");
+      const btnCancelModal = document.getElementById("btnCancelModal");
+      const newMediaForm = document.getElementById("newMediaForm");
+
+      function openModal() {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeModal() {
+        modal.classList.remove("flex");
+        modal.classList.add("hidden");
+      }
+
+      btnOpenModal.addEventListener("click", openModal);
+      btnCloseModal.addEventListener("click", closeModal);
+      btnCancelModal.addEventListener("click", closeModal);
+
+      newMediaForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Medio registrado provisionalmente en el Ledger. Iniciando proceso de auditoría y captura de DOM.");
+        closeModal();
+      });
+    })();
+  </script>
+</div></main></div></body></html>

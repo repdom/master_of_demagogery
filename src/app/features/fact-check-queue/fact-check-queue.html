@@ -1,0 +1,358 @@
+<app-page-header
+  [crumbs]="crumbs"
+  heading="Cola de Verificación Editorial"
+  subtitle="Triaje de artículos capturados, anotación de nodos DOM y revisión dual antes de publicar cada reto."
+>
+  <span headerStatus class="status">
+    <span class="mod-mono mod-muted">{{ store.total() }} artículos en cola</span>
+    <span class="mod-tag">{{ counters().TRIAGE }} pendientes</span>
+    <span class="mod-tag mod-tag_gold">{{ counters().ANNOTATING_DOM }} en DOM</span>
+    <span class="mod-tag mod-tag_green">{{ counters().READY }} validados</span>
+    <span class="mod-tag mod-tag_red">{{ counters().REJECTED }} rechazados</span>
+  </span>
+
+  <ng-container headerActions>
+    <button tuiButton type="button" size="s" appearance="secondary" iconStart="@tui.upload">
+      Importar batch URL / RSS
+    </button>
+    <button tuiButton type="button" size="s" appearance="secondary" iconStart="@tui.wand-2">
+      Asignación automática
+    </button>
+    <button
+      tuiButton
+      type="button"
+      size="s"
+      appearance="flat"
+      iconStart="@tui.refresh-cw"
+      aria-label="Refrescar la cola editorial"
+    ></button>
+  </ng-container>
+</app-page-header>
+
+<div class="stage">
+  <div class="pills" role="group" aria-label="Filtro por etapa del flujo editorial">
+    @for (pill of stagePills(); track pill.id) {
+      <button
+        type="button"
+        class="pill"
+        [class.pill_active]="stageFilter() === pill.id"
+        [attr.aria-pressed]="stageFilter() === pill.id"
+        (click)="stageFilter.set(pill.id)"
+      >
+        {{ pill.label }} ({{ pill.count }})
+      </button>
+    }
+  </div>
+
+  <section class="toolbar" aria-label="Filtros instantáneos de la cola">
+    <tui-textfield iconStart="@tui.search" class="toolbar__search">
+      <input
+        type="search"
+        placeholder="Filtrar por titular, medio o periodista…"
+        aria-label="Buscar en la cola"
+        [value]="query()"
+        (input)="onQuery($event)"
+      />
+    </tui-textfield>
+
+    <tui-textfield class="toolbar__select">
+      <select aria-label="Medio emisor" [value]="outlet()" (change)="onOutlet($event)">
+        <option value="ALL">Medio: todos ({{ outlets().length }} fuentes)</option>
+        @for (name of outlets(); track name) {
+          <option [value]="name">{{ name }}</option>
+        }
+      </select>
+    </tui-textfield>
+
+    <label class="toolbar__range">
+      <span class="mod-label">Factualidad mín.</span>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        [value]="minFactuality()"
+        (input)="onFactuality($event)"
+      />
+      <span class="mod-mono mod-gold">{{ minFactuality() }}%</span>
+    </label>
+
+    <button
+      tuiButton
+      type="button"
+      size="s"
+      appearance="flat"
+      iconStart="@tui.filter-x"
+      (click)="clearFilters()"
+    >
+      Limpiar
+    </button>
+  </section>
+
+  <section class="quick" aria-label="Filtros rápidos">
+    <span class="mod-label">Filtros rápidos:</span>
+    <button
+      type="button"
+      class="quick__chip"
+      [class.quick__chip_on]="strongBias()"
+      [attr.aria-pressed]="strongBias()"
+      (click)="strongBias.set(!strongBias())"
+    >
+      Sesgo fuerte
+    </button>
+    <button
+      type="button"
+      class="quick__chip"
+      [class.quick__chip_on]="heuristicHeavy()"
+      [attr.aria-pressed]="heuristicHeavy()"
+      (click)="heuristicHeavy.set(!heuristicHeavy())"
+    >
+      Heurística &gt; 3 falacias
+    </button>
+    <button
+      type="button"
+      class="quick__chip"
+      [class.quick__chip_on]="unassigned()"
+      [attr.aria-pressed]="unassigned()"
+      (click)="unassigned.set(!unassigned())"
+    >
+      Sin asignar
+    </button>
+    <span class="quick__count mod-mono mod-muted">
+      Mostrando {{ rows().length }} de {{ store.total() }} entradas
+    </span>
+  </section>
+
+  <app-filter-chips
+    class="chips"
+    [chips]="chips()"
+    (removed)="removeChip($event)"
+    (cleared)="clearFilters()"
+  />
+
+  <div class="split">
+    <div class="split__main">
+      <app-panel-card heading="Cola de artículos capturados" icon="@tui.inbox" [flush]="true">
+        <span panelAside class="mod-tag">{{ rows().length }} entradas</span>
+
+        @if (rows().length) {
+          <div class="table-wrap">
+            <table class="mod-table">
+              <caption class="mod-visually-hidden">
+                Artículos en cola con su prioridad, factualidad, falacias detectadas, editor
+                asignado y etapa del flujo editorial
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">ID / Prioridad</th>
+                  <th scope="col">Titular &amp; medio</th>
+                  <th scope="col">Factualidad</th>
+                  <th scope="col">Falacias detectadas</th>
+                  <th scope="col">Editor</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of rows(); track item.id) {
+                  <tr [attr.aria-selected]="item.id === selected()?.id" (click)="select(item.id)">
+                    <td>
+                      <span class="cell-stack">
+                        <span class="mod-mono">{{ item.id }}</span>
+                        <span class="mod-tag" [class]="item.priority === 'URGENT' ? 'mod-tag_red' : 'mod-tag_yellow'">
+                          {{ priorityLabel[item.priority] }}
+                        </span>
+                      </span>
+                    </td>
+                    <td>
+                      <button type="button" class="headline" (click)="select(item.id)">
+                        <strong>{{ item.headline }}</strong>
+                        <span class="mod-mono mod-muted">
+                          {{ item.outletName }} · {{ item.receivedAt }}
+                        </span>
+                      </button>
+                    </td>
+                    <td><app-factuality-dot [score]="item.factualityScore" /></td>
+                    <td>
+                      @if (item.detectedFallacies.length) {
+                        <span class="tags">
+                          @for (theorem of item.detectedFallacies; track theorem) {
+                            <span class="mod-tag" [title]="theoremName(theorem)">
+                              {{ theoremTag(theorem) }}
+                            </span>
+                          }
+                        </span>
+                      } @else {
+                        <span class="mod-mono mod-muted">Sin falacias críticas</span>
+                      }
+                    </td>
+                    <td>
+                      @if (item.editor) {
+                        <span class="editor">
+                          <span class="editor__mark" aria-hidden="true">{{ item.editorInitials }}</span>
+                          <span>{{ item.editor }}</span>
+                        </span>
+                      } @else {
+                        <span class="mod-tag mod-tag_yellow">Sin asignar</span>
+                      }
+                    </td>
+                    <td>
+                      <span class="mod-tag" [class]="stageTone(item.stage)">
+                        {{ stageLabel[item.stage] }}
+                      </span>
+                    </td>
+                    <td>
+                      <button
+                        tuiButton
+                        type="button"
+                        size="xs"
+                        [appearance]="item.stage === 'ANNOTATING_DOM' ? 'primary' : 'secondary'"
+                        (click)="select(item.id)"
+                      >
+                        {{ actionLabel(item) }}
+                      </button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        } @else {
+          <app-empty-state
+            title="Ningún artículo coincide con los filtros"
+            hint="Baja el umbral de factualidad o vuelve a la etapa «Todos»."
+          />
+        }
+      </app-panel-card>
+
+      <section class="metrics" aria-label="Métricas del triaje editorial">
+        <article class="metric">
+          <tui-icon icon="@tui.timer" />
+          <div>
+            <p class="mod-label">Tiempo medio de triaje</p>
+            <p class="metric__value">11.4 min</p>
+          </div>
+        </article>
+        <article class="metric">
+          <tui-icon icon="@tui.flag" />
+          <div>
+            <p class="mod-label">Ratio falacias / artículo</p>
+            <p class="metric__value">2.8 tags</p>
+          </div>
+        </article>
+        <article class="metric">
+          <tui-icon icon="@tui.circle-check" />
+          <div>
+            <p class="mod-label">Validación cross-editor</p>
+            <p class="metric__value">94.2%</p>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    @if (selected(); as item) {
+      <aside class="split__aside" aria-label="Ficha de inspección del artículo seleccionado">
+        <app-panel-card heading="Ficha de inspección" icon="@tui.scan-search">
+          <span panelAside class="mod-tag mod-tag_gold">{{ item.id }}</span>
+
+          <h2 class="mod-headline-md detail__headline">{{ item.headline }}</h2>
+
+          <p class="detail__meta mod-mono">
+            <span class="mod-gold">{{ item.outletName }}</span>
+            <span aria-hidden="true">·</span>
+            <span class="mod-muted">{{ biasLabel[item.officialBias] }}</span>
+          </p>
+
+          <div class="detail__scores">
+            <app-credibility-shield [score]="item.factualityScore" />
+            <span class="mod-mono mod-muted">Factualidad: {{ item.factualityScore }}/100</span>
+          </div>
+
+          <section class="block" aria-label="Diagnóstico NLP">
+            <p class="mod-label block__title">
+              Diagnóstico NLP <span class="mod-gold">BERT-Heurística v4.2</span>
+            </p>
+            <p class="mod-body-sm">{{ item.nlpDiagnosis }}</p>
+            <app-bias-spectrum-bar [bias]="item.officialBias" [height]="6" />
+          </section>
+
+          <section class="block" aria-label="Párrafos señalados">
+            <p class="mod-label block__title">
+              Párrafos señalados ({{ item.flaggedParagraphs.length }})
+            </p>
+            <ul class="paras">
+              @for (paragraph of item.flaggedParagraphs; track paragraph.id) {
+                <li class="para">
+                  <p class="para__head mod-mono">
+                    <span>{{ paragraph.ordinal }}</span>
+                    <span class="mod-muted">DOM {{ paragraph.domId }}</span>
+                    <span class="mod-gold">{{ theoremTag(paragraph.theorem) }}</span>
+                  </p>
+                  <p class="para__text">{{ paragraph.excerpt }}</p>
+                </li>
+              }
+            </ul>
+          </section>
+
+          <section class="block" aria-label="Checklist de verificación">
+            <p class="mod-label block__title">Checklist de verificación</p>
+            <ul class="checks">
+              @for (check of item.checklist; track check.id) {
+                <li>
+                  <label class="check">
+                    <input
+                      type="checkbox"
+                      [checked]="check.done"
+                      (change)="toggleCheck(item.id, check.id)"
+                    />
+                    <span>{{ check.label }}</span>
+                  </label>
+                </li>
+              }
+            </ul>
+          </section>
+
+          <div class="actions">
+            <a tuiButton routerLink="/desk" size="s" iconStart="@tui.square-pen" class="actions__cta">
+              Abrir en editor DOM
+            </a>
+            <div class="actions__row">
+              <button
+                type="button"
+                class="verdict verdict_ok"
+                [disabled]="item.stage === 'READY'"
+                (click)="approve(item)"
+              >
+                ✓ Aprobar reto
+              </button>
+              <button
+                tuiButton
+                type="button"
+                size="s"
+                appearance="destructive"
+                iconStart="@tui.x"
+                [disabled]="item.stage === 'REJECTED'"
+                (click)="reject(item)"
+              >
+                Descartar
+              </button>
+            </div>
+          </div>
+
+          <section class="block" aria-label="Trazabilidad reciente">
+            <p class="mod-label block__title">Trazabilidad reciente</p>
+            <ul class="trace">
+              @for (entry of item.trace; track entry.at + entry.actor) {
+                <li class="trace__row">
+                  <span class="mod-mono mod-muted">{{ entry.at }}</span>
+                  <span class="mod-mono mod-gold">{{ entry.actor }}</span>
+                  <span class="mod-body-sm">{{ entry.detail }}</span>
+                </li>
+              }
+            </ul>
+          </section>
+        </app-panel-card>
+      </aside>
+    }
+  </div>
+</div>

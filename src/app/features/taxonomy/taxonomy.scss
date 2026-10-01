@@ -1,0 +1,350 @@
+:host {
+  display: block;
+}
+
+.head-status {
+  display: inline-flex;
+  gap: var(--mod-space-base);
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-gutter);
+  padding: var(--mod-gutter) var(--mod-margin) var(--mod-margin);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 22rem minmax(0, 1fr);
+  gap: var(--mod-gutter);
+  align-items: start;
+}
+
+.split__tree {
+  position: sticky;
+  inset-block-start: calc(var(--mod-topbar-height) + var(--mod-gutter));
+  max-block-size: calc(100dvh - var(--mod-topbar-height) - var(--mod-margin));
+}
+
+.split__editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-gutter);
+  min-inline-size: 0;
+}
+
+/* ---------- taxonomy tree ---------- */
+.tree__search {
+  padding: var(--mod-space-tight);
+  border-bottom: 1px solid var(--mod-outline-variant);
+}
+
+.tree {
+  overflow-y: auto;
+  max-block-size: 52vh;
+  padding-block: var(--mod-space-base);
+}
+
+.tree__family {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: var(--mod-space-tight) 0 2px;
+  padding-inline: var(--mod-space-tight);
+  color: var(--mod-on-surface);
+}
+
+.tree__family tui-icon {
+  font-size: 0.8rem;
+  color: var(--mod-outline);
+}
+
+.tree__family .mod-tag {
+  margin-inline-start: auto;
+}
+
+.tree ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tree__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  inline-size: 100%;
+  min-block-size: 26px;
+  padding: 2px var(--mod-space-tight) 2px 20px;
+  border: 0;
+  border-inline-start: 2px solid transparent;
+  background: transparent;
+  color: var(--mod-on-surface-variant);
+  font: inherit;
+  font-size: 12.5px;
+  text-align: start;
+  cursor: pointer;
+}
+
+.tree__item:hover {
+  background: var(--mod-surface-container);
+  color: var(--mod-on-surface);
+}
+
+.tree__item_active {
+  background: var(--mod-gold-container);
+  border-inline-start-color: var(--mod-gold);
+  color: var(--mod-on-surface);
+}
+
+.tree__name {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  line-height: 1.2;
+}
+
+.tree__hint {
+  color: var(--mod-gold);
+  font-size: 9.5px;
+}
+
+.tree__dot {
+  inline-size: 6px;
+  block-size: 6px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.tree__foot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: var(--mod-space-tight);
+  border-block-start: 1px solid var(--mod-outline-variant);
+  color: var(--mod-on-surface-variant);
+  font-size: 10px;
+}
+
+/* ---------- editor ---------- */
+.editor__state {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mod-space-base);
+}
+
+.editor__state button {
+  border: 0;
+  cursor: pointer;
+  font-family: var(--mod-font-mono);
+}
+
+.editor__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mod-space-tight);
+  padding-block-end: var(--mod-space-compact);
+}
+
+.editor__head p {
+  margin: 2px 0 0;
+}
+
+.editor__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 30px;
+  block-size: 30px;
+  flex: none;
+  background: var(--mod-gold-container);
+  color: var(--mod-gold);
+  font-family: var(--mod-font-serif);
+  font-size: 18px;
+}
+
+.analysis {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9rem auto;
+  align-items: center;
+  gap: var(--mod-space-compact);
+  padding: var(--mod-space-tight) var(--mod-space-compact);
+  background: var(--mod-surface-container);
+  border-inline-start: 2px solid var(--mod-gold);
+}
+
+.analysis p {
+  margin: 0;
+}
+
+.analysis__delta {
+  text-align: end;
+  font-size: 9.5px;
+  color: var(--mod-on-surface-variant);
+}
+
+.analysis__delta strong {
+  font-size: 13px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-space-compact);
+  padding-block-start: var(--mod-space-compact);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--mod-space-tight);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-inline-size: 0;
+}
+
+.field .mod-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--mod-space-tight);
+}
+
+.field__error {
+  color: var(--mod-error);
+  font-size: 10px;
+}
+
+.scoring {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--mod-space-tight);
+  margin: 0;
+  padding: var(--mod-space-tight);
+  border: 1px solid var(--mod-outline-variant);
+}
+
+.scoring legend {
+  padding-inline: var(--mod-space-base);
+}
+
+.form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--mod-space-tight);
+  flex-wrap: wrap;
+}
+
+.editor__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: var(--mod-gutter);
+  align-items: start;
+}
+
+.criteria {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-space-tight);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12.5px;
+}
+
+.criteria li {
+  display: flex;
+  gap: 6px;
+  color: var(--mod-on-surface-variant);
+}
+
+.criteria tui-icon {
+  font-size: 0.9rem;
+  color: var(--mod-green);
+  flex: none;
+}
+
+.stat__line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mod-space-tight);
+  margin: 0 0 4px;
+  font-size: 12.5px;
+}
+
+.stat__card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: var(--mod-space-tight) 0 0;
+  padding: 6px var(--mod-space-tight);
+  background: var(--mod-surface-container);
+  font-size: 12.5px;
+}
+
+.correlation {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: var(--mod-space-tight) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+}
+
+.correlation li {
+  display: grid;
+  grid-template-columns: 10px 9rem minmax(4rem, 1fr) 2.5rem;
+  align-items: center;
+  gap: var(--mod-space-tight);
+  color: var(--mod-on-surface-variant);
+}
+
+.correlation__swatch {
+  inline-size: 8px;
+  block-size: 8px;
+  border-radius: 1px;
+}
+
+.correlation .mod-mono {
+  text-align: end;
+}
+
+.axes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--mod-gutter);
+}
+
+.axes__swatch {
+  display: block;
+  inline-size: 100%;
+  block-size: 4px;
+}
+
+.cell-pos {
+  color: var(--mod-green);
+}
+
+.cell-neg {
+  color: var(--mod-error);
+}
+
+@media (max-width: 1100px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .split__tree {
+    position: static;
+    max-block-size: none;
+  }
+}

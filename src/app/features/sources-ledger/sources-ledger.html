@@ -1,0 +1,316 @@
+<app-page-header
+  [crumbs]="crumbs"
+  heading="Registro y Directorio Maestro de Fuentes Periodísticas"
+  subtitle="Control de reputación, propiedad corporativa, metodología de fact-checking y patrones de selectores web."
+>
+  <span headerStatus class="mod-tag mod-tag_gold">LEDGER v2.4 · INMUTABLE</span>
+
+  <ng-container headerActions>
+    <button tuiButton type="button" size="s" appearance="secondary" iconStart="@tui.download">
+      Exportar CSV
+    </button>
+    <button tuiButton type="button" size="s" appearance="secondary" iconStart="@tui.refresh-cw">
+      Re-indexar selectores
+    </button>
+    <button tuiButton type="button" size="s" iconStart="@tui.plus">Registrar nuevo medio</button>
+  </ng-container>
+</app-page-header>
+
+<div class="stage">
+  <section class="toolbar" aria-label="Filtros instantáneos del ledger">
+    <tui-textfield iconStart="@tui.search" class="toolbar__search">
+      <input
+        type="search"
+        placeholder="Buscar por nombre, corporación matriz, país o dominio…"
+        aria-label="Buscar medios"
+        [value]="query()"
+        (input)="onQuery($event)"
+      />
+    </tui-textfield>
+
+    <tui-textfield class="toolbar__select">
+      <select aria-label="Jurisdicción" [value]="country()" (change)="onCountry($event)">
+        <option value="ALL">Jurisdicción: todas las regiones</option>
+        @for (item of countries(); track item.code) {
+          <option [value]="item.code">{{ item.label }}</option>
+        }
+      </select>
+    </tui-textfield>
+
+    <tui-textfield class="toolbar__select">
+      <select aria-label="Modelo de financiación" [value]="funding()" (change)="onFunding($event)">
+        <option value="ALL">Modelo: todos los regímenes</option>
+        @for (item of fundingModels(); track item.model) {
+          <option [value]="item.model">{{ item.label }}</option>
+        }
+      </select>
+    </tui-textfield>
+
+    <label class="toolbar__toggle">
+      <input
+        type="checkbox"
+        [checked]="onlyAlerts()"
+        (change)="onlyAlerts.set(!onlyAlerts())"
+      />
+      Sólo alertas DOM
+    </label>
+
+    <button
+      tuiButton
+      type="button"
+      size="s"
+      appearance="flat"
+      iconStart="@tui.filter-x"
+      (click)="clearFilters()"
+    >
+      Limpiar
+    </button>
+  </section>
+
+  <app-filter-chips
+    class="chips"
+    [chips]="chips()"
+    (removed)="removeChip($event)"
+    (cleared)="clearFilters()"
+  />
+
+  <section class="kpis" aria-label="Indicadores del registro">
+    <app-kpi-card
+      label="Fuentes validadas"
+      icon="@tui.shield"
+      [value]="store.verified()"
+      [delta]="'+4 este mes'"
+      deltaTone="positive"
+      [note]="'de ' + store.total() + ' cabeceras auditadas'"
+    />
+    <app-kpi-card
+      label="Cobertura global"
+      icon="@tui.globe"
+      [value]="store.countries()"
+      unit="países"
+      note="Procesados con NLP multilingüe"
+    />
+    <app-kpi-card
+      label="Scrapers & selectores DOM"
+      icon="@tui.code"
+      [value]="store.averageUptime() + '%'"
+      note="Confianza media de extracción"
+      [badge]="store.domAlerts() + ' alertas'"
+      [badgeTone]="store.domAlerts() ? 'mod-tag_yellow' : 'mod-tag_green'"
+    >
+      <app-spark-line class="kpis__spark" [series]="driftSeries" label="Uptime de scraping" />
+    </app-kpi-card>
+  </section>
+
+  <div class="split">
+    <app-panel-card
+      class="split__main"
+      heading="Ledger maestro de medios (registro activo)"
+      icon="@tui.library"
+      [flush]="true"
+    >
+      <span panelAside class="mod-tag">{{ rows().length }} medios listados</span>
+
+      @if (rows().length) {
+        <div class="table-wrap">
+          <table class="mod-table">
+            <caption class="mod-visually-hidden">
+              Medios registrados con su factualidad, sesgo base y estado de selectores DOM
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" [attr.aria-sort]="ariaSort('name')">
+                  <button type="button" class="sort" (click)="sortBy('name')">
+                    Medio / dominio <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+                <th scope="col">Grupo / matriz</th>
+                <th scope="col" [attr.aria-sort]="ariaSort('factualityScore')">
+                  <button type="button" class="sort" (click)="sortBy('factualityScore')">
+                    Factualidad <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+                <th scope="col">Sesgo base</th>
+                <th scope="col" [attr.aria-sort]="ariaSort('challenges')">
+                  <button type="button" class="sort" (click)="sortBy('challenges')">
+                    Retos <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+                <th scope="col">Estado DOM</th>
+                <th scope="col" [attr.aria-sort]="ariaSort('confidence')">
+                  <button type="button" class="sort" (click)="sortBy('confidence')">
+                    Confianza <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (outlet of rows(); track outlet.id) {
+                <tr
+                  [attr.aria-selected]="outlet.id === selected()?.id"
+                  (click)="select(outlet.id)"
+                >
+                  <td>
+                    <button type="button" class="outlet" (click)="select(outlet.id)">
+                      <span class="outlet__mark" aria-hidden="true">{{ outlet.initials }}</span>
+                      <span class="outlet__text">
+                        <strong>{{ outlet.name }}</strong>
+                        <span class="mod-mono mod-muted">{{ outlet.domain }}</span>
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="cell-stack">
+                      <span>{{ outlet.parentGroup }}</span>
+                      <span class="mod-mono mod-muted">
+                        {{ outlet.country }} · {{ fundingLabel[outlet.funding] }}
+                      </span>
+                    </span>
+                  </td>
+                  <td><app-factuality-dot [score]="outlet.factualityScore" /></td>
+                  <td>
+                    <span class="cell-stack">
+                      <span class="mod-mono">{{ biasLabel[outlet.bias] }}</span>
+                      <app-bias-spectrum-bar [bias]="outlet.bias" [height]="5" />
+                    </span>
+                  </td>
+                  <td class="mod-mono">{{ outlet.challenges }}</td>
+                  <td>
+                    <span class="mod-tag" [class]="domStatusTone(outlet)">
+                      {{ domStatusLabel[outlet.domStatus] }} / {{ outlet.selectorVersion }}
+                    </span>
+                  </td>
+                  <td>
+                    <span class="confidence">
+                      <span class="mod-mono">{{ outlet.confidence }}%</span>
+                      <app-score-meter [value]="outlet.confidence" [label]="'Confianza de selectores'" />
+                    </span>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <app-empty-state
+          title="Ningún medio coincide con los filtros"
+          hint="Prueba a limpiar la jurisdicción o el modelo de financiación."
+        />
+      }
+    </app-panel-card>
+
+    @if (selected(); as outlet) {
+      <aside class="split__aside" aria-label="Ficha técnica de auditoría">
+        <app-panel-card heading="Ficha técnica de auditoría" icon="@tui.scan-search">
+          <button panelAside tuiButton type="button" size="xs" appearance="secondary">
+            Probar scraping
+          </button>
+
+          <div class="detail__head">
+            <span class="outlet__mark outlet__mark_lg" aria-hidden="true">{{ outlet.initials }}</span>
+            <div>
+              <h2 class="mod-headline-md">{{ outlet.name }}</h2>
+              <p class="mod-mono mod-muted detail__url">https://{{ outlet.domain }}</p>
+            </div>
+            <button
+              type="button"
+              class="verify"
+              [class.verify_on]="outlet.verified"
+              (click)="toggleVerified(outlet)"
+            >
+              {{ outlet.verified ? 'Verificado' : 'Sin verificar' }}
+            </button>
+          </div>
+
+          <tui-tabs [(activeItemIndex)]="detailTab">
+            <button tuiTab type="button">Gobernanza & sesgo</button>
+            <button tuiTab type="button">Selectores DOM</button>
+            <button tuiTab type="button">Histórico (12 m)</button>
+          </tui-tabs>
+
+          @switch (detailTab()) {
+            @case (0) {
+              <dl class="facts">
+                <dt class="mod-label">Estructura societaria</dt>
+                <dd>{{ outlet.ownership }}</dd>
+                <dt class="mod-label">Financiación</dt>
+                <dd>{{ fundingLabel[outlet.funding] }}</dd>
+                <dt class="mod-label">Jurisdicción</dt>
+                <dd>{{ outlet.countryLabel }} · {{ outlet.language }}</dd>
+                <dt class="mod-label">Última revisión</dt>
+                <dd>{{ outlet.lastReview }} por {{ outlet.reviewer }}</dd>
+              </dl>
+
+              <p class="factor__title mod-label">
+                Puntuación de credibilidad
+                <span class="mod-gold mod-mono">{{ outlet.credibilityScore }} / 100</span>
+              </p>
+
+              <div class="factors">
+                <div class="factor">
+                  <span>Rigor en citas primarias</span>
+                  <app-score-meter [value]="outlet.citationRigor" label="Rigor en citas primarias" />
+                  <span class="mod-mono">{{ outlet.citationRigor }}%</span>
+                </div>
+                <div class="factor">
+                  <span>Transparencia en erratas</span>
+                  <app-score-meter
+                    [value]="outlet.errataTransparency"
+                    label="Transparencia en erratas"
+                  />
+                  <span class="mod-mono">{{ outlet.errataTransparency }}%</span>
+                </div>
+                <div class="factor">
+                  <span>Equilibrio en titulares</span>
+                  <app-score-meter [value]="outlet.headlineBalance" label="Equilibrio en titulares" />
+                  <span class="mod-mono">{{ outlet.headlineBalance }}%</span>
+                </div>
+                <div class="factor">
+                  <span>Detección comunitaria</span>
+                  <app-score-meter
+                    [value]="outlet.communityDetection"
+                    label="Detección comunitaria"
+                  />
+                  <span class="mod-mono">{{ outlet.communityDetection }}%</span>
+                </div>
+              </div>
+            }
+            @case (1) {
+              <div class="selectors">
+                <p class="mod-body-sm mod-muted">
+                  Patrones activos usados por el crawler para anclar falacias sobre el DOM.
+                </p>
+                <code class="code">article &gt; div.story-content &gt; p:nth-of-type(n)</code>
+                <code class="code">//article/header/h1</code>
+                <code class="code">main [data-testid="article-body"] blockquote</code>
+                <p class="mod-mono mod-muted">
+                  Versión {{ outlet.selectorVersion }} · confianza {{ outlet.confidence }}% ·
+                  {{ domStatusLabel[outlet.domStatus] }}
+                </p>
+              </div>
+            }
+            @default {
+              <div class="history">
+                <p class="mod-label">
+                  Deriva de sesgo (últimos 12 meses)
+                  <span class="mod-mono" [class.mod-gold]="outlet.biasDrift !== 0">
+                    Δ {{ outlet.biasDrift }}
+                  </span>
+                </p>
+                <app-spark-line
+                  [series]="driftSeries"
+                  color="var(--mod-bias-left)"
+                  label="Deriva de sesgo"
+                />
+                <app-bias-spectrum-bar [bias]="outlet.bias" [height]="10" [showScale]="true" />
+                <p class="mod-body-sm mod-muted">
+                  {{ outlet.challenges }} retos generados a partir de esta cabecera.
+                </p>
+              </div>
+            }
+          }
+        </app-panel-card>
+      </aside>
+    }
+  </div>
+</div>

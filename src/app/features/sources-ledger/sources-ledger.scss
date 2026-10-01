@@ -1,0 +1,252 @@
+:host {
+  display: block;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-gutter);
+  padding: var(--mod-gutter) var(--mod-margin) var(--mod-margin);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--mod-space-tight);
+  flex-wrap: wrap;
+}
+
+.toolbar__search {
+  flex: 1 1 22rem;
+  min-inline-size: 16rem;
+}
+
+.toolbar__select {
+  inline-size: 15rem;
+}
+
+.toolbar__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--mod-on-surface-variant);
+  cursor: pointer;
+}
+
+.toolbar__toggle input {
+  accent-color: var(--mod-gold);
+  inline-size: 14px;
+  block-size: 14px;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--mod-gutter);
+}
+
+.kpis__spark {
+  inline-size: 5rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24rem;
+  gap: var(--mod-gutter);
+  align-items: start;
+}
+
+.split__main {
+  min-inline-size: 0;
+}
+
+.table-wrap {
+  max-block-size: 60vh;
+  overflow: auto;
+}
+
+.sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sort tui-icon {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.outlet {
+  display: flex;
+  align-items: center;
+  gap: var(--mod-space-tight);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.outlet__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 22px;
+  block-size: 22px;
+  flex: none;
+  background: var(--mod-surface-highest);
+  color: var(--mod-on-surface);
+  font-family: var(--mod-font-mono);
+  font-size: 9.5px;
+  border-radius: var(--mod-radius);
+}
+
+.outlet__mark_lg {
+  inline-size: 34px;
+  block-size: 34px;
+  font-size: 12px;
+  color: var(--mod-gold);
+}
+
+.outlet__text,
+.cell-stack {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+  min-inline-size: 0;
+}
+
+.outlet__text strong {
+  font-size: 13px;
+}
+
+.confidence {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-inline-size: 5.5rem;
+}
+
+.confidence app-score-meter {
+  flex: 1;
+}
+
+.detail__head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mod-space-tight);
+  padding-block-end: var(--mod-space-compact);
+}
+
+.detail__head div {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.detail__url {
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.verify {
+  border: 1px solid var(--mod-outline-variant);
+  border-radius: var(--mod-radius);
+  background: transparent;
+  color: var(--mod-on-surface-variant);
+  font-family: var(--mod-font-mono);
+  font-size: 10px;
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+.verify_on {
+  border-color: var(--mod-green);
+  color: var(--mod-green);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px var(--mod-space-tight);
+  margin: var(--mod-space-compact) 0;
+  font-size: 12.5px;
+}
+
+.facts dt {
+  white-space: nowrap;
+}
+
+.facts dd {
+  margin: 0;
+  color: var(--mod-on-surface);
+}
+
+.factor__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mod-space-tight);
+  margin: var(--mod-space-compact) 0 var(--mod-space-tight);
+}
+
+.factors {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-space-tight);
+  font-size: 12px;
+}
+
+.factor {
+  display: grid;
+  grid-template-columns: 1fr 5rem 2.5rem;
+  align-items: center;
+  gap: var(--mod-space-tight);
+  color: var(--mod-on-surface-variant);
+}
+
+.factor .mod-mono {
+  text-align: end;
+}
+
+.selectors,
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mod-space-tight);
+  padding-block-start: var(--mod-space-compact);
+}
+
+.code {
+  display: block;
+  padding: 6px var(--mod-space-tight);
+  background: var(--mod-surface-lowest);
+  border-inline-start: 2px solid var(--mod-gold);
+  font-family: var(--mod-font-mono);
+  font-size: 11px;
+  color: var(--mod-on-surface);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.history .mod-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

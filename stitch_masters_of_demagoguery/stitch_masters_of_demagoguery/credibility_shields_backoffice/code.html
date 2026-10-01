@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#3b4859","inverse-surface":"#e7e2da","error":"#ffb4ab","surface":"#14130f","bias-center":"#95A5A6","surface-bright":"#3b3934","on-primary-fixed":"#0f1c2c","on-tertiary-fixed":"#261a00","background":"#14130f","on-primary-container":"#828fa3","surface-container-low":"#1d1c17","on-primary":"#243142","bias-populist":"#8E44AD","on-tertiary-container":"#b18825","on-tertiary":"#402d00","surface-container-highest":"#36352f","on-error-container":"#ffdad6","tertiary-fixed-dim":"#eec058","outline":"#8e9196","tertiary-container":"#342500","inverse-on-surface":"#32302b","on-tertiary-fixed-variant":"#5b4300","tertiary-fixed":"#ffdf9f","status-red":"#C0392B","on-surface":"#e7e2da","on-secondary":"#213144","bias-left":"#3498DB","bias-right":"#E74C3C","surface-container-lowest":"#0f0e0a","surface-dim":"#14130f","secondary":"#b7c8e0","surface-variant":"#36352f","primary-fixed":"#d6e3f9","on-background":"#e7e2da","status-green":"#27AE60","inverse-primary":"#525f71","surface-container":"#21201b","error-container":"#93000a","on-error":"#690005","on-secondary-fixed-variant":"#38485c","status-yellow":"#F39C12","on-surface-variant":"#c4c6cc","primary-container":"#1b2838","primary":"#bac7dd","surface-tint":"#bac7dd","tertiary":"#eec058","bias-center-left":"#85C1E9","secondary-fixed":"#d3e4fd","surface-container-high":"#2b2a25","secondary-fixed-dim":"#b7c8e0","primary-fixed-dim":"#bac7dd","secondary-container":"#38485c","on-secondary-fixed":"#0b1c2e","outline-variant":"#44474c","on-secondary-container":"#a6b6ce","bias-center-right":"#E8A0A0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"24px","base":"4px","tight":"8px","standard":"16px","compact":"12px","gutter":"12px","margin-mobile":"16px"},"fontFamily":{"label-sm":["JetBrains Mono"],"headline-lg-mobile":["Playfair Display"],"headline-lg":["Playfair Display"],"headline-md":["Playfair Display"],"label-md":["JetBrains Mono"],"headline-xl":["Playfair Display"],"body-md":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"]},"fontSize":{"label-sm":["11px",{"lineHeight":"1","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"1","letterSpacing":"0.05em","fontWeight":"500"}],"headline-xl":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.4","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-sm text-body-sm text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-compact flex items-center gap-tight border-b border-outline-variant/30 bg-surface-container-lowest"><span class="material-symbols-outlined text-primary text-[20px]">hub</span><div class="flex flex-col"><span class="font-label-md text-label-md tracking-wider text-on-surface uppercase">Demagogia</span><span class="font-label-sm text-label-sm text-tertiary uppercase">Prensa Lab v2.4</span></div></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Editorial Workstation</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="article-desk" href="#"><span class="material-symbols-outlined text-[18px]">edit_note</span><span class="font-body-sm text-body-sm">Article Desk</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bias-spectrum-matrix" href="#"><span class="material-symbols-outlined text-[18px]">compare_arrows</span><span class="font-body-sm text-body-sm">Bias Spectrum Matrix</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="fact-checking-queue" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-body-sm text-body-sm">Fact-Checking Queue</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="media-sources-ledger" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span class="font-body-sm text-body-sm">Media Sources Ledger</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="taxonomy-tags" href="#"><span class="material-symbols-outlined text-[18px]">label</span><span class="font-body-sm text-body-sm">Taxonomy &amp; Tags</span></a></nav></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Quality &amp; Intelligence</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="credibility-shields" href="#"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-sm text-body-sm">Credibility Shields</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="editorial-logs" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span class="font-body-sm text-body-sm">Editorial Logs</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="engine-settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-sm text-body-sm">Engine Settings</span></a></nav></div></div><div class="p-compact bg-surface-container-lowest border-t border-outline-variant/30"><div class="flex items-center justify-between"><div class="flex items-center gap-tight"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-status-green"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">NODE EU-CENTRAL-1</span></div><span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-tight py-base rounded">IDLE 0.08ms</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-14 bg-surface-container-low/95 backdrop-blur border-b border-outline-variant/30 z-40 flex items-center justify-between px-compact"><div class="flex items-center gap-standard"><div class="flex items-center gap-tight"><span class="font-label-md text-label-md text-on-surface font-semibold uppercase">Demagogia</span><span class="font-label-sm text-label-sm px-tight py-base bg-secondary-container text-on-secondary rounded uppercase">BACKOFFICE v2.4</span></div><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center bg-surface-container-high border border-outline-variant/40 px-compact py-tight rounded w-80 text-on-surface-variant hover:border-outline transition-colors"><span class="material-symbols-outlined text-[18px] mr-tight">search</span><span class="font-body-sm text-body-sm flex-1 text-on-surface-variant">Quick search corpus...</span><kbd class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant px-tight py-base rounded border border-outline-variant/30">⌘K</kbd></div></div><div class="flex items-center gap-standard"><div class="flex items-center gap-tight px-compact py-tight bg-surface-container rounded border border-outline-variant/30"><span class="h-2 w-2 rounded-full bg-status-green"></span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">PROD API OK</span></div><button aria-label="Notifications" class="relative p-tight rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-tight right-tight h-2 w-2 rounded-full bg-status-red"></span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-tight"><div class="flex flex-col text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-tight">E. Ibarra</span><span class="font-label-sm text-label-sm text-on-surface-variant">Editor-in-Chief / Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-background min-h-screen text-on-surface"><div class="flex flex-col w-full">
+<script>
+    // Synchronize global sidebar navigation for active state
+    (function highlightActiveNav() {
+      const target = document.querySelector('aside a[data-path="credibility-shields"]');
+      if (target) {
+        document.querySelectorAll('aside nav a').forEach(el => {
+          el.className = 'flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors';
+        });
+        target.className = 'flex items-center gap-tight px-compact py-tight rounded bg-primary-container text-on-primary font-medium border-l-2 border-primary transition-colors';
+      }
+    })();
+  </script>
+<!-- Top Action & Navigation Canvas Header -->
+<div class="p-margin-desktop bg-surface-container-lowest">
+<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-standard">
+<div class="space-y-tight max-w-3xl">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-tight font-label-sm text-label-sm text-on-surface-variant">
+<span class="hover:text-on-surface cursor-pointer transition-colors">Backoffice</span>
+<span class="material-symbols-outlined text-[12px] opacity-60">chevron_right</span>
+<span class="hover:text-on-surface cursor-pointer transition-colors">Quality &amp; Intelligence</span>
+<span class="material-symbols-outlined text-[12px] opacity-60">chevron_right</span>
+<span class="text-tertiary font-medium">Credibility Shields</span>
+</nav>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-snug">
+          Gestión de Escudos de Credibilidad &amp; Umbrales de Confianza
+        </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Monitoreo del algoritmo de reputación periodística, ponderaciones de consenso ciudadano, penalizaciones por desinformación y auditoría de blindaje anti-manipulación.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center flex-wrap gap-tight self-start pt-base">
+<button class="px-compact py-tight bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md flex items-center gap-tight transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">download</span>
+<span>Exportar Reporte CSV</span>
+</button>
+<button class="px-compact py-tight bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md flex items-center gap-tight transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">tune</span>
+<span>Calibrar Algoritmo Bayesian</span>
+</button>
+<button class="px-compact py-tight bg-tertiary hover:bg-tertiary-fixed-dim text-on-tertiary rounded font-label-md text-label-md font-semibold flex items-center gap-tight transition-all shadow-md">
+<span class="material-symbols-outlined text-[18px]">add_moderator</span>
+<span>+ Crear Regla de Blindaje</span>
+</button>
+</div>
+</div>
+</div>
+<!-- KPI Metrology Metric Band (Taiga UI Industrial Island Grid) -->
+<div class="px-margin-desktop py-compact">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="bg-surface-container-low p-compact rounded flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant flex items-center gap-tight">
+<span class="material-symbols-outlined text-[16px] text-status-green">shield</span>
+            Escudos Activos
+          </span>
+<span class="font-label-sm text-label-sm px-tight py-base bg-status-green/15 text-status-green rounded font-medium">99.4% Estabilidad</span>
+</div>
+<div class="mt-standard flex items-baseline justify-between">
+<div>
+<span class="font-label-md text-[28px] leading-none font-bold text-on-surface">84</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-tight">Medios Protegidos</span>
+</div>
+<span class="font-label-sm text-label-sm text-status-green flex items-center">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +4 este mes
+          </span>
+</div>
+<div class="mt-compact w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-status-green h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-low p-compact rounded flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant flex items-center gap-tight">
+<span class="material-symbols-outlined text-[16px] text-tertiary">analytics</span>
+            Índice de Confianza Global
+          </span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">μ=0.886</span>
+</div>
+<div class="mt-standard flex items-center justify-between">
+<div class="flex items-baseline">
+<span class="font-label-md text-[28px] leading-none font-bold text-on-surface">88.6</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-tight">/ 100</span>
+</div>
+<!-- Micro Sparkline 30-days -->
+<div class="w-24 h-7">
+<svg class="w-full h-full text-tertiary overflow-visible" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M 0,22 Q 15,18 28,24 T 55,10 T 78,14 T 100,5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.2"></path>
+<circle cx="100" cy="5" fill="currentColor" r="2.8"></circle>
+</svg>
+</div>
+</div>
+<div class="mt-compact flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Ventana 30d</span>
+<span class="text-status-green">+1.8 pts</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-low p-compact rounded flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant flex items-center gap-tight">
+<span class="material-symbols-outlined text-[16px] text-status-red">warning</span>
+            Alertas de Discrepancia
+          </span>
+<span class="px-tight py-base bg-status-red/15 text-status-red rounded font-label-sm text-label-sm font-semibold animate-pulse">CRÍTICO</span>
+</div>
+<div class="mt-standard flex items-baseline justify-between">
+<div class="flex items-baseline">
+<span class="font-label-md text-[28px] leading-none font-bold text-status-red">07</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant ml-tight">Desviaciones &gt; 25%</span>
+</div>
+<span class="material-symbols-outlined text-status-red text-[20px]">sync_problem</span>
+</div>
+<div class="mt-compact font-label-sm text-label-sm text-on-surface-variant truncate">
+          IA Heurística vs Consenso Cívico
+        </div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-low p-compact rounded flex flex-col justify-between shadow-sm hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant flex items-center gap-tight">
+<span class="material-symbols-outlined text-[16px] text-primary">rule</span>
+            Tasa Falsos Positivos
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">&lt; 2.0% Tolerable</span>
+</div>
+<div class="mt-standard flex items-baseline justify-between">
+<div class="flex items-baseline">
+<span class="font-label-md text-[28px] leading-none font-bold text-primary">1.2%</span>
+<span class="font-label-sm text-label-sm text-status-green ml-tight">Óptimo</span>
+</div>
+<span class="font-label-sm text-label-sm px-tight py-base bg-surface-container-high rounded text-on-surface">Validado n=4,120</span>
+</div>
+<div class="mt-compact w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 60%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Split Architecture: 65% Corpus Ledger / 35% Shield Modulation Deck -->
+<div class="px-margin-desktop pb-margin-desktop pt-base">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-standard items-start">
+<!-- LEFT 65% PANEL (8 Cols): McMaster-Carr dense catalog style -->
+<div class="lg:col-span-8 flex flex-col space-y-tight">
+<!-- Filter Matrix Toolbar -->
+<div class="bg-surface-container-low p-compact rounded shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-compact">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-compact top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input aria-label="Buscar medio, dominio o metadato" class="w-full bg-surface-container-lowest text-on-surface pl-9 pr-compact py-tight rounded font-body-sm text-body-sm placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-1 focus:ring-tertiary" placeholder="Filtrar por medio, dominio TLD o etiqueta..." type="text"/>
+</div>
+<div class="flex items-center gap-tight overflow-x-auto">
+<div class="relative">
+<select aria-label="Nivel de Escudo" class="appearance-none bg-surface-container px-compact py-tight pr-7 rounded font-label-sm text-label-sm text-on-surface cursor-pointer focus:outline-none focus:ring-1 focus:ring-tertiary">
+<option selected="">Todos los Niveles</option>
+<option>Nivel 4: Certificación Máxima</option>
+<option>Nivel 3: Alta Factualidad</option>
+<option>Nivel 2: Verificado</option>
+<option>Nivel 1: Básico</option>
+</select>
+<span class="material-symbols-outlined absolute right-base top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[16px]">expand_more</span>
+</div>
+<div class="relative">
+<select aria-label="Estado Operativo" class="appearance-none bg-surface-container px-compact py-tight pr-7 rounded font-label-sm text-label-sm text-on-surface cursor-pointer focus:outline-none focus:ring-1 focus:ring-tertiary">
+<option selected="">Estado: Todos</option>
+<option>Auditado</option>
+<option>En Cuarentena</option>
+<option>Pendiente Revisión</option>
+</select>
+<span class="material-symbols-outlined absolute right-base top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[16px]">expand_more</span>
+</div>
+<button aria-label="Reiniciar filtros" class="p-tight bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded transition-colors" title="Restablecer filtros">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- High-Density Source & Shield Registry Table -->
+<div class="bg-surface-container-low rounded overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider select-none">
+<th class="py-tight px-compact font-medium">Medio &amp; Dominio</th>
+<th class="py-tight px-compact font-medium">Nivel de Escudo</th>
+<th class="py-tight px-compact font-medium">Puntuación Confianza</th>
+<th class="py-tight px-compact font-medium">Divergencia (IA vs Cívico)</th>
+<th class="py-tight px-compact font-medium">Frecuencia</th>
+<th class="py-tight px-compact text-right font-medium">Acción</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 font-body-sm text-body-sm">
+<!-- Row 1: REUTERS -->
+<tr class="hover:bg-surface-container/60 transition-colors group cursor-pointer">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center font-label-sm text-label-sm font-bold text-on-surface">R</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface leading-tight">Reuters</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">reuters.com · Global</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-tight px-tight py-base rounded bg-status-green/15 text-status-green font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                      Nivel 4 Máximo
+                    </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex items-center gap-compact">
+<span class="font-label-md text-label-md font-semibold text-on-surface w-10">96.2</span>
+<div class="w-24 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-status-green h-full rounded-full" style="width: 96.2%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-status-green">
+<span class="flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                      Δ +0.8% (Consistente)
+                    </span>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-on-surface-variant">
+                    Continua / Diaria
+                  </td>
+<td class="py-tight px-compact text-right">
+<button class="px-tight py-base bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded font-label-sm text-label-sm transition-colors">
+                      Ajustar
+                    </button>
+</td>
+</tr>
+<!-- Row 2: THE GUARDIAN -->
+<tr class="hover:bg-surface-container/60 transition-colors group cursor-pointer">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center font-label-sm text-label-sm font-bold text-on-surface">G</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface leading-tight">The Guardian</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">theguardian.com · UK</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-tight px-tight py-base rounded bg-bias-left/15 text-bias-left font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                      Nivel 3 Alta Fact.
+                    </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex items-center gap-compact">
+<span class="font-label-md text-label-md font-semibold text-on-surface w-10">91.0</span>
+<div class="w-24 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-status-green h-full rounded-full" style="width: 91%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-status-green">
+<span class="flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                      Δ -1.4% (Convergente)
+                    </span>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-on-surface-variant">
+                    Diaria
+                  </td>
+<td class="py-tight px-compact text-right">
+<button class="px-tight py-base bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded font-label-sm text-label-sm transition-colors">
+                      Ajustar
+                    </button>
+</td>
+</tr>
+<!-- Row 3: EL PAÍS (ACTIVE / SELECTED ROW) -->
+<tr class="bg-primary-container/40 hover:bg-primary-container/60 transition-colors group cursor-pointer relative">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-6 h-6 rounded bg-primary text-on-primary flex items-center justify-center font-label-sm text-label-sm font-bold shadow-sm">P</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-tight">
+<span class="font-semibold text-on-surface leading-tight">El País</span>
+<span class="px-base py-0.5 rounded bg-tertiary text-on-tertiary font-label-sm text-[10px] font-bold tracking-wider uppercase">Activo</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">elpais.com · España</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-tight px-tight py-base rounded bg-bias-left/20 text-bias-center-left font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+                      Nivel 2 Verificado
+                    </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex items-center gap-compact">
+<span class="font-label-md text-label-md font-bold text-on-surface w-10">89.4</span>
+<div class="w-24 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 89.4%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-status-yellow">
+<span class="flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+                      Δ +3.2% (Tolerable)
+                    </span>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-on-surface">
+                    Diaria (06:00 UTC)
+                  </td>
+<td class="py-tight px-compact text-right">
+<button class="px-tight py-base bg-tertiary text-on-tertiary rounded font-label-sm text-label-sm font-semibold shadow-sm">
+                      Modulando
+                    </button>
+</td>
+</tr>
+<!-- Row 4: MSNBC -->
+<tr class="hover:bg-surface-container/60 transition-colors group cursor-pointer">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center font-label-sm text-label-sm font-bold text-on-surface">M</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface leading-tight">MSNBC</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">msnbc.com · EE.UU.</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-tight px-tight py-base rounded bg-status-yellow/15 text-status-yellow font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                      Nivel 1 Básico
+                    </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex items-center gap-compact">
+<span class="font-label-md text-label-md font-semibold text-on-surface w-10">68.0</span>
+<div class="w-24 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-status-yellow h-full rounded-full" style="width: 68%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-status-yellow">
+<span class="flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+                      Δ +11.4% (Sesgo Editorial)
+                    </span>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-on-surface-variant">
+                    Semanal
+                  </td>
+<td class="py-tight px-compact text-right">
+<button class="px-tight py-base bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded font-label-sm text-label-sm transition-colors">
+                      Ajustar
+                    </button>
+</td>
+</tr>
+<!-- Row 5: FOX NEWS -->
+<tr class="hover:bg-surface-container/60 transition-colors group cursor-pointer">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-6 h-6 rounded bg-surface-container-highest flex items-center justify-center font-label-sm text-label-sm font-bold text-on-surface">F</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface leading-tight">Fox News Digital</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">foxnews.com · EE.UU.</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-tight px-tight py-base rounded bg-status-yellow/15 text-status-yellow font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+                      Nivel 1 Básico
+                    </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex items-center gap-compact">
+<span class="font-label-md text-label-md font-semibold text-on-surface w-10">44.0</span>
+<div class="w-24 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-status-red h-full rounded-full" style="width: 44%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-status-red">
+<span class="flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                      Δ +21.7% (Discrepancia)
+                    </span>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-on-surface-variant">
+                    Diaria
+                  </td>
+<td class="py-tight px-compact text-right">
+<button class="px-tight py-base bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface rounded font-label-sm text-label-sm transition-colors">
+                      Ajustar
+                    </button>
+</td>
+</tr>
+<!-- Row 6: OKDIARIO -->
+<tr class="hover:bg-surface-container/60 transition-colors group cursor-pointer bg-status-red/5">
+<td class="py-tight px-compact">
+<div class="flex items-center gap-tight">
+<div class="w-6 h-6 rounded bg-status-red/20 text-status-red flex items-center justify-center font-label-sm text-label-sm font-bold">O</div>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface leading-tight">OKDiario</span>
+<span class="font-label-sm text-label-sm text-status-red">okdiario.com · Cuarentena</span>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact">
+<span class="inline-flex items-center gap-tight px-tight py-base rounded bg-status-red/20 text-status-red font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">gpp_bad</span>
+                      En Cuarentena
+                    </span>
+</td>
+<td class="py-tight px-compact">
+<div class="flex items-center gap-compact">
+<span class="font-label-md text-label-md font-bold text-status-red w-10">18.0</span>
+<div class="w-24 bg-surface-container-lowest h-2 rounded-full overflow-hidden">
+<div class="bg-status-red h-full rounded-full" style="width: 18%"></div>
+</div>
+</div>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-status-red font-semibold">
+<span class="flex items-center gap-base">
+<span class="material-symbols-outlined text-[14px]">fmd_bad</span>
+                      Δ +38.5% (Crítica)
+                    </span>
+</td>
+<td class="py-tight px-compact font-label-sm text-label-sm text-on-surface-variant">
+                    Continua (Watchdog)
+                  </td>
+<td class="py-tight px-compact text-right">
+<button class="px-tight py-base bg-error-container text-on-error-container hover:bg-error/30 rounded font-label-sm text-label-sm transition-colors">
+                      Auditoría
+                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Bottom Ledger Status Meta -->
+<div class="bg-surface-container-lowest p-compact flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm border-t border-outline-variant/10">
+<div class="flex items-center gap-standard">
+<span>Registros analizados: <strong class="text-on-surface">6 de 84 medios</strong></span>
+<span class="hidden sm:inline">Ventana de refresco Bayesiano: 120s</span>
+</div>
+<div class="flex items-center gap-tight">
+<button class="p-tight rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<span class="px-tight text-on-surface">Página 1 / 14</span>
+<button class="p-tight rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Newsroom Integrity Live Context Notice -->
+<div class="p-compact bg-surface-container-low rounded shadow-sm flex items-center justify-between gap-standard">
+<div class="flex items-center gap-compact">
+<span class="material-symbols-outlined text-primary text-[22px]">policy</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Criterio Editorial Activo: Algoritmo Demagogia v2.4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">La recalibración automática pondera 40% veredicto cívico validado y 60% trazas heurísticas de fact-checking.</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container px-compact py-tight rounded uppercase font-mono">CONSENSO ACTIVO</span>
+</div>
+</div>
+<!-- RIGHT 35% PANEL (4 Cols): Ficha Técnica de Escudo & Moduladores -->
+<div class="lg:col-span-4 flex flex-col space-y-standard">
+<div class="bg-surface-container-low rounded p-compact shadow-sm space-y-standard">
+<!-- Shield Spec Header -->
+<div class="pb-compact border-b border-outline-variant/20 flex flex-col gap-tight">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider font-semibold">Parámetros del Escudo</span>
+<span class="inline-flex items-center gap-tight px-tight py-base rounded bg-status-green/15 text-status-green font-label-sm text-label-sm font-semibold">
+<span class="h-1.5 w-1.5 rounded-full bg-status-green"></span>
+                Blindaje Activo
+              </span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">El País</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Certificación Grado II · ID: SHIELD-ES-0042</p>
+</div>
+</div>
+<!-- Section: Ponderaciones de Factores -->
+<div class="space-y-compact">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold">Desglose de Factores Ponderados</span>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">Σ = 100%</span>
+</div>
+<!-- Factor 1 -->
+<div class="bg-surface-container p-compact rounded space-y-base">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Rigor en Citas Primarias</span>
+<span class="font-label-sm text-label-sm text-status-green font-bold">94%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-status-green h-full rounded-full" style="width: 94%"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-base">
+<span>Ponderación Algorítmica</span>
+<span class="text-tertiary font-mono font-medium">Peso: 35%</span>
+</div>
+<input aria-label="Slider de peso para Rigor en Citas Primarias" class="w-full accent-tertiary h-1 bg-surface-container-lowest rounded-lg cursor-pointer" max="50" min="10" type="range" value="35"/>
+</div>
+<!-- Factor 2 -->
+<div class="bg-surface-container p-compact rounded space-y-base">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Transparencia y Fe de Errores</span>
+<span class="font-label-sm text-label-sm text-status-green font-bold">91%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-status-green h-full rounded-full" style="width: 91%"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-base">
+<span>Ponderación Algorítmica</span>
+<span class="text-tertiary font-mono font-medium">Peso: 25%</span>
+</div>
+<input aria-label="Slider de peso para Transparencia y Fe de Errores" class="w-full accent-tertiary h-1 bg-surface-container-lowest rounded-lg cursor-pointer" max="50" min="10" type="range" value="25"/>
+</div>
+<!-- Factor 3 -->
+<div class="bg-surface-container p-compact rounded space-y-base">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Equilibrio Titular / Contenido (Clickbait)</span>
+<span class="font-label-sm text-label-sm text-status-yellow font-bold">78%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-status-yellow h-full rounded-full" style="width: 78%"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-base">
+<span>Ponderación Algorítmica</span>
+<span class="text-tertiary font-mono font-medium">Peso: 20%</span>
+</div>
+<input aria-label="Slider de peso para Equilibrio Titular / Contenido" class="w-full accent-tertiary h-1 bg-surface-container-lowest rounded-lg cursor-pointer" max="50" min="10" type="range" value="20"/>
+</div>
+<!-- Factor 4 -->
+<div class="bg-surface-container p-compact rounded space-y-base">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Detección de Falacias por Comunidad</span>
+<span class="font-label-sm text-label-sm text-status-green font-bold">88%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-status-green h-full rounded-full" style="width: 88%"></div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-base">
+<span>Ponderación Algorítmica</span>
+<span class="text-tertiary font-mono font-medium">Peso: 20%</span>
+</div>
+<input aria-label="Slider de peso para Detección de Falacias" class="w-full accent-tertiary h-1 bg-surface-container-lowest rounded-lg cursor-pointer" max="50" min="10" type="range" value="20"/>
+</div>
+</div>
+<!-- Section: Modulador de Sensibilidad de Penalización -->
+<div class="pt-compact border-t border-outline-variant/20 space-y-compact">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface font-semibold block">Blindaje Anti-Manipulación</span>
+<!-- Anti-Brigading Toggle Island -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-start justify-between gap-compact">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Escudo Anti-Brigadas (Astroturfing)</span>
+<span class="font-label-sm text-label-sm text-status-green font-medium">PROTECCIÓN AUTOMÁTICA ACTIVA</span>
+</div>
+<!-- Custom CSS Switch -->
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-10 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-on-tertiary-fixed after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-relaxed">
+                Neutraliza votos masivos coordinados o brigadas de descrédito repentinas mediante muestreo de reputación Bayesiana.
+              </p>
+</div>
+<!-- Umbral de Disparo -->
+<div class="bg-surface-container-lowest p-compact rounded space-y-base">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-[16px] text-tertiary">bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold uppercase">Umbral de Disparo Instantáneo</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+                Desviación instantánea <code class="text-tertiary font-mono bg-surface-container-high px-base py-0.5 rounded">&gt; 3.5σ</code> en menos de <strong class="text-on-surface">2 horas</strong> activa cuarentena automática y auditoría pericial humana.
+              </p>
+</div>
+</div>
+<!-- Bottom Action Suite -->
+<div class="pt-compact border-t border-outline-variant/20 flex flex-col gap-tight">
+<button class="w-full py-compact bg-tertiary hover:bg-tertiary-fixed-dim text-on-tertiary rounded font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-tight shadow-md">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Guardar Parámetros de Escudo</span>
+</button>
+<button class="w-full py-tight bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md transition-colors flex items-center justify-center gap-tight">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">cloud_upload</span>
+<span>Re-evaluar con Corpus Histórico</span>
+</button>
+</div>
+</div>
+<!-- Trust Metric Mini-Card -->
+<div class="bg-surface-container-low p-compact rounded shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-compact">
+<span class="material-symbols-outlined text-[20px] text-tertiary">verified</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Firma Criptográfica</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SHA256: e8b9...f4a1</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-status-green font-mono">SEAL_OK</span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

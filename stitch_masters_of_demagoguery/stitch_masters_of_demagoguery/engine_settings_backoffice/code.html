@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#3b4859","inverse-surface":"#e7e2da","error":"#ffb4ab","surface":"#14130f","bias-center":"#95A5A6","surface-bright":"#3b3934","on-primary-fixed":"#0f1c2c","on-tertiary-fixed":"#261a00","background":"#14130f","on-primary-container":"#828fa3","surface-container-low":"#1d1c17","on-primary":"#243142","bias-populist":"#8E44AD","on-tertiary-container":"#b18825","on-tertiary":"#402d00","surface-container-highest":"#36352f","on-error-container":"#ffdad6","tertiary-fixed-dim":"#eec058","outline":"#8e9196","tertiary-container":"#342500","inverse-on-surface":"#32302b","on-tertiary-fixed-variant":"#5b4300","tertiary-fixed":"#ffdf9f","status-red":"#C0392B","on-surface":"#e7e2da","on-secondary":"#213144","bias-left":"#3498DB","bias-right":"#E74C3C","surface-container-lowest":"#0f0e0a","surface-dim":"#14130f","secondary":"#b7c8e0","surface-variant":"#36352f","primary-fixed":"#d6e3f9","on-background":"#e7e2da","status-green":"#27AE60","inverse-primary":"#525f71","surface-container":"#21201b","error-container":"#93000a","on-error":"#690005","on-secondary-fixed-variant":"#38485c","status-yellow":"#F39C12","on-surface-variant":"#c4c6cc","primary-container":"#1b2838","primary":"#bac7dd","surface-tint":"#bac7dd","tertiary":"#eec058","bias-center-left":"#85C1E9","secondary-fixed":"#d3e4fd","surface-container-high":"#2b2a25","secondary-fixed-dim":"#b7c8e0","primary-fixed-dim":"#bac7dd","secondary-container":"#38485c","on-secondary-fixed":"#0b1c2e","outline-variant":"#44474c","on-secondary-container":"#a6b6ce","bias-center-right":"#E8A0A0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"24px","base":"4px","tight":"8px","standard":"16px","compact":"12px","gutter":"12px","margin-mobile":"16px"},"fontFamily":{"label-sm":["JetBrains Mono"],"headline-lg-mobile":["Playfair Display"],"headline-lg":["Playfair Display"],"headline-md":["Playfair Display"],"label-md":["JetBrains Mono"],"headline-xl":["Playfair Display"],"body-md":["Inter"],"body-sm":["Inter"],"body-lg":["Inter"]},"fontSize":{"label-sm":["11px",{"lineHeight":"1","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"1","letterSpacing":"0.05em","fontWeight":"500"}],"headline-xl":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.4","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-sm text-body-sm text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-compact flex items-center gap-tight border-b border-outline-variant/30 bg-surface-container-lowest"><span class="material-symbols-outlined text-primary text-[20px]">hub</span><div class="flex flex-col"><span class="font-label-md text-label-md tracking-wider text-on-surface uppercase">Demagogia</span><span class="font-label-sm text-label-sm text-tertiary uppercase">Prensa Lab v2.4</span></div></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Editorial Workstation</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="article-desk" href="#"><span class="material-symbols-outlined text-[18px]">edit_note</span><span class="font-body-sm text-body-sm">Article Desk</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="bias-spectrum-matrix" href="#"><span class="material-symbols-outlined text-[18px]">compare_arrows</span><span class="font-body-sm text-body-sm">Bias Spectrum Matrix</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="fact-checking-queue" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span class="font-body-sm text-body-sm">Fact-Checking Queue</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="media-sources-ledger" href="#"><span class="material-symbols-outlined text-[18px]">database</span><span class="font-body-sm text-body-sm">Media Sources Ledger</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="taxonomy-tags" href="#"><span class="material-symbols-outlined text-[18px]">label</span><span class="font-body-sm text-body-sm">Taxonomy &amp; Tags</span></a></nav></div><div class="py-compact"><div class="px-compact py-tight flex items-center gap-tight"><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Quality &amp; Intelligence</span><span class="h-px flex-1 bg-outline-variant/30"></span></div><nav class="flex flex-col space-y-base px-tight" data-active-classes="bg-primary-container text-on-primary font-medium border-l-2 border-primary"><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="credibility-shields" href="#"><span class="material-symbols-outlined text-[18px]">shield</span><span class="font-body-sm text-body-sm">Credibility Shields</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="editorial-logs" href="#"><span class="material-symbols-outlined text-[18px]">history</span><span class="font-body-sm text-body-sm">Editorial Logs</span></a><a class="flex items-center gap-tight px-compact py-tight rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="engine-settings" href="#"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-sm text-body-sm">Engine Settings</span></a></nav></div></div><div class="p-compact bg-surface-container-lowest border-t border-outline-variant/30"><div class="flex items-center justify-between"><div class="flex items-center gap-tight"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-status-green"></span></span><span class="font-label-sm text-label-sm text-on-surface-variant">NODE EU-CENTRAL-1</span></div><span class="font-label-sm text-label-sm text-tertiary bg-surface-container-high px-tight py-base rounded">IDLE 0.08ms</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-14 bg-surface-container-low/95 backdrop-blur border-b border-outline-variant/30 z-40 flex items-center justify-between px-compact"><div class="flex items-center gap-standard"><div class="flex items-center gap-tight"><span class="font-label-md text-label-md text-on-surface font-semibold uppercase">Demagogia</span><span class="font-label-sm text-label-sm px-tight py-base bg-secondary-container text-on-secondary rounded uppercase">BACKOFFICE v2.4</span></div><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center bg-surface-container-high border border-outline-variant/40 px-compact py-tight rounded w-80 text-on-surface-variant hover:border-outline transition-colors"><span class="material-symbols-outlined text-[18px] mr-tight">search</span><span class="font-body-sm text-body-sm flex-1 text-on-surface-variant">Quick search corpus...</span><kbd class="font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant px-tight py-base rounded border border-outline-variant/30">⌘K</kbd></div></div><div class="flex items-center gap-standard"><div class="flex items-center gap-tight px-compact py-tight bg-surface-container rounded border border-outline-variant/30"><span class="h-2 w-2 rounded-full bg-status-green"></span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase">PROD API OK</span></div><button aria-label="Notifications" class="relative p-tight rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-tight right-tight h-2 w-2 rounded-full bg-status-red"></span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-tight"><div class="flex flex-col text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-tight">E. Ibarra</span><span class="font-label-sm text-label-sm text-on-surface-variant">Editor-in-Chief / Admin</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-14 bg-background min-h-screen text-on-surface"><div class="flex flex-col w-full">
+<!-- Active state injection for global sidebar item: Engine Settings -->
+<script>
+    (function highlightActiveNav() {
+      const activeItem = document.querySelector('aside a[data-path="engine-settings"]');
+      if (activeItem) {
+        activeItem.classList.remove('text-on-surface-variant', 'hover:bg-surface-container');
+        activeItem.classList.add('bg-primary-container', 'text-on-primary', 'font-medium', 'border-l-2', 'border-primary');
+      }
+    })();
+  </script>
+<!-- Page Main Container -->
+<div class="p-margin-desktop space-y-standard">
+<!-- Top Bar: Breadcrumb, Headings & Action CTAs -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-standard">
+<div class="space-y-tight max-w-4xl">
+<!-- Breadcrumb & Monospace Tracking -->
+<div class="flex items-center gap-tight">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Backoffice</span>
+<span class="text-outline-variant text-[12px]">/</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Quality &amp; Intelligence</span>
+<span class="text-outline-variant text-[12px]">/</span>
+<span class="font-label-sm text-label-sm uppercase text-tertiary">Engine Settings</span>
+<span class="ml-compact px-tight py-base bg-surface-container-high rounded text-on-secondary font-label-sm text-label-sm">PID: #9042-ALGO</span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Configuración del Motor Algorítmico &amp; Gamificación
+        </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Calibración de pesos del sistema ELO v3, umbrales de convergencia del modelo NLP heurístico (BERT), tasas de refresco de scraping y cuotas de energía.
+        </p>
+</div>
+<!-- Action Buttons (Taiga Enterprise Stance) -->
+<div class="flex items-center gap-compact shrink-0">
+<button class="px-compact py-tight rounded bg-surface-container-high hover:bg-surface-variant text-on-surface transition-all flex items-center gap-tight shadow-sm active:translate-y-px" id="btnResetDefaults">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">restart_alt</span>
+<span class="font-label-md text-label-md">Restaurar Defaults</span>
+</button>
+<button class="px-standard py-tight rounded bg-tertiary hover:bg-tertiary-fixed-dim text-on-tertiary font-label-md text-label-md flex items-center gap-tight shadow-md transition-all active:scale-[0.98]" id="btnDeployHotReload">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Guardar y Desplegar (Hot-Reload)</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Status Ribbon -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-low p-compact rounded flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-status-green text-[20px]">verified</span>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Estado del Motor</div>
+<div class="font-label-md text-label-md text-status-green font-semibold">ÓPTIMO (EU-Central-1)</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-tight py-base rounded">LIVE</span>
+</div>
+<div class="bg-surface-container-low p-compact rounded flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-tertiary text-[20px]">speed</span>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tiempo Inferencia Medio</div>
+<div class="font-label-md text-label-md text-on-surface font-semibold" id="inferenceMetric">0.082 ms</div>
+</div>
+</div>
+<div class="w-12 h-6 flex items-end gap-base">
+<span class="w-1.5 h-3 bg-tertiary/40 rounded-full"></span>
+<span class="w-1.5 h-5 bg-tertiary/70 rounded-full"></span>
+<span class="w-1.5 h-2 bg-tertiary/30 rounded-full"></span>
+<span class="w-1.5 h-4 bg-tertiary rounded-full"></span>
+</div>
+</div>
+<div class="bg-surface-container-low p-compact rounded flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-primary text-[20px]">terminal</span>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Versión Algoritmo</div>
+<div class="font-label-md text-label-md text-primary font-semibold">v2.4.9-RELEASE</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">check</span>
+</div>
+<div class="bg-surface-container-low p-compact rounded flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-secondary text-[20px]">sync</span>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase">Última Sincronización</div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Hace 42 segundos</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-status-green animate-pulse"></span>
+</div>
+</div>
+<!-- Modular Grid: Taiga Island Layout Architecture -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-standard">
+<!-- CARD 1: Parámetros del Motor ELO y Puntuación -->
+<section class="bg-surface-container-low rounded-lg p-compact space-y-compact flex flex-col justify-between shadow-sm">
+<div>
+<!-- Card Header -->
+<div class="flex items-start justify-between pb-compact">
+<div class="flex items-center gap-tight">
+<span class="p-tight rounded bg-primary-container text-on-primary">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight">Motor ELO y Puntuación</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Cálculo de habilidad, rachas y calibración competitiva</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-surface-container px-tight py-base rounded">ELO-v3.1</span>
+</div>
+<!-- Fields Container -->
+<div class="space-y-compact pt-base">
+<!-- Stepper 1: Constante K-Factor -->
+<div class="bg-surface-container p-compact rounded flex items-center justify-between">
+<div class="space-y-base pr-compact">
+<div class="flex items-center gap-tight">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Constante K-Factor (Sensibilidad)</span>
+<span class="font-label-sm text-label-sm text-outline px-base py-base rounded bg-surface-container-high">std: 32</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant leading-tight">
+                  Determina la magnitud de variación de puntos ELO tras cada resolución editorial individual.
+                </p>
+</div>
+<div class="flex items-center gap-tight shrink-0 bg-surface-container-high rounded p-base">
+<button class="w-7 h-7 rounded flex items-center justify-center bg-surface-container hover:bg-surface-bright text-on-surface transition-colors" onclick="adjustValue('eloKFactor', -2, 10, 64)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<input class="w-10 text-center font-label-md text-label-md text-tertiary bg-transparent focus:outline-none" id="eloKFactor" readonly="" type="text" value="32"/>
+<button class="w-7 h-7 rounded flex items-center justify-center bg-surface-container hover:bg-surface-bright text-on-surface transition-colors" onclick="adjustValue('eloKFactor', 2, 10, 64)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- Slider: Win Streak Multiplier -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Multiplicador de Racha (Win Streak)</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Factor acumulativo a partir de 3 aciertos seguidos en verificación de sesgo.</p>
+</div>
+<span class="font-label-md text-label-md px-compact py-base rounded bg-surface-container-high text-tertiary font-semibold" id="streakValueDisplay">1.5x</span>
+</div>
+<div class="pt-base flex items-center gap-compact">
+<span class="font-label-sm text-label-sm text-on-surface-variant">1.0x</span>
+<input class="w-full accent-tertiary cursor-pointer" id="streakSlider" max="2.5" min="1.0" oninput="document.getElementById('streakValueDisplay').innerText = parseFloat(this.value).toFixed(1) + 'x'" step="0.1" type="range" value="1.5"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2.5x</span>
+</div>
+</div>
+<!-- Numerical Inputs Grid: Penalización & Bonificación -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Penalización -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Penalización Falso Positivo</span>
+<span class="material-symbols-outlined text-[16px] text-status-red">trending_down</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-high rounded p-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pts deducidos</span>
+<div class="flex items-center gap-tight">
+<span class="font-label-md text-label-md text-status-red font-semibold">-</span>
+<input class="w-14 bg-surface-container-lowest text-right font-label-md text-label-md text-status-red rounded px-tight py-base focus:outline-none" id="inputFalsePositive" type="number" value="10"/>
+</div>
+</div>
+</div>
+<!-- Bonificación Base -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Bonificación Acierto Exacto</span>
+<span class="material-symbols-outlined text-[16px] text-status-green">verified</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-high rounded p-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pts base</span>
+<div class="flex items-center gap-tight">
+<span class="font-label-md text-label-md text-status-green font-semibold">+</span>
+<input class="w-14 bg-surface-container-lowest text-right font-label-md text-label-md text-status-green rounded px-tight py-base focus:outline-none" id="inputBaseAccuracy" type="number" value="15"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Toggle: Adaptive ELO -->
+<div class="bg-surface-container p-compact rounded flex items-center justify-between">
+<div class="space-y-base">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Ajuste Dinámico de Dificultad (Adaptive ELO)</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Regula la dificultad de las noticias evaluadas en base al ratio de acierto global del enjambre.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" id="toggleAdaptiveElo" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-status-green"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Metric Footer Sparkline -->
+<div class="pt-compact flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Distribución Gaussiana ELO en el servidor:</span>
+<div class="flex items-center gap-base">
+<span class="font-label-sm text-label-sm text-tertiary">μ: 1420</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-secondary">σ: 184</span>
+</div>
+</div>
+</section>
+<!-- CARD 2: Motor de Inferencia NLP Heurístico -->
+<section class="bg-surface-container-low rounded-lg p-compact space-y-compact flex flex-col justify-between shadow-sm">
+<div>
+<!-- Card Header -->
+<div class="flex items-start justify-between pb-compact">
+<div class="flex items-center gap-tight">
+<span class="p-tight rounded bg-secondary-container text-on-secondary">
+<span class="material-symbols-outlined text-[20px]">neurology</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight">Inferencia NLP Heurístico</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">BERT Pipeline &amp; LLM Fallacy Tagger</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-status-green bg-surface-container px-tight py-base rounded">F1: 0.998</span>
+</div>
+<!-- Fields Container -->
+<div class="space-y-compact pt-base">
+<!-- Dropdown / Model Selector -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<label class="font-body-sm text-body-sm font-medium text-on-surface" for="nlpModelSelect">Modelo de Detección Heurística Activo</label>
+<span class="font-label-sm text-label-sm text-tertiary">PyTorch TensorRT</span>
+</div>
+<div class="relative">
+<select class="w-full bg-surface-container-high text-on-surface font-label-md text-label-md rounded px-compact py-tight appearance-none pr-8 cursor-pointer focus:outline-none" id="nlpModelSelect">
+<option selected="" value="bert-multi-v4.2">bert-multilingual-editorial-v4.2 (99.8% precision / 120ms)</option>
+<option value="roberta-fallacy-v2">roberta-spanish-fallacy-detector-large (98.4% precision / 210ms)</option>
+<option value="deberta-v3-fast">deberta-v3-editorial-bias-quantized (97.9% precision / 45ms)</option>
+</select>
+<span class="material-symbols-outlined absolute right-compact top-2.5 text-[18px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Slider: Confianza Mínima -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Umbral de Confianza Mínima (Sugerencias DOM)</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Filtra falacias que requieran verificación manual editorial si no superan la certeza.</p>
+</div>
+<span class="font-label-md text-label-md px-compact py-base rounded bg-surface-container-high text-primary font-semibold" id="nlpThresholdDisplay">75%</span>
+</div>
+<div class="pt-base flex items-center gap-compact">
+<span class="font-label-sm text-label-sm text-on-surface-variant">50%</span>
+<input class="w-full accent-primary cursor-pointer" id="nlpThresholdSlider" max="95" min="50" oninput="document.getElementById('nlpThresholdDisplay').innerText = this.value + '%'" step="1" type="range" value="75"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">95%</span>
+</div>
+</div>
+<!-- Double Input: Peso Histórico & Temperatura -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Slider: Contexto Histórico -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Peso Contexto Medio</span>
+<span class="font-label-md text-label-md text-tertiary" id="historyWeightDisplay">40%</span>
+</div>
+<input class="w-full accent-tertiary cursor-pointer" max="100" min="0" oninput="document.getElementById('historyWeightDisplay').innerText = this.value + '%'" step="5" type="range" value="40"/>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Afectación de la trayectoria del medio en la sospecha de sesgo.</p>
+</div>
+<!-- Input: Temperatura de Citas -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Temperatura Citas</span>
+<span class="font-label-sm text-label-sm text-status-green">Low Hallucination</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-high rounded p-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sampling Temp:</span>
+<input class="w-16 bg-surface-container-lowest text-right font-label-md text-label-md text-on-surface rounded px-tight py-base focus:outline-none" id="nlpTemperature" max="1.0" min="0.0" step="0.05" type="number" value="0.2"/>
+</div>
+</div>
+</div>
+<!-- Toggle: Auto-etiquetado preliminar -->
+<div class="bg-surface-container p-compact rounded flex items-center justify-between">
+<div class="space-y-base">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Auto-etiquetado preliminar en Fact-Checking Queue</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pre-rellena argumentos y falacias inferidas para validación por redactores humanos.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" id="toggleAutoTag" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-status-green"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Model Memory Status Indicator -->
+<div class="pt-compact flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">VRAM Utilizada (NVIDIA A100 Tensor Core):</span>
+<div class="flex items-center gap-tight">
+<span class="font-label-sm text-label-sm text-primary">3.2 GB / 40 GB</span>
+<span class="w-2 h-2 rounded-full bg-status-green"></span>
+</div>
+</div>
+</section>
+<!-- CARD 3: Gobernanza de Sesgo y Consenso Bayesiano -->
+<section class="bg-surface-container-low rounded-lg p-compact space-y-compact flex flex-col justify-between shadow-sm">
+<div>
+<!-- Card Header -->
+<div class="flex items-start justify-between pb-compact">
+<div class="flex items-center gap-tight">
+<span class="p-tight rounded bg-tertiary-container text-on-tertiary">
+<span class="material-symbols-outlined text-[20px]">balance</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight">Gobernanza de Sesgo &amp; Consenso Bayesiano</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Ponderación matemática multitud vs staff editorial</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-tight py-base rounded">B-CONV-v2</span>
+</div>
+<!-- Fields Container -->
+<div class="space-y-compact pt-base">
+<!-- Inputs: Margen Sigma & Mínimo Evaluaciones -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Tolerancia Sigma -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Tolerancia Consenso (σ)</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">function</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-high rounded p-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Varianza máxima:</span>
+<input class="w-16 bg-surface-container-lowest text-right font-label-md text-label-md text-tertiary rounded px-tight py-base focus:outline-none" id="sigmaMargin" max="0.25" min="0.01" step="0.01" type="number" value="0.05"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Umbral de desviación estándar para dar por válido un consenso de sesgo.</p>
+</div>
+<!-- Mínimo Evaluaciones -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Mínimo Evaluaciones</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">groups</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-high rounded p-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Quórum requerido:</span>
+<div class="flex items-center gap-tight">
+<input class="w-16 bg-surface-container-lowest text-right font-label-md text-label-md text-on-surface rounded px-tight py-base focus:outline-none" id="minReviews" max="500" min="10" step="5" type="number" value="50"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant">votos</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Votos necesarios antes de alterar la coordenada en la Matriz de Sesgo.</p>
+</div>
+</div>
+<!-- Dynamic Interactive Balance: Editorial vs Comunidad -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Ponderación: Editorial vs. Consenso Ciudadano</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Distribución del peso algorítmico en la calificación final de la pieza periodística.</p>
+</div>
+<div class="flex items-center gap-tight font-label-md text-label-md">
+<span class="text-primary font-semibold" id="editorialRatioDisplay">60% Editorial</span>
+<span class="text-outline-variant">/</span>
+<span class="text-tertiary font-semibold" id="communityRatioDisplay">40% Multitud</span>
+</div>
+</div>
+<!-- Visual Dual Slider -->
+<div class="space-y-base pt-tight">
+<input class="w-full accent-primary cursor-pointer" id="consensusSlider" max="90" min="10" oninput="updateConsensusBalance(this.value)" step="5" type="range" value="60"/>
+<div class="h-2 w-full flex rounded-full overflow-hidden">
+<div class="bg-primary transition-all" id="editorialBarFill" style="width: 60%"></div>
+<div class="bg-tertiary transition-all" id="communityBarFill" style="width: 40%"></div>
+</div>
+</div>
+</div>
+<!-- Toggle: Anti-Polarization -->
+<div class="bg-surface-container p-compact rounded flex items-center justify-between">
+<div class="space-y-base">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Modo Anti-Polarización (Detección de Sesgo en Enjambre)</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Mitiga ataques coordinados (brigading) desactivando temporalmente votos de anomalías de red.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input checked="" class="sr-only peer" id="toggleAntiPolarization" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-status-green"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Bayes Convergence Footer -->
+<div class="pt-compact flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tasa de estabilidad de la matriz:</span>
+<span class="font-label-sm text-label-sm text-status-green font-semibold">99.14% Convergencia Bayesiana</span>
+</div>
+</section>
+<!-- CARD 4: Límites del Sistema, Cuotas y Energía -->
+<section class="bg-surface-container-low rounded-lg p-compact space-y-compact flex flex-col justify-between shadow-sm">
+<div>
+<!-- Card Header -->
+<div class="flex items-start justify-between pb-compact">
+<div class="flex items-center gap-tight">
+<span class="p-tight rounded bg-primary-container text-on-primary">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</span>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight">Límites, Cuotas y Energía</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Gestión de recursos de scraping y límites de gamificación</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-tight py-base rounded">QOS-ACTIVE</span>
+</div>
+<!-- Fields Container -->
+<div class="space-y-compact pt-base">
+<!-- Stepper: Intentos Diarios No-Premium -->
+<div class="bg-surface-container p-compact rounded flex items-center justify-between">
+<div class="space-y-base pr-compact">
+<div class="flex items-center gap-tight">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Intentos Diarios (Usuarios Estándar)</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary">lock</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Límite de artículos interactivos evaluables sin suscripción activa.</p>
+</div>
+<div class="flex items-center gap-tight shrink-0 bg-surface-container-high rounded p-base">
+<button class="w-7 h-7 rounded flex items-center justify-center bg-surface-container hover:bg-surface-bright text-on-surface transition-colors" onclick="adjustValue('dailyAttempts', -1, 1, 20)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<input class="w-10 text-center font-label-md text-label-md text-on-surface bg-transparent focus:outline-none" id="dailyAttempts" readonly="" type="text" value="5"/>
+<button class="w-7 h-7 rounded flex items-center justify-center bg-surface-container hover:bg-surface-bright text-on-surface transition-colors" onclick="adjustValue('dailyAttempts', 1, 1, 20)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- Stepper: Tiempo de Recarga Energía -->
+<div class="bg-surface-container p-compact rounded flex items-center justify-between">
+<div class="space-y-base pr-compact">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Recarga de Energía (1 Unidad)</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Minutos de espera necesarios para regenerar una vida de escaneo.</p>
+</div>
+<div class="flex items-center gap-tight shrink-0 bg-surface-container-high rounded p-base">
+<button class="w-7 h-7 rounded flex items-center justify-center bg-surface-container hover:bg-surface-bright text-on-surface transition-colors" onclick="adjustValue('energyRechargeMinutes', -15, 30, 360)" type="button">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<div class="flex items-center">
+<input class="w-12 text-center font-label-md text-label-md text-tertiary bg-transparent focus:outline-none" id="energyRechargeMinutes" readonly="" type="text" value="180"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant pr-tight">min</span>
+</div>
+<button class="w-7 h-7 rounded flex items-center justify-center bg-surface-container hover:bg-surface-bright text-on-surface transition-colors" onclick="adjustValue('energyRechargeMinutes', 15, 30, 360)" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+<!-- Concurrencia PvP & Cron Crawler -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Concurrencia PvP -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Máx Concurrencia PvP</span>
+<span class="material-symbols-outlined text-[16px] text-primary">swords</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-high rounded p-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Salas en vivo:</span>
+<input class="w-16 bg-surface-container-lowest text-right font-label-md text-label-md text-primary rounded px-tight py-base focus:outline-none" id="maxPvpRooms" max="2500" min="100" step="50" type="number" value="500"/>
+</div>
+</div>
+<!-- Cron Scraping Crawler -->
+<div class="bg-surface-container p-compact rounded space-y-tight">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface">Barrido Crawler Prensa</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">schedule</span>
+</div>
+<div class="relative">
+<select class="w-full bg-surface-container-high text-on-surface font-label-md text-label-md rounded px-compact py-tight appearance-none pr-8 cursor-pointer focus:outline-none" id="cronCrawlerSelect">
+<option value="5">Cada 5 minutos (High load)</option>
+<option selected="" value="15">Cada 15 minutos (Normal)</option>
+<option value="30">Cada 30 minutos (Eco)</option>
+<option value="60">Cada 60 minutos (Bajo demanda)</option>
+</select>
+<span class="material-symbols-outlined absolute right-compact top-2 text-[16px] text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Toggle: Modo Mantenimiento Feed -->
+<div class="bg-surface-container p-compact rounded flex items-center justify-between">
+<div class="space-y-base">
+<div class="flex items-center gap-tight">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Modo Mantenimiento del Feed</span>
+<span class="font-label-sm text-label-sm px-tight py-base bg-surface-container-high text-on-surface-variant rounded">KILLSWITCH</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pausa la ingesta entrante y bloquea la cola de nuevos artículos al instante.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer select-none">
+<input class="sr-only peer" id="toggleMaintenance" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-status-red"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Cluster Worker Status Footer -->
+<div class="pt-compact flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pool de Crawlers Activos (Headless Chromium):</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">16 / 16 Workers Operativos</span>
+</div>
+</section>
+</div>
+<!-- Live Diagnostics & Terminal Logs Banner -->
+<div class="bg-surface-container-low rounded-lg p-compact space-y-tight shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-tight">
+<span class="material-symbols-outlined text-[18px] text-tertiary">analytics</span>
+<span class="font-label-md text-label-md text-on-surface uppercase">Live Runtime Diagnostics &amp; Ingestion Stream</span>
+</div>
+<div class="flex items-center gap-tight">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Canal:</span>
+<span class="font-label-sm text-label-sm text-secondary bg-surface-container px-tight py-base rounded">wss://engine.demagogia.internal:8090/telemetry</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded p-compact font-label-sm text-label-sm space-y-base overflow-x-auto text-on-surface-variant">
+<div class="flex items-center gap-standard">
+<span class="text-outline">[14:02:19.421]</span>
+<span class="text-status-green font-semibold">INFO</span>
+<span>Modelo [bert-multilingual-editorial-v4.2] completó inferencia en batch #8812 (12 oraciones) en 0.079ms.</span>
+</div>
+<div class="flex items-center gap-standard">
+<span class="text-outline">[14:02:24.019]</span>
+<span class="text-primary font-semibold">BAYES</span>
+<span>Actualización de consenso en matriz para artículo #ART-803: Varianza actual σ=0.042 (&lt; 0.05). Convergencia lograda.</span>
+</div>
+<div class="flex items-center gap-standard">
+<span class="text-outline">[14:02:40.892]</span>
+<span class="text-tertiary font-semibold">CRON</span>
+<span>Crawler despachado con éxito sobre 14 feeds RSS verificados. 6 nuevas piezas agregadas a la cola de análisis.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Modal Container (Taiga UI style toast on hot-reload) -->
+<div class="fixed bottom-6 right-6 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none z-50" id="toastNotification">
+<div class="bg-surface-container-high rounded-lg p-compact flex items-center gap-compact shadow-xl min-w-[320px]">
+<div class="w-8 h-8 rounded-full bg-status-green/20 text-status-green flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+<div class="flex-1">
+<div class="font-body-sm text-body-sm font-semibold text-on-surface">Hot-Reload Desplegado</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant" id="toastMessage">Pesos y parámetros sincronizados con 12 nodos de inferencia.</div>
+</div>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    // Stepper logic helper
+    function adjustValue(elementId, delta, min, max) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      let currentVal = parseInt(el.value, 10);
+      if (isNaN(currentVal)) currentVal = 0;
+      let newVal = currentVal + delta;
+      if (newVal < min) newVal = min;
+      if (newVal > max) newVal = max;
+      el.value = newVal;
+    }
+
+    // Interactive Consensus Slider
+    function updateConsensusBalance(val) {
+      const editorialVal = parseInt(val, 10);
+      const communityVal = 100 - editorialVal;
+      
+      document.getElementById('editorialRatioDisplay').innerText = editorialVal + '% Editorial';
+      document.getElementById('communityRatioDisplay').innerText = communityVal + '% Multitud';
+      
+      document.getElementById('editorialBarFill').style.width = editorialVal + '%';
+      document.getElementById('communityBarFill').style.width = communityVal + '%';
+    }
+
+    // Deploy Hot-Reload Trigger & Toast Notification
+    const deployBtn = document.getElementById('btnDeployHotReload');
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+
+    if (deployBtn && toast) {
+      deployBtn.addEventListener('click', () => {
+        // Visual button feedback
+        const originalContent = deployBtn.innerHTML;
+        deployBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span><span>Sincronizando Nodos...</span>';
+        deployBtn.disabled = true;
+
+        setTimeout(() => {
+          deployBtn.innerHTML = originalContent;
+          deployBtn.disabled = false;
+
+          // Show Toast
+          toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+          toast.classList.add('translate-y-0', 'opacity-100');
+
+          setTimeout(() => {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+          }, 4000);
+        }, 750);
+      });
+    }
+
+    // Reset Defaults Action
+    const resetBtn = document.getElementById('btnResetDefaults');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        if (confirm('¿Restablecer todos los parámetros del motor a sus valores originales de fábrica?')) {
+          document.getElementById('eloKFactor').value = '32';
+          document.getElementById('streakSlider').value = '1.5';
+          document.getElementById('streakValueDisplay').innerText = '1.5x';
+          document.getElementById('inputFalsePositive').value = '10';
+          document.getElementById('inputBaseAccuracy').value = '15';
+          document.getElementById('toggleAdaptiveElo').checked = true;
+
+          document.getElementById('nlpModelSelect').value = 'bert-multi-v4.2';
+          document.getElementById('nlpThresholdSlider').value = '75';
+          document.getElementById('nlpThresholdDisplay').innerText = '75%';
+          document.getElementById('nlpTemperature').value = '0.2';
+          document.getElementById('toggleAutoTag').checked = true;
+
+          document.getElementById('sigmaMargin').value = '0.05';
+          document.getElementById('minReviews').value = '50';
+          document.getElementById('consensusSlider').value = '60';
+          updateConsensusBalance(60);
+          document.getElementById('toggleAntiPolarization').checked = true;
+
+          document.getElementById('dailyAttempts').value = '5';
+          document.getElementById('energyRechargeMinutes').value = '180';
+          document.getElementById('maxPvpRooms').value = '500';
+          document.getElementById('cronCrawlerSelect').value = '15';
+          document.getElementById('toggleMaintenance').checked = false;
+
+          // Brief visual feedback
+          toastMsg.innerText = 'Valores por defecto restablecidos.';
+          toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+          toast.classList.add('translate-y-0', 'opacity-100');
+          setTimeout(() => {
+            toast.classList.remove('translate-y-0', 'opacity-100');
+            toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+          }, 3000);
+        }
+      });
+    }
+
+    // Ambient slight drift in inference latency to simulate live telemetry
+    setInterval(() => {
+      const metricEl = document.getElementById('inferenceMetric');
+      if (metricEl) {
+        const jitter = (0.078 + Math.random() * 0.007).toFixed(3);
+        metricEl.innerText = jitter + ' ms';
+      }
+    }, 4500);
+  </script>
+</div></main></div></body></html>

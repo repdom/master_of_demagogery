@@ -1,0 +1,435 @@
+<app-page-header
+  [crumbs]="crumbs"
+  heading="Gestión de Escudos de Credibilidad & Umbrales de Confianza"
+  subtitle="Monitoreo del algoritmo de reputación periodística, ponderaciones de consenso cívico, penalizaciones por desinformación y auditoría de blindaje anti-manipulación."
+>
+  <span headerStatus class="mod-tag mod-tag_gold">ALGORITMO DEMAGOGIA v2.4</span>
+
+  <ng-container headerActions>
+    <button tuiButton type="button" size="s" appearance="secondary" iconStart="@tui.download">
+      Exportar reporte CSV
+    </button>
+    <button tuiButton type="button" size="s" appearance="secondary" iconStart="@tui.calculator">
+      Calibrar algoritmo bayesiano
+    </button>
+    <button tuiButton type="button" size="s" iconStart="@tui.plus">Crear regla de blindaje</button>
+  </ng-container>
+</app-page-header>
+
+<div class="stage">
+  <section class="kpis" aria-label="Indicadores de blindaje editorial">
+    <app-kpi-card
+      label="Escudos activos"
+      icon="@tui.shield-check"
+      [value]="store.total() - store.quarantined()"
+      unit="medios protegidos"
+      delta="+4 este mes"
+      deltaTone="positive"
+      badge="99.4% estabilidad"
+      badgeTone="mod-tag_green"
+    >
+      <app-score-meter
+        class="kpis__meter"
+        [value]="99"
+        label="Estabilidad del escudo agregado"
+        tone="gold"
+      />
+    </app-kpi-card>
+
+    <app-kpi-card
+      label="Índice de confianza global"
+      icon="@tui.gauge"
+      [value]="store.globalTrust()"
+      unit="/ 100"
+      delta="+1.8 pts"
+      deltaTone="positive"
+      note="Ventana bayesiana 30 d"
+    >
+      <app-spark-line
+        class="kpis__spark"
+        [series]="trustSeries"
+        label="Evolución del índice de confianza global"
+      />
+    </app-kpi-card>
+
+    <app-kpi-card
+      label="Alertas de discrepancia"
+      icon="@tui.triangle-alert"
+      [value]="store.discrepancyAlerts()"
+      note="Desviaciones > 25% · IA heurística vs consenso cívico"
+      badge="CRÍTICO"
+      badgeTone="mod-tag_red"
+    />
+
+    <app-kpi-card
+      label="Tasa falsos positivos"
+      icon="@tui.activity"
+      value="1.2%"
+      note="Validado n=4,120"
+      badge="Óptimo"
+      badgeTone="mod-tag_green"
+    />
+  </section>
+
+  <section class="toolbar" aria-label="Filtros instantáneos de escudos">
+    <tui-textfield iconStart="@tui.search" class="toolbar__search">
+      <input
+        type="search"
+        placeholder="Filtrar por medio, dominio TLD o etiqueta…"
+        aria-label="Buscar escudos por medio, dominio o etiqueta"
+        [value]="query()"
+        (input)="onQuery($event)"
+      />
+    </tui-textfield>
+
+    <tui-textfield class="toolbar__select">
+      <select aria-label="Nivel de escudo" [value]="level()" (change)="onLevel($event)">
+        <option value="ALL">Todos los niveles</option>
+        @for (option of levelOptions(); track option.key) {
+          <option [value]="option.key">{{ option.label }}</option>
+        }
+      </select>
+    </tui-textfield>
+
+    <tui-textfield class="toolbar__select">
+      <select aria-label="Estado del blindaje" [value]="status()" (change)="onStatus($event)">
+        <option value="ALL">Estado: Todos</option>
+        <option value="ACTIVE">Estado: Activo</option>
+        <option value="MODULATING">Estado: Modulando</option>
+        <option value="QUARANTINED">Estado: En cuarentena</option>
+      </select>
+    </tui-textfield>
+
+    <button
+      tuiButton
+      type="button"
+      size="s"
+      appearance="secondary"
+      iconStart="@tui.refresh-cw"
+      aria-label="Recalcular puntuaciones bayesianas"
+    ></button>
+
+    <button
+      tuiButton
+      type="button"
+      size="s"
+      appearance="flat"
+      iconStart="@tui.filter-x"
+      (click)="clearFilters()"
+    >
+      Limpiar
+    </button>
+  </section>
+
+  <app-filter-chips
+    class="chips"
+    [chips]="chips()"
+    (removed)="removeChip($event)"
+    (cleared)="clearFilters()"
+  />
+
+  <div class="split">
+    <app-panel-card
+      class="split__main"
+      heading="Matriz de escudos y umbrales de confianza"
+      icon="@tui.shield"
+      [flush]="true"
+    >
+      <span panelAside class="mod-tag">{{ rows().length }} de {{ store.total() }} medios</span>
+
+      @if (rows().length) {
+        <div class="table-wrap">
+          <table class="mod-table shields">
+            <caption class="mod-visually-hidden">
+              Escudos de credibilidad por medio con nivel, puntuación de confianza, divergencia
+              entre la heurística de IA y el consenso cívico, y frecuencia de auditoría
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" [attr.aria-sort]="ariaSort('outletName')">
+                  <button type="button" class="sort" (click)="sortBy('outletName')">
+                    Medio &amp; dominio <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+                <th scope="col" [attr.aria-sort]="ariaSort('level')">
+                  <button type="button" class="sort" (click)="sortBy('level')">
+                    Nivel de escudo <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+                <th scope="col" [attr.aria-sort]="ariaSort('trustScore')">
+                  <button type="button" class="sort" (click)="sortBy('trustScore')">
+                    Puntuación confianza <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+                <th scope="col" [attr.aria-sort]="ariaSort('divergence')">
+                  <button type="button" class="sort" (click)="sortBy('divergence')">
+                    Divergencia (IA vs cívico) <tui-icon icon="@tui.arrow-up-down" />
+                  </button>
+                </th>
+                <th scope="col">Frecuencia</th>
+                <th scope="col">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (shield of rows(); track shield.outletId) {
+                <tr
+                  [attr.aria-selected]="shield.outletId === selected()?.outletId"
+                  (click)="select(shield.outletId)"
+                >
+                  <td>
+                    <button type="button" class="outlet" (click)="select(shield.outletId)">
+                      <span class="outlet__mark" aria-hidden="true">
+                        {{ shield.outletName.charAt(0) }}
+                      </span>
+                      <span class="cell-stack">
+                        <strong>{{ shield.outletName }}</strong>
+                        <span class="mod-mono mod-muted">
+                          {{ shield.domain }} · {{ shield.region }}
+                        </span>
+                      </span>
+                    </button>
+                  </td>
+                  <td>
+                    <span class="mod-tag" [class]="levelTone(shield.level)">
+                      <tui-icon icon="@tui.shield" />
+                      {{ shieldLevelLabel[shield.level] }}
+                    </span>
+                  </td>
+                  <td>
+                    <span class="trust">
+                      <span class="mod-mono trust__value">{{ shield.trustScore.toFixed(1) }}</span>
+                      <app-score-meter
+                        [value]="shield.trustScore"
+                        [label]="'Confianza de ' + shield.outletName"
+                      />
+                    </span>
+                  </td>
+                  <td>
+                    <span class="divergence" [class]="divergenceTone(shield)">
+                      <span class="mod-mono">
+                        <span aria-hidden="true">{{ divergenceGlyph(shield) }}</span>
+                        Δ {{ signed(shield.divergence) }}
+                      </span>
+                      <span class="divergence__note">({{ shield.divergenceNote }})</span>
+                    </span>
+                  </td>
+                  <td class="mod-mono mod-muted">{{ frequencyLabel[shield.frequency] }}</td>
+                  <td>
+                    @if (shieldStatus(shield) === 'ACTIVE') {
+                      <button type="button" class="act" (click)="select(shield.outletId)">
+                        {{ actionLabel(shield) }}
+                      </button>
+                    } @else if (shieldStatus(shield) === 'MODULATING') {
+                      <button
+                        type="button"
+                        class="act act_gold"
+                        (click)="select(shield.outletId)"
+                      >
+                        {{ actionLabel(shield) }}
+                      </button>
+                    } @else {
+                      <button type="button" class="act act_red" (click)="select(shield.outletId)">
+                        {{ actionLabel(shield) }}
+                      </button>
+                    }
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <p class="footstrip mod-mono mod-muted">
+          Registros analizados:
+          <strong class="mod-gold">{{ rows().length }} de {{ store.total() }} medios</strong>
+          · Ventana de refresco bayesiano: 120 s
+        </p>
+      } @else {
+        <app-empty-state
+          title="Ningún escudo coincide con los filtros"
+          hint="Prueba a restablecer el nivel de escudo o el estado del blindaje."
+        />
+      }
+    </app-panel-card>
+
+    <aside class="split__aside" aria-label="Parámetros del escudo seleccionado">
+      @if (selected(); as shield) {
+        <app-panel-card heading="Parámetros del escudo" icon="@tui.sliders-horizontal">
+          <span
+            panelAside
+            class="mod-tag"
+            [class]="shield.antiBrigading ? 'mod-tag_green' : 'mod-tag_yellow'"
+          >
+            {{ shield.antiBrigading ? 'Blindaje activo' : 'Blindaje parcial' }}
+          </span>
+
+          <header class="detail__head">
+            <div class="detail__id">
+              <h2 class="mod-headline-md">{{ shield.outletName }}</h2>
+              <p class="mod-mono mod-muted detail__cert">{{ certificationLine() }}</p>
+            </div>
+            <span class="mod-tag" [class]="levelTone(shield.level)">
+              {{ statusLabel[shieldStatus(shield)] }}
+            </span>
+          </header>
+
+          <h3 class="section-title mod-label">
+            Desglose de factores ponderados
+            <span class="mod-mono" [class.mod-gold]="weightSum() === 100">
+              Σ = {{ weightSum() }}%
+            </span>
+          </h3>
+
+          @if (weightSum() !== 100) {
+            <p class="warn mod-body-sm" role="status">
+              <tui-icon icon="@tui.triangle-alert" />
+              Las ponderaciones suman {{ weightSum() }}%. Ajusta los pesos hasta Σ = 100% antes de
+              guardar: el algoritmo bayesiano rechazará la calibración.
+            </p>
+          }
+
+          <ul class="factors">
+            @for (factor of weightRows(); track factor.key) {
+              <li class="factor">
+                <span class="factor__head">
+                  <span class="factor__name">{{ factor.label }}</span>
+                  <span class="mod-mono factor__score">{{ factor.score }}%</span>
+                </span>
+                <app-score-meter [value]="factor.score" [label]="factor.label" />
+                <span class="factor__slider">
+                  <label class="mod-label" [attr.for]="'w-' + factor.key">
+                    Ponderación algorítmica
+                  </label>
+                  <span class="mod-mono factor__weight">Peso: {{ factor.weight }}%</span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="5"
+                    [id]="'w-' + factor.key"
+                    [value]="factor.weight"
+                    [attr.aria-label]="
+                      factor.label + ' — ponderación algorítmica, peso ' + factor.weight + '%'
+                    "
+                    (input)="onWeight(shield, factor.key, $event)"
+                  />
+                </span>
+              </li>
+            }
+          </ul>
+
+          <h3 class="section-title mod-label">Blindaje anti-manipulación</h3>
+
+          <div class="brigade">
+            <div class="brigade__row">
+              <span class="brigade__text">
+                <span class="brigade__name">Escudo anti-brigadas (astroturfing)</span>
+                <span
+                  class="mod-mono"
+                  [class.mod-gold]="shield.antiBrigading"
+                  [class.mod-muted]="!shield.antiBrigading"
+                >
+                  {{
+                    shield.antiBrigading
+                      ? 'Protección automática activa'
+                      : 'Protección desactivada'
+                  }}
+                </span>
+              </span>
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  [checked]="shield.antiBrigading"
+                  (change)="toggleAntiBrigading(shield)"
+                />
+                <span class="switch__track" aria-hidden="true"></span>
+                <span class="mod-visually-hidden">
+                  Escudo anti-brigadas para {{ shield.outletName }}
+                </span>
+              </label>
+            </div>
+            <p class="brigade__hint mod-body-sm mod-muted">
+              Neutraliza votos masivos coordinados o brigadas de descrédito repentinas mediante
+              muestreo de reputación bayesiana sobre la cohorte cívica validada.
+            </p>
+          </div>
+
+          <div class="trigger">
+            <p class="trigger__title mod-label">
+              <tui-icon icon="@tui.zap" />
+              Umbral de disparo instantáneo
+            </p>
+            <p class="trigger__copy mod-body-sm">
+              Desviación instantánea
+              <strong class="mod-gold mod-mono">&gt; {{ shield.instantTriggerSigma }}σ</strong>
+              en menos de <strong>2 horas</strong> activa cuarentena automática y auditoría pericial
+              humana.
+            </p>
+            <div class="stepper" role="group" aria-label="Umbral sigma de disparo instantáneo">
+              <button
+                type="button"
+                class="stepper__btn"
+                aria-label="Reducir el umbral sigma"
+                [disabled]="shield.instantTriggerSigma <= sigmaMin"
+                (click)="stepSigma(shield, -1)"
+              >
+                −
+              </button>
+              <output class="stepper__value mod-mono">{{ shield.instantTriggerSigma }}σ</output>
+              <button
+                type="button"
+                class="stepper__btn"
+                aria-label="Aumentar el umbral sigma"
+                [disabled]="shield.instantTriggerSigma >= sigmaMax"
+                (click)="stepSigma(shield, 1)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <div class="detail__actions">
+            <button tuiButton type="button" size="s" iconStart="@tui.save">
+              Guardar parámetros de escudo
+            </button>
+            <button
+              tuiButton
+              type="button"
+              size="s"
+              appearance="secondary"
+              iconStart="@tui.history"
+            >
+              Re-evaluar con corpus histórico
+            </button>
+          </div>
+
+          <p class="seal mod-mono">
+            <tui-icon icon="@tui.badge-check" />
+            Firma criptográfica SHA256: e8b5…f431
+            <span class="mod-gold seal__ok">SEAL_OK</span>
+          </p>
+        </app-panel-card>
+      } @else {
+        <app-panel-card heading="Parámetros del escudo" icon="@tui.sliders-horizontal">
+          <app-empty-state
+            title="Sin escudo seleccionado"
+            hint="Elige un medio en la matriz para calibrar sus factores ponderados."
+            icon="@tui.shield-alert"
+          />
+        </app-panel-card>
+      }
+    </aside>
+  </div>
+
+  <p class="criterion">
+    <tui-icon icon="@tui.scan-search" aria-hidden="true" />
+    <span class="criterion__text">
+      <strong class="mod-gold">Criterio editorial activo: Algoritmo Demagogia v2.4</strong>
+      <span class="mod-body-sm mod-muted">
+        La recalibración automática pondera 40% veredicto cívico validado y 60% trazas heurísticas
+        de fact-checking.
+      </span>
+    </span>
+    <span class="mod-tag mod-tag_green">CONSENSO ACTIVO</span>
+  </p>
+</div>

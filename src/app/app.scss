@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+.shell {
+  display: flex;
+  align-items: stretch;
+  min-block-size: 100dvh;
+  background: var(--mod-surface);
+}
+
+.shell__stage {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.shell__content {
+  flex: 1;
+  min-inline-size: 0;
+  outline: none;
+}
+
+.shell__skip {
+  position: absolute;
+  inset-block-start: -40px;
+  inset-inline-start: var(--mod-space-tight);
+  z-index: 100;
+  padding: 6px 12px;
+  background: var(--mod-gold);
+  color: var(--mod-on-gold);
+  font-size: 12px;
+  text-decoration: none;
+  transition: inset-block-start 120ms;
+}
+
+.shell__skip:focus {
+  inset-block-start: var(--mod-space-tight);
+}
+
+@media (max-width: 900px) {
+  .shell {
+    flex-direction: column;
+  }
+}

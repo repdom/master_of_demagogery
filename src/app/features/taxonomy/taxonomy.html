@@ -1,0 +1,376 @@
+<app-page-header
+  [crumbs]="crumbs"
+  heading="Ontología Retórica y Catálogo de Falacias Lógicas"
+  subtitle="Gestión de la taxonomía pedagógica (enum TheoremType), reglas de validación en retos y pesos de puntuación ELO / credibilidad."
+>
+  <span headerStatus class="head-status">
+    <span class="mod-tag">SCHEMA: v2.4.9-REL</span>
+    <span class="mod-tag mod-tag_gold">INDEXADO EN ELO-ENGINE</span>
+  </span>
+
+  <ng-container headerActions>
+    <button tuiButton type="button" size="s" appearance="secondary" iconStart="@tui.download">
+      Exportar JSON Schema
+    </button>
+    <button tuiButton type="button" size="s" iconStart="@tui.plus">Nueva entrada de taxonomía</button>
+  </ng-container>
+</app-page-header>
+
+<div class="stage">
+  <tui-tabs [(activeItemIndex)]="tab">
+    <button tuiTab type="button">Falacias lógicas ({{ store.total() }})</button>
+    <button tuiTab type="button">Ejes ideológicos y sesgos ({{ biases.length }})</button>
+    <button tuiTab type="button">Etiquetas editoriales ({{ store.tags().length }})</button>
+    <button tuiTab type="button">Reglas de puntuación</button>
+  </tui-tabs>
+
+  @switch (tab()) {
+    @case (0) {
+      <div class="split">
+        <app-panel-card
+          class="split__tree"
+          heading="Catálogo maestro de falacias"
+          icon="@tui.list-tree"
+          [flush]="true"
+        >
+          <span panelAside class="mod-tag mod-tag_gold">{{ store.total() }} total</span>
+
+          <div class="tree__search">
+            <tui-textfield iconStart="@tui.search">
+              <input
+                type="search"
+                placeholder="Filtrar por código o nombre…"
+                aria-label="Filtrar falacias"
+                [value]="filter()"
+                (input)="onFilter($event)"
+              />
+            </tui-textfield>
+          </div>
+
+          @if (buckets().length) {
+            <nav class="tree" aria-label="Taxonomía de falacias">
+              @for (bucket of buckets(); track bucket.family) {
+                <p class="tree__family mod-label">
+                  <tui-icon icon="@tui.folder" />
+                  {{ familyLabel[bucket.family] }}
+                  <span class="mod-tag">{{ bucket.items.length }}</span>
+                </p>
+                <ul>
+                  @for (item of bucket.items; track item.id) {
+                    <li>
+                      <button
+                        type="button"
+                        class="tree__item"
+                        [class.tree__item_active]="item.id === selected()?.id"
+                        [attr.aria-current]="item.id === selected()?.id ? 'true' : null"
+                        (click)="select(item.id)"
+                      >
+                        <span class="tree__name">
+                          {{ item.nameEs }} <span class="mod-muted">({{ item.nameEn }})</span>
+                          @if (item.id === selected()?.id) {
+                            <span class="tree__hint mod-mono">{{ item.linkedArticles }} retos activos</span>
+                          }
+                        </span>
+                        <span class="mod-tag">LV.{{ item.level }}</span>
+                        <span
+                          class="tree__dot"
+                          [style.background]="item.active ? 'var(--mod-green)' : 'var(--mod-outline)'"
+                          [attr.aria-label]="item.active ? 'Activa' : 'Inactiva'"
+                        ></span>
+                      </button>
+                    </li>
+                  }
+                </ul>
+              }
+            </nav>
+          } @else {
+            <app-empty-state
+              title="Ninguna falacia coincide"
+              hint="Revisa el texto del filtro o crea una nueva entrada de taxonomía."
+            />
+          }
+
+          <p class="tree__foot mod-mono">
+            <tui-icon icon="@tui.activity" />
+            Taxonomía auditada: 100% cobertura ELO · {{ visibleCount() }} visibles
+          </p>
+        </app-panel-card>
+
+        @if (selected(); as fallacy) {
+          <div class="split__editor">
+            <app-panel-card heading="Definición canónica y gamificación" icon="@tui.file-text">
+              <span panelAside class="editor__state">
+                @if (saved()) {
+                  <span class="mod-tag mod-tag_green">Cambios guardados</span>
+                }
+                <button
+                  type="button"
+                  class="mod-tag"
+                  [class.mod-tag_green]="fallacy.active"
+                  (click)="toggleActive(fallacy)"
+                >
+                  {{ fallacy.active ? 'Activo en producción' : 'Fuera de producción' }}
+                </button>
+              </span>
+
+              <header class="editor__head">
+                <span class="editor__glyph" aria-hidden="true">?</span>
+                <div>
+                  <h2 class="mod-headline-md">{{ fallacy.nameEs }} ({{ fallacy.nameEn }})</h2>
+                  <p class="mod-mono mod-muted">
+                    TheoremType.{{ fallacy.type }} · ID: {{ fallacy.id }} · Dificultad nivel
+                    {{ fallacy.level }}
+                  </p>
+                </div>
+              </header>
+
+              <section class="analysis" aria-label="Análisis retórico computacional">
+                <div>
+                  <p class="mod-label mod-gold">Análisis retórico computacional</p>
+                  <p class="mod-body-sm">
+                    Vector de deformación de proposiciones en discursos editoriales.
+                  </p>
+                </div>
+                <app-spark-line
+                  class="analysis__chart"
+                  [series]="distortionSeries"
+                  label="Vector de distorsión"
+                />
+                <p class="analysis__delta mod-mono">
+                  DISTORSIÓN<br />
+                  <strong class="mod-gold">+{{ fallacy.confusionRate }}%</strong>
+                </p>
+              </section>
+
+              <form class="form" [formGroup]="form" (ngSubmit)="save()">
+                <div class="form__row">
+                  <label class="field">
+                    <span class="mod-label">Nombre oficial (ES)</span>
+                    <tui-textfield>
+                      <input type="text" formControlName="nameEs" />
+                    </tui-textfield>
+                    @if (form.controls.nameEs.touched && form.controls.nameEs.invalid) {
+                      <span class="field__error mod-mono">Introduce al menos 3 caracteres.</span>
+                    }
+                  </label>
+
+                  <label class="field">
+                    <span class="mod-label">Nombre internacional (EN)</span>
+                    <tui-textfield>
+                      <input type="text" formControlName="nameEn" />
+                    </tui-textfield>
+                  </label>
+
+                  <label class="field">
+                    <span class="mod-label">Categoría madre</span>
+                    <tui-textfield>
+                      <input type="text" [value]="familyLabel[fallacy.family]" readonly />
+                    </tui-textfield>
+                  </label>
+                </div>
+
+                <label class="field">
+                  <span class="mod-label">
+                    Definición canónica (catálogo del jugador)
+                    <span class="mod-mono mod-muted">
+                      {{ form.controls.definition.value.length }} / {{ definitionMax }} caracteres
+                    </span>
+                  </span>
+                  <tui-textfield>
+                    <textarea rows="3" formControlName="definition"></textarea>
+                  </tui-textfield>
+                </label>
+
+                <fieldset class="scoring">
+                  <legend class="mod-label mod-gold">Parámetros de gamificación · Motor ELO v3</legend>
+
+                  <label class="field field_inline">
+                    <span class="mod-label">Puntos base reto</span>
+                    <tui-textfield>
+                      <input type="number" min="1" max="99" formControlName="basePoints" />
+                    </tui-textfield>
+                  </label>
+
+                  <label class="field field_inline">
+                    <span class="mod-label">Bono credibilidad</span>
+                    <tui-textfield>
+                      <input type="number" min="0" max="99" formControlName="credibilityBonus" />
+                    </tui-textfield>
+                  </label>
+
+                  <label class="field field_inline">
+                    <span class="mod-label">Falso positivo</span>
+                    <tui-textfield>
+                      <input type="number" min="-99" max="0" formControlName="falsePositivePenalty" />
+                    </tui-textfield>
+                  </label>
+
+                  <label class="field field_inline">
+                    <span class="mod-label">Desbloqueo</span>
+                    <tui-textfield>
+                      <select formControlName="level">
+                        <option [value]="1">Nivel 1 (principiante)</option>
+                        <option [value]="2">Nivel 2 (intermedio)</option>
+                        <option [value]="3">Nivel 3 (experto)</option>
+                      </select>
+                    </tui-textfield>
+                  </label>
+                </fieldset>
+
+                <div class="form__actions">
+                  <button tuiButton type="button" size="s" appearance="flat" (click)="discard()">
+                    Descartar cambios
+                  </button>
+                  <button tuiButton type="button" size="s" appearance="secondary">
+                    Previsualizar en catálogo jugador
+                  </button>
+                  <button tuiButton type="submit" size="s" iconStart="@tui.save">
+                    Guardar taxonomía
+                  </button>
+                </div>
+              </form>
+            </app-panel-card>
+
+            <div class="editor__grid">
+              <app-panel-card heading="Criterios de validación para editores" icon="@tui.check">
+                <span panelAside class="mod-tag mod-tag_gold">Obligatorio</span>
+                <ul class="criteria">
+                  @for (criterion of fallacy.criteria; track criterion) {
+                    <li>
+                      <tui-icon icon="@tui.circle-check" />
+                      <span>{{ criterion }}</span>
+                    </li>
+                  }
+                </ul>
+              </app-panel-card>
+
+              <app-panel-card heading="Estadísticas en vivo del juego" icon="@tui.activity">
+                <span panelAside class="mod-tag mod-tag_green">Streaming</span>
+
+                <p class="stat__line">
+                  <span>Tasa de detección de jugadores</span>
+                  <span class="mod-mono mod-gold">{{ fallacy.detectionRate }}%</span>
+                </p>
+                <app-score-meter
+                  [value]="fallacy.detectionRate"
+                  tone="gold"
+                  label="Tasa de detección"
+                />
+
+                <p class="stat__card">
+                  <span class="mod-label">Confusión más común</span>
+                  <span>
+                    {{ fallacy.confusedWith ? fallacyName(fallacy.confusedWith) : 'Sin confusión relevante' }}
+                    <span class="mod-mono mod-muted">({{ fallacy.confusionRate }}% de errores)</span>
+                  </span>
+                </p>
+
+                <p class="stat__card">
+                  <span class="mod-label">Corpus vinculado</span>
+                  <span>{{ fallacy.linkedArticles }} artículos vinculados</span>
+                </p>
+
+                <p class="stat__card">
+                  <span class="mod-label">Última indexación</span>
+                  <span>{{ fallacy.updatedAt }} por {{ fallacy.updatedBy }}</span>
+                </p>
+              </app-panel-card>
+            </div>
+
+            <app-panel-card heading="Correlación con sesgos ideológicos" icon="@tui.chart-scatter">
+              <p class="mod-body-sm mod-muted">
+                Frecuencia relativa con la que «{{ fallacy.nameEs }}» aparece en piezas clasificadas
+                en cada segmento del espectro.
+              </p>
+              <ul class="correlation">
+                @for (row of biasCorrelation(); track row.bias) {
+                  <li>
+                    <span class="correlation__swatch" [style.background]="row.color" aria-hidden="true"></span>
+                    <span class="correlation__label">{{ row.label }}</span>
+                    <app-score-meter [value]="row.share" tone="neutral" [label]="row.label" />
+                    <span class="mod-mono">{{ row.share }}%</span>
+                  </li>
+                }
+              </ul>
+            </app-panel-card>
+          </div>
+        }
+      </div>
+    }
+
+    @case (1) {
+      <section class="axes" aria-label="Ejes ideológicos y sesgos">
+        @for (bias of biases; track bias; let index = $index) {
+          <app-kpi-card
+            [label]="biasLabel[bias]"
+            [value]="countForBias(index)"
+            unit="falacias correlacionadas"
+            [note]="'Segmento ' + bias"
+          >
+            <span class="axes__swatch" [style.background]="biasColor[bias]" aria-hidden="true"></span>
+          </app-kpi-card>
+        }
+      </section>
+    }
+
+    @case (2) {
+      <app-panel-card heading="Etiquetas editoriales" icon="@tui.tags" [flush]="true">
+        <span panelAside class="mod-tag">{{ store.tags().length }} etiquetas</span>
+        <table class="mod-table">
+          <caption class="mod-visually-hidden">Etiquetas editoriales y su uso en el corpus</caption>
+          <thead>
+            <tr>
+              <th scope="col">Etiqueta</th>
+              <th scope="col">Uso en corpus</th>
+              <th scope="col">Distribución</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (tag of store.tags(); track tag.id) {
+              <tr>
+                <td class="mod-mono mod-gold">{{ tag.label }}</td>
+                <td class="mod-mono">{{ tag.usage }}</td>
+                <td><app-score-meter [value]="tag.usage" tone="neutral" [label]="tag.label" /></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </app-panel-card>
+    }
+
+    @default {
+      <app-panel-card heading="Reglas de puntuación" icon="@tui.gauge" [flush]="true">
+        <span panelAside class="mod-tag mod-tag_gold">Motor ELO v3</span>
+        <table class="mod-table">
+          <caption class="mod-visually-hidden">
+            Pesos de puntuación por falacia aplicados por el motor ELO
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Falacia</th>
+              <th scope="col">TheoremType</th>
+              <th scope="col">Nivel</th>
+              <th scope="col">Puntos base</th>
+              <th scope="col">Bono credibilidad</th>
+              <th scope="col">Falso positivo</th>
+              <th scope="col">Detección</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of scoringRows(); track row.id) {
+              <tr>
+                <td>{{ row.name }}</td>
+                <td class="mod-mono mod-muted">{{ row.type }}</td>
+                <td class="mod-mono">LV.{{ row.level }}</td>
+                <td class="mod-mono cell-pos">+{{ row.basePoints }}</td>
+                <td class="mod-mono mod-gold">+{{ row.credibilityBonus }}</td>
+                <td class="mod-mono cell-neg">{{ row.falsePositivePenalty }}</td>
+                <td class="mod-mono">{{ row.detectionRate }}%</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </app-panel-card>
+    }
+  }
+</div>

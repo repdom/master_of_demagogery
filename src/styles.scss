@@ -1,0 +1,345 @@
+/* =========================================================================
+   Masters of Demagogery — Backoffice
+   Global design tokens + Taiga UI theme bridge.
+   Aesthetic: "High-Density Newsroom" — editorial authority + brutalist utility.
+   ========================================================================= */
+
+:root {
+  /* --- Surfaces (tonal layering, no ambient shadows) --- */
+  --mod-surface: #14130f;
+  --mod-surface-bright: #3b3934;
+  --mod-surface-lowest: #0f0e0a;
+  --mod-surface-low: #1d1c17;
+  --mod-surface-container: #21201b;
+  --mod-surface-high: #2b2a25;
+  --mod-surface-highest: #36352f;
+
+  /* --- Content --- */
+  --mod-on-surface: #e7e2da;
+  --mod-on-surface-variant: #c4c6cc;
+  --mod-outline: #8e9196;
+  --mod-outline-variant: #44474c;
+
+  /* --- Brand --- */
+  --mod-primary: #bac7dd;
+  --mod-on-primary: #243142;
+  --mod-primary-container: #1b2838;
+  --mod-on-primary-container: #828fa3;
+
+  /* --- Gold accent (CTA / selection / achievement only) --- */
+  --mod-gold: #eec058;
+  --mod-on-gold: #402d00;
+  --mod-gold-container: #342500;
+  --mod-gold-dim: #b18825;
+
+  /* --- Status --- */
+  --mod-error: #ffb4ab;
+  --mod-error-container: #93000a;
+  --mod-red: #c0392b;
+  --mod-green: #27ae60;
+  --mod-yellow: #f39c12;
+
+  /* --- Bias spectrum (data visualisation only) --- */
+  --mod-bias-left: #3498db;
+  --mod-bias-center-left: #85c1e9;
+  --mod-bias-center: #95a5a6;
+  --mod-bias-center-right: #e8a0a0;
+  --mod-bias-right: #e74c3c;
+  --mod-bias-populist: #8e44ad;
+
+  /* --- Spacing (4px baseline, "compact" default) --- */
+  --mod-space-base: 4px;
+  --mod-space-tight: 8px;
+  --mod-space-compact: 12px;
+  --mod-space-standard: 16px;
+  --mod-gutter: 12px;
+  --mod-margin: 24px;
+
+  /* --- Structure --- */
+  --mod-radius: 2px;
+  --mod-sidebar-width: 232px;
+  --mod-topbar-height: 44px;
+
+  /* --- Fonts --- */
+  --mod-font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --mod-font-sans: Inter, 'Source Sans Pro', system-ui, sans-serif;
+  --mod-font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+  /* --- Taiga UI bridge: map the library onto the newsroom palette --- */
+  --tui-font-text: var(--mod-font-sans);
+  --tui-font-heading: var(--mod-font-serif);
+  --tui-radius-xs: var(--mod-radius);
+  --tui-radius-s: var(--mod-radius);
+  --tui-radius-m: var(--mod-radius);
+  --tui-radius-l: var(--mod-radius);
+  --tui-radius-xl: var(--mod-radius);
+  --tui-height-xs: 24px;
+  --tui-height-s: 32px;
+  --tui-height-m: 36px;
+  --tui-height-l: 44px;
+
+  --tui-background-base: var(--mod-surface);
+  --tui-background-base-alt: var(--mod-surface-low);
+  --tui-background-elevation-1: var(--mod-surface-low);
+  --tui-background-elevation-2: var(--mod-surface-container);
+  --tui-background-elevation-3: var(--mod-surface-high);
+  --tui-background-neutral-1: rgb(255 255 255 / 8%);
+  --tui-background-neutral-1-hover: rgb(255 255 255 / 12%);
+  --tui-background-neutral-1-pressed: rgb(255 255 255 / 16%);
+  --tui-background-neutral-2: rgb(255 255 255 / 12%);
+  --tui-background-accent-1: var(--mod-gold);
+  --tui-background-accent-1-hover: #f3cd7a;
+  --tui-background-accent-1-pressed: #d8ab45;
+  --tui-background-accent-2: var(--mod-primary);
+  --tui-background-accent-opposite: var(--mod-on-gold);
+
+  --tui-text-primary: var(--mod-on-surface);
+  --tui-text-secondary: var(--mod-on-surface-variant);
+  --tui-text-tertiary: var(--mod-outline);
+  --tui-text-primary-on-accent-1: var(--mod-on-gold);
+  --tui-text-primary-on-accent-2: var(--mod-on-primary);
+  --tui-text-action: var(--mod-gold);
+  --tui-text-action-hover: #f3cd7a;
+
+  --tui-border-normal: var(--mod-outline-variant);
+  --tui-border-hover: var(--mod-outline);
+  --tui-border-focus: var(--mod-gold);
+
+  --tui-status-negative: var(--mod-red);
+  --tui-status-positive: var(--mod-green);
+  --tui-status-warning: var(--mod-yellow);
+  --tui-status-info: var(--mod-bias-left);
+
+  --tui-service-selection-background: rgb(238 192 88 / 24%);
+  --tui-duration: 120ms;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--mod-surface);
+  color: var(--mod-on-surface);
+  font-family: var(--mod-font-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+app-root {
+  display: block;
+  min-height: 100%;
+}
+
+/* =========================================================================
+   Typography scale
+   ========================================================================= */
+.mod-headline-xl,
+.mod-headline-lg,
+.mod-headline-md {
+  font-family: var(--mod-font-serif);
+  margin: 0;
+  color: var(--mod-on-surface);
+}
+
+.mod-headline-xl {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.mod-headline-lg {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.mod-headline-md {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.mod-body-md {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.mod-body-sm {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.mod-label {
+  font-family: var(--mod-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mod-on-surface-variant);
+}
+
+.mod-mono {
+  font-family: var(--mod-font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.01em;
+}
+
+.mod-muted {
+  color: var(--mod-on-surface-variant);
+}
+
+.mod-gold {
+  color: var(--mod-gold);
+}
+
+/* =========================================================================
+   Structural primitives
+   ========================================================================= */
+.mod-panel {
+  background: var(--mod-surface-low);
+  border: 1px solid var(--mod-outline-variant);
+  border-radius: var(--mod-radius);
+}
+
+.mod-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mod-space-tight);
+  padding: var(--mod-space-tight) var(--mod-space-compact);
+  border-bottom: 1px solid var(--mod-outline-variant);
+  background: var(--mod-surface-container);
+}
+
+.mod-panel__body {
+  padding: var(--mod-space-compact);
+}
+
+.mod-divider {
+  block-size: 1px;
+  background: var(--mod-outline-variant);
+  border: 0;
+  margin: 0;
+}
+
+/* Dense data tables — alternating tints, sharp edges. */
+.mod-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.mod-table th {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  text-align: start;
+  padding: var(--mod-space-tight) var(--mod-space-compact);
+  background: var(--mod-surface-container);
+  border-bottom: 1px solid var(--mod-outline-variant);
+  font-family: var(--mod-font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mod-on-surface-variant);
+  white-space: nowrap;
+}
+
+.mod-table td {
+  padding: var(--mod-space-tight) var(--mod-space-compact);
+  border-bottom: 1px solid rgb(255 255 255 / 5%);
+  vertical-align: middle;
+}
+
+.mod-table tbody tr:nth-child(even) {
+  background: rgb(255 255 255 / 2%);
+}
+
+.mod-table tbody tr:hover {
+  background: rgb(238 192 88 / 6%);
+}
+
+.mod-table tbody tr[aria-selected='true'] {
+  background: rgb(238 192 88 / 10%);
+  box-shadow: inset 2px 0 0 var(--mod-gold);
+}
+
+/* Badges / pills */
+.mod-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mod-space-base);
+  padding: 1px 6px;
+  border-radius: var(--mod-radius);
+  background: var(--mod-surface-high);
+  color: var(--mod-on-surface-variant);
+  font-family: var(--mod-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.mod-tag_gold {
+  background: var(--mod-gold-container);
+  color: var(--mod-gold);
+}
+
+.mod-tag_green {
+  background: rgb(39 174 96 / 16%);
+  color: var(--mod-green);
+}
+
+.mod-tag_yellow {
+  background: rgb(243 156 18 / 16%);
+  color: var(--mod-yellow);
+}
+
+.mod-tag_red {
+  background: rgb(192 57 43 / 20%);
+  color: var(--mod-error);
+}
+
+/* Focus visibility (WCAG AA) */
+:where(a, button, [tabindex], input, select, textarea):focus-visible {
+  outline: 2px solid var(--mod-gold);
+  outline-offset: 2px;
+}
+
+.mod-visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Scrollbars in the workstation keep the industrial feel */
+* {
+  scrollbar-color: var(--mod-surface-highest) transparent;
+  scrollbar-width: thin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
